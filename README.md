@@ -1,2 +1,13 @@
-# zorko
-Platform to explore data and collaborate around it
+# Zorko
+
+Open platform to explore and collaborate around data
+
+> Note: Project is in stage of concept discussion. Just ideas and POCs.
+
+## Documentation
+
+TBD ...
+
+## Contribution
+
+TBD ...
