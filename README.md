@@ -6,8 +6,8 @@ Open platform to explore and collaborate around data
 
 ## Documentation
 
-TBD ...
+https://zorko-io.github.io/zorko/
 
 ## Contribution
 
-TBD ...
+Feel free to create issues with `question` label, create pull request etc.

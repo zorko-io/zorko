@@ -1,7 +1,7 @@
 {
   "gitbook": ">=3.0.0",
   "title": "Zorko",
-  "plugins": ["edit-link", "prism", "-highlight", "anchorjs", "github"],
+  "plugins": ["edit-link", "prism", "-highlight", "anchorjs", "github", "comment"],
   "pluginsConfig": {
     "edit-link": {
       "base": "https://github.com/zorko-io/zorko/tree/master",
