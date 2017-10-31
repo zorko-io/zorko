@@ -58,8 +58,8 @@
         },
         {
           icon: 'merge_type',
-          title: 'Transform',
-          path: '/transform'
+          title: 'Model',
+          path: '/model'
         },
         {
           icon: 'gavel',
@@ -68,8 +68,8 @@
         },
         {
           icon: 'perm_identity',
-          title: 'Profile',
-          path: '/profile'
+          title: 'Account',
+          path: '/account'
         }],
         miniVariant: false,
         title: 'Zorko.io'

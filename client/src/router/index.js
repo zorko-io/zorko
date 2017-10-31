@@ -1,8 +1,8 @@
 import Library from '@/components/Library'
 import Explore from '@/components/Explore'
-import Transform from '@/components/Transform'
+import Model from '@/components/Model'
 import Admin from '@/components/Admin'
-import Profile from '@/components/Profile'
+import Account from '@/components/Account'
 
 export default {
   routes: [
@@ -15,16 +15,16 @@ export default {
       component: Explore
     },
     {
-      path: '/transform',
-      component: Transform
+      path: '/model',
+      component: Model
     },
     {
       path: '/admin',
       component: Admin
     },
     {
-      path: '/profile',
-      component: Profile
+      path: '/account',
+      component: Account
     },
     {
       path: '/library',

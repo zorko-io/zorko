@@ -12,10 +12,10 @@
 
 <script>
 export default {
-  name: 'profile',
+  name: 'account',
   data () {
     return {
-      msg: 'I`m a profile'
+      msg: 'I`m an account'
     }
   }
 }
