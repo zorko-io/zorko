@@ -1,21 +1,23 @@
 <template>
-  <v-container fluid>
-    <v-slide-y-transition mode="out-in">
-      <v-layout column align-center>
-        <blockquote>
-          {{ msg }}
-        </blockquote>
-      </v-layout>
-    </v-slide-y-transition>
-  </v-container>
+  <app-sub-layout :title="title">
+    <blockquote>
+      {{ msg }}
+    </blockquote>
+  </app-sub-layout>
 </template>
 
 <script>
+import AppSubLayout from '@/components/AppSubLayout'
+
 export default {
-  name: 'library',
+  name: 'Library',
+  components: {
+    AppSubLayout
+  },
   data () {
     return {
-      msg: 'I`m a library'
+      msg: 'I`m a library',
+      title: 'Library'
     }
   }
 }

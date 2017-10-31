@@ -1,22 +1,24 @@
 <template>
-  <v-container fluid>
-    <v-slide-y-transition mode="out-in">
-      <v-layout column align-center>
-        <blockquote>
-          {{ msg }}
-        </blockquote>
-      </v-layout>
-    </v-slide-y-transition>
-  </v-container>
+  <app-sub-layout :title="title">
+    <blockquote>
+      {{ msg }}
+    </blockquote>
+  </app-sub-layout>
 </template>
 
 <script>
-export default {
-  name: 'account',
-  data () {
-    return {
-      msg: 'I`m an account'
+  import AppSubLayout from '@/components/AppSubLayout'
+
+  export default {
+    name: 'Account',
+    components: {
+      AppSubLayout
+    },
+    data () {
+      return {
+        msg: 'I`m an account',
+        title: 'Account'
+      }
     }
   }
-}
 </script>
