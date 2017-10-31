@@ -6,10 +6,10 @@
 
 <script>
 export default {
-  name: 'dashboard',
+  name: 'tranform',
   data () {
     return {
-      msg: 'I`m a dashboard'
+      msg: 'I`m a transform'
     }
   }
 }

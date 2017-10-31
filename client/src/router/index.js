@@ -1,5 +1,8 @@
 import Library from '@/components/Library'
-import Hello from '@/components/Hello'
+import Explore from '@/components/Explore'
+import Transform from '@/components/Transform'
+import Admin from '@/components/Admin'
+import Profile from '@/components/Profile'
 
 export default {
   routes: [
@@ -8,9 +11,29 @@ export default {
       component: Library
     },
     {
-      path: '/hello',
-      component: Hello
+      path: '/explore',
+      component: Explore
     },
+    {
+      path: '/transform',
+      component: Transform
+    },
+    {
+      path: '/admin',
+      component: Admin
+    },
+    {
+      path: '/profile',
+      component: Profile
+    },
+    {
+      path: '/library',
+      component: Library
+    },
+    // {
+    //   path: '/hello',
+    //   component: Hello
+    // },
     {
       path: '/',
       redirect: '/library'

@@ -13,6 +13,7 @@
           value="true"
           v-for="(item, i) in items"
           :key="i"
+          :to="item.path"
         >
           <v-list-tile-action>
             <v-icon v-html="item.icon"></v-icon>
@@ -31,7 +32,7 @@
       <v-toolbar-title v-text="title"></v-toolbar-title>
     </v-toolbar>
     <main>
-     <router-view></router-view>
+      <router-view></router-view>
     </main>
     <v-footer app>
       <span>&copy; 2017</span>
@@ -48,7 +49,28 @@
         fixed: false,
         items: [{
           icon: 'bubble_chart',
-          title: 'Inspire'
+          title: 'Library',
+          path: '/library'
+        },
+        {
+          icon: 'bubble_chart',
+          title: 'Explore',
+          path: '/explore'
+        },
+        {
+          icon: 'bubble_chart',
+          title: 'Transform',
+          path: '/transform'
+        },
+        {
+          icon: 'bubble_chart',
+          title: 'Admin',
+          path: '/admin'
+        },
+        {
+          icon: 'bubble_chart',
+          title: 'Profile',
+          path: '/profile'
         }],
         miniVariant: false,
         title: 'Zorko.io'
