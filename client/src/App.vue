@@ -31,23 +31,7 @@
       <v-toolbar-title v-text="title"></v-toolbar-title>
     </v-toolbar>
     <main>
-      <v-content>
-        <v-container fluid>
-          <v-slide-y-transition mode="out-in">
-            <v-layout column align-center>
-              <img src="/static/v.png" alt="Vuetify.js" class="mb-5">
-              <blockquote>
-                &#8220;First, solve the problem. Then, write the code.&#8221;
-                <footer>
-                  <small>
-                    <em>&mdash;John Johnson</em>
-                  </small>
-                </footer>
-              </blockquote>
-            </v-layout>
-          </v-slide-y-transition>
-        </v-container>
-      </v-content>
+     <router-view></router-view>
     </main>
     <v-footer app>
       <span>&copy; 2017</span>

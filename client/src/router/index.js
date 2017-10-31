@@ -1,15 +1,19 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Library from '@/components/Library'
 import Hello from '@/components/Hello'
 
-Vue.use(Router)
-
-export default new Router({
+export default {
   routes: [
     {
-      path: '/',
-      name: 'Hello',
+      path: '/library',
+      component: Library
+    },
+    {
+      path: '/hello',
       component: Hello
+    },
+    {
+      path: '/',
+      redirect: '/library'
     }
   ]
-})
+}
