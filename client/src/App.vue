@@ -48,27 +48,27 @@
         drawer: true,
         fixed: false,
         items: [{
-          icon: 'bubble_chart',
+          icon: 'list',
           title: 'Library',
           path: '/library'
         },
         {
-          icon: 'bubble_chart',
+          icon: 'highlight',
           title: 'Explore',
           path: '/explore'
         },
         {
-          icon: 'bubble_chart',
+          icon: 'merge_type',
           title: 'Transform',
           path: '/transform'
         },
         {
-          icon: 'bubble_chart',
+          icon: 'gavel',
           title: 'Admin',
           path: '/admin'
         },
         {
-          icon: 'bubble_chart',
+          icon: 'perm_identity',
           title: 'Profile',
           path: '/profile'
         }],
