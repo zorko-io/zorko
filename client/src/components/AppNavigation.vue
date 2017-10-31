@@ -25,7 +25,7 @@
         :to="item.path"
       >
         <v-list-tile-action>
-          <v-icon v-html="item.icon"></v-icon>
+          <v-icon medium v-html="item.icon"></v-icon>
         </v-list-tile-action>
         <v-list-tile-content>
           <v-list-tile-title v-text="item.title"></v-list-tile-title>
@@ -56,12 +56,12 @@ export default {
         path: '/explore'
       },
       {
-        icon: 'merge_type',
+        icon: 'bubble_chart',
         title: 'Model',
         path: '/model'
       },
       {
-        icon: 'gavel',
+        icon: 'build',
         title: 'Admin',
         path: '/admin'
       },
@@ -70,7 +70,7 @@ export default {
         title: 'Account',
         path: '/account'
       }],
-      title: 'Zorko.io'
+      title: 'Zorko'
     }
   }
 }
