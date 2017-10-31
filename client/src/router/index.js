@@ -30,10 +30,6 @@ export default {
       path: '/library',
       component: Library
     },
-    // {
-    //   path: '/hello',
-    //   component: Hello
-    // },
     {
       path: '/',
       redirect: '/library'
