@@ -64,7 +64,6 @@ export default {
     return {
       msg: 'I`m a library',
       title: 'Library',
-      drawer: null,
       items: [
         { title: 'Zorko Sandbox' },
         { title: 'Our World in Data' }
