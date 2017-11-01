@@ -1,8 +1,10 @@
 <template>
   <app-sub-layout :title="title">
-    <blockquote>
-      {{ msg }}
-    </blockquote>
+    <v-layout column align-center>
+      <blockquote>
+        {{ msg }}
+      </blockquote>
+    </v-layout>
   </app-sub-layout>
 </template>
 

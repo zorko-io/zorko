@@ -11,11 +11,11 @@ export default {
       component: Library
     },
     {
-      path: '/explore',
+      path: '/explore/:id',
       component: Explore
     },
     {
-      path: '/model',
+      path: '/model/:id',
       component: Model
     },
     {
