@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container grid-list-md >
     <v-toolbar fixed app>
       <v-toolbar-title v-text="title"></v-toolbar-title>
     </v-toolbar>

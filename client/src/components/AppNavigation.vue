@@ -171,7 +171,7 @@
           path: '/model',
           component: 'model',
           children: [{
-            title: 'Cats',
+            title: 'Cars',
             path: '/model/1'
           }, {
             title: 'Population',
