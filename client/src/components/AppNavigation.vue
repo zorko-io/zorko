@@ -18,20 +18,7 @@
       </v-list>
     </v-toolbar>
     <v-divider></v-divider>
-    <!--<v-list>-->
-    <!--<v-list-tile-->
-    <!--v-for="(item, i) in items"-->
-    <!--:key="i"-->
-    <!--:to="item.path"-->
-    <!--&gt;-->
-    <!--<v-list-tile-action>-->
-    <!--<v-icon small v-html="item.icon"></v-icon>-->
-    <!--</v-list-tile-action>-->
-    <!--<v-list-tile-content>-->
-    <!--<v-list-tile-title v-text="item.title"></v-list-tile-title>-->
-    <!--</v-list-tile-content>-->
-    <!--</v-list-tile>-->
-    <!--</v-list>-->
+
    <!--<v-list>-->
      <!--<component-->
        <!--v-for="(item, i) in items"-->
@@ -86,47 +73,42 @@
           </v-list-tile>
         </v-list-group>
 
+        <v-list-group
+          v-if="item.component == 'explore'"
+          :key="i"
+        >
+          <v-list-tile slot="item" @click="">
+            <v-list-tile-action>
+              <v-icon small v-html="item.icon"></v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            </v-list-tile-content>
+            <v-list-tile-action>
+              <v-icon>keyboard_arrow_down</v-icon>
+            </v-list-tile-action>
+          </v-list-tile>
+          <template v-for="(exploreGroup, i) in item.children">
+            <v-subheader v-text="exploreGroup.title"></v-subheader>
+            <v-list-tile
+            v-for="(explore, i) in exploreGroup.children"
+            @click=""
+            :key="i"
+            :to="explore.path"
+            >
+            <v-list-tile-content>
+            <v-list-tile-title>{{ explore.title }}</v-list-tile-title>
+            </v-list-tile-content>
+            </v-list-tile>
+          </template>
+
+
+        </v-list-group>
+
       </template>
 
-      <!--<v-list-tile to="/library">-->
-        <!--<v-list-tile-action>-->
-          <!--<v-icon small>list</v-icon>-->
-        <!--</v-list-tile-action>-->
-        <!--<v-list-tile-content>-->
-          <!--<v-list-tile-title>Library</v-list-tile-title>-->
-        <!--</v-list-tile-content>-->
-      <!--</v-list-tile>-->
-      <!--<v-list-group>-->
-        <!--<v-list-tile slot="item" @click="">-->
-          <!--<v-list-tile-action>-->
-            <!--<v-icon>bubble_chart</v-icon>-->
-          <!--</v-list-tile-action>-->
-          <!--<v-list-tile-content>-->
-            <!--<v-list-tile-title>Explore</v-list-tile-title>-->
-          <!--</v-list-tile-content>-->
-          <!--<v-list-tile-action>-->
-            <!--<v-icon>keyboard_arrow_down</v-icon>-->
-          <!--</v-list-tile-action>-->
-        <!--</v-list-tile>-->
-        <!--<v-list-tile :to="path">-->
-          <!--<v-list-tile-content>-->
-            <!--<v-list-tile-title>Cars</v-list-tile-title>-->
-          <!--</v-list-tile-content>-->
-        <!--</v-list-tile>-->
-      <!--</v-list-group>-->
     </v-list>
 
-    <!--<v-list>-->
-
-    <!--<v-list-title>-->
-    <!--<v-list-tile-action>-->
-    <!--<v-icon small v-html="list"></v-icon>-->
-    <!--</v-list-tile-action>-->
-    <!--<v-list-tile-content>-->
-    <!--<v-list-tile-title>Explore</v-list-tile-title>-->
-    <!--</v-list-tile-content>-->
-    <!--</v-list-title>-->
-    <!--</v-list>-->
   </v-navigation-drawer>
 </template>
 
@@ -158,7 +140,7 @@
         {
           icon: 'highlight',
           title: 'Explore',
-          component: 'item',
+          component: 'explore',
           path: '/explore',
           children: [{
             title: 'Cats',
