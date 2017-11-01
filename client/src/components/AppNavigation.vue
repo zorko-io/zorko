@@ -2,7 +2,7 @@
   <v-navigation-drawer
     permanent
     :mini-variant="miniVariant"
-    :clipped="clipped"
+    :clipped="false"
     v-model="drawer"
     enable-resize-watcher
     :mini-variant-width="miniVariantWidth"
@@ -97,7 +97,7 @@
             :to="explore.path"
             >
             <v-list-tile-content>
-            <v-list-tile-title>{{ explore.title }}</v-list-tile-title>
+              <v-list-tile-title>{{ explore.title }}</v-list-tile-title>
             </v-list-tile-content>
             </v-list-tile>
           </template>

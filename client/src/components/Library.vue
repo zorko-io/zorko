@@ -1,41 +1,26 @@
 <template>
   <app-sub-layout :title="title">
 
-    <v-layout column align-center>
-
-      <v-layout row wrap>
-        <v-flex xs12>
-          <v-card dark color="primary">
-            <v-card-text class="px-0">12</v-card-text>
+      <v-layout row>
+        <v-flex xs4>
+          <v-toolbar>
+            <v-toolbar-title v-text="titleRepoChooser"></v-toolbar-title>
+          </v-toolbar>
+          <v-card flat>
+            <v-card-text>
+              <v-radio-group v-model="selectedRepo" column>
+                <v-radio label="Zorko Sandbox" value="zorko-sandbox" disabled></v-radio>
+                <v-radio label="Our World in Data" value="world-in-data" disabled></v-radio>
+              </v-radio-group>
+            </v-card-text>
           </v-card>
         </v-flex>
-        <v-flex xs6 v-for="i in 2" :key="i">
+        <v-flex xs8>
           <v-card dark color="secondary">
             <v-card-text class="px-0">6</v-card-text>
           </v-card>
         </v-flex>
-        <v-flex xs4 v-for="i in 3" :key="i">
-          <v-card dark color="primary">
-            <v-card-text class="px-0">4</v-card-text>
-          </v-card>
-        </v-flex>
-        <v-flex xs3 v-for="i in 4" :key="i">
-          <v-card dark color="secondary">
-            <v-card-text class="px-0">3</v-card-text>
-          </v-card>
-        </v-flex>
-        <v-flex xs2 v-for="i in 6" :key="i">
-          <v-card dark color="primary">
-            <v-card-text class="px-0">2</v-card-text>
-          </v-card>
-        </v-flex>
-        <v-flex xs1 v-for="i in 12" :key="i">
-          <v-card dark color="secondary">
-            <v-card-text class="px-0">1</v-card-text>
-          </v-card>
-        </v-flex>
       </v-layout>
-    </v-layout>
   </app-sub-layout>
 </template>
 
@@ -50,7 +35,15 @@ export default {
   data () {
     return {
       msg: 'I`m a library',
-      title: 'Library'
+      title: 'Library',
+      drawer: null,
+      titleRepoChooser: 'Active Repository',
+      items: [
+        { title: 'Zorko Sandbox' },
+        { title: 'Our World in Data' }
+      ],
+      selection: true,
+      selectedRepo: 'zorko-sandbox'
     }
   }
 }

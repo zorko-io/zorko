@@ -2,7 +2,9 @@
   <v-app>
     <app-navigation></app-navigation>
     <main>
-      <router-view></router-view>
+      <v-content>
+        <router-view></router-view>
+      </v-content>
     </main>
     <v-footer app>
       <span>{{ footerText }}</span>
