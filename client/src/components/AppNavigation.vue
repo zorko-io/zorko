@@ -105,6 +105,33 @@
 
         </v-list-group>
 
+        <v-list-group
+          v-if="item.component == 'admin'"
+          :key="i"
+        >
+          <v-list-tile slot="item" @click="">
+            <v-list-tile-action>
+              <v-icon small v-html="item.icon"></v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            </v-list-tile-content>
+            <v-list-tile-action>
+              <v-icon>keyboard_arrow_down</v-icon>
+            </v-list-tile-action>
+          </v-list-tile>
+          <v-list-tile
+            v-for="(child, j) in item.children"
+            @click=""
+            :key="j"
+            :to="child.path"
+          >
+            <v-list-tile-content>
+              <v-list-tile-title>{{ child.title }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list-group>
+
       </template>
 
     </v-list>
@@ -178,7 +205,11 @@
           icon: 'build',
           title: 'Admin',
           path: '/admin',
-          component: 'item'
+          component: 'admin',
+          children: [{
+            title: 'Connections',
+            path: '/admin/connections/'
+          }]
         },
         {
           icon: 'perm_identity',

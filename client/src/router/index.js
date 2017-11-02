@@ -3,6 +3,7 @@ import Explore from '@/components/Explore'
 import Model from '@/components/Model'
 import Admin from '@/components/Admin'
 import Account from '@/components/Account'
+import Connection from '@/components/Connection'
 
 export default {
   routes: [
@@ -33,6 +34,10 @@ export default {
     {
       path: '/admin',
       component: Admin
+    },
+    {
+      path: '/admin/connections',
+      component: Connection
     },
     {
       path: '/account',

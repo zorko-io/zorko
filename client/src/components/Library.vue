@@ -23,7 +23,6 @@
         <v-flex xs9>
           <v-card>
             <v-toolbar color="light-blue" dark>
-              <v-toolbar-side-icon></v-toolbar-side-icon>
               <v-toolbar-title>Looks</v-toolbar-title>
               <v-spacer></v-spacer>
               <v-btn icon>
