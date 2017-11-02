@@ -33,33 +33,12 @@
           </v-card-text>
         </v-card>
       </v-flex>
-      <v-flex xs10>
-        <!--<v-card>-->
-          <!--<v-toolbar color="light-blue" dark>-->
-            <!--<v-toolbar-side-icon></v-toolbar-side-icon>-->
-            <!--<v-toolbar-title>Looks</v-toolbar-title>-->
-            <!--<v-spacer></v-spacer>-->
-            <!--<v-btn icon>-->
-              <!--<v-icon>more_vert</v-icon>-->
-            <!--</v-btn>-->
-          <!--</v-toolbar>-->
-          <!--<v-list two-line subheader>-->
-            <!--<v-list-tile avatar v-for="item in looks" v-bind:key="item.title" @click="">-->
-              <!--<v-list-tile-avatar>-->
-                <!--<v-icon v-bind:class="[item.iconClass]">{{ item.icon }}</v-icon>-->
-              <!--</v-list-tile-avatar>-->
-              <!--<v-list-tile-content>-->
-                <!--<v-list-tile-title>{{ item.title }}</v-list-tile-title>-->
-                <!--<v-list-tile-sub-title>{{ item.subtitle }}</v-list-tile-sub-title>-->
-              <!--</v-list-tile-content>-->
-              <!--<v-list-tile-action>-->
-                <!--<v-btn icon ripple>-->
-                  <!--<v-icon color="grey lighten-1">info</v-icon>-->
-                <!--</v-btn>-->
-              <!--</v-list-tile-action>-->
-            <!--</v-list-tile>-->
-          <!--</v-list>-->
-        <!--</v-card>-->
+      <v-flex xs6 offset-md2 center class="u-move-top-200">
+        <v-card>
+          <v-card-title>
+            <h6 class="grey--text text--darken-1">Select any dimension, measure to start exploration</h6>
+          </v-card-title>
+        </v-card>
       </v-flex>
     </v-layout>
   </app-sub-layout>
@@ -101,4 +80,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .u-move-top-200 {
+    margin-top: 200px;
+  }
+</style>
 
