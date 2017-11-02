@@ -31,9 +31,14 @@
               </v-btn>
             </v-toolbar>
             <v-list two-line subheader>
-              <v-list-tile avatar v-for="item in looks" v-bind:key="item.title" @click="">
+              <v-list-tile
+                avatar
+                v-for="item in looks"
+                :key="item.title"
+                @click=""
+                :to="item.path">
                 <v-list-tile-avatar>
-                  <v-icon v-bind:class="[item.iconClass]">{{ item.icon }}</v-icon>
+                  <v-icon :class="[item.iconClass]">{{ item.icon }}</v-icon>
                 </v-list-tile-avatar>
                 <v-list-tile-content>
                   <v-list-tile-title>{{ item.title }}</v-list-tile-title>
@@ -72,12 +77,14 @@ export default {
         icon: 'assignment',
         iconClass: 'amber white--text',
         title: 'Age per Gender for 2000',
-        subtitle: 'Model: `Population`'
+        subtitle: 'Model: `Population`',
+        path: '/looks/age-per-gender-for-2000'
       }, {
         icon: 'assignment',
         iconClass: 'amber white--text',
         title: 'Year Weather in Seattle',
-        subtitle: 'Model: `Weather`'
+        subtitle: 'Model: `Weather`',
+        path: '/looks/year-weather-in-seattle'
       }],
       selection: true,
       selectedRepo: 'zorko-sandbox'

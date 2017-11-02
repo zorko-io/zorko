@@ -5,12 +5,17 @@ import Admin from '@/components/Admin'
 import Account from '@/components/Account'
 import Connection from '@/components/Connection'
 import Repositories from '@/components/Repositories'
+import Look from '@/components/Look'
 
 export default {
   routes: [
     {
       path: '/library',
       component: Library
+    },
+    {
+      path: '/looks/:id',
+      component: Look
     },
     {
       path: '/explore/:id',
