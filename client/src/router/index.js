@@ -19,6 +19,18 @@ export default {
       component: Model
     },
     {
+      path: '/model/:id/docs/:docId',
+      component: Model
+    },
+    {
+      path: '/model/:id/models/:modelId',
+      component: Model
+    },
+    {
+      path: '/model/:id/views/:viewId',
+      component: Model
+    },
+    {
       path: '/admin',
       component: Admin
     },

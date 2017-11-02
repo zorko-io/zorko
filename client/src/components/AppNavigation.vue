@@ -113,15 +113,8 @@
 </template>
 
 <script>
-  import AppNavigationItem from '@/components/AppNavigationItem'
-  import AppNavigationModel from '@/components/AppNavigationModel'
-
   export default {
     name: 'AppNavigation',
-    components: {
-      item: AppNavigationItem,
-      model: AppNavigationModel
-    },
     data () {
       return {
         path: '/model',
