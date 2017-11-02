@@ -12,10 +12,11 @@
               </v-btn>
             </v-toolbar>
             <v-card-text>
-              <v-subheader>Your Repos</v-subheader>
+              <v-subheader>Your Scopes</v-subheader>
               <v-radio-group v-model="selectedRepo" column>
-                <v-radio label="Zorko Sandbox" value="zorko-sandbox" disabled></v-radio>
+                <v-radio label="Vega Datasets" value="zorko-sandbox" disabled></v-radio>
                 <v-radio label="Our World in Data" value="world-in-data" disabled></v-radio>
+                <v-radio label="Gapminder" value="Gapminder" disabled></v-radio>
               </v-radio-group>
             </v-card-text>
           </v-card>
@@ -70,13 +71,13 @@ export default {
       looks: [{
         icon: 'assignment',
         iconClass: 'amber white--text',
-        title: 'Photos',
-        subtitle: 'Nov 1, 2017'
+        title: 'Age per Gender for 2000',
+        subtitle: 'Model: `Population`'
       }, {
         icon: 'assignment',
         iconClass: 'amber white--text',
-        title: 'Photos',
-        subtitle: 'Nov 1, 2017'
+        title: 'Year Weather in Seattle',
+        subtitle: 'Model: `Weather`'
       }],
       selection: true,
       selectedRepo: 'zorko-sandbox'

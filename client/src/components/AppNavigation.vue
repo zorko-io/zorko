@@ -106,7 +106,7 @@
         </v-list-group>
 
         <v-list-group
-          v-if="item.component == 'admin'"
+          v-if="item.component == 'group-item'"
           :key="i"
         >
           <v-list-tile slot="item" @click="">
@@ -205,7 +205,7 @@
           icon: 'build',
           title: 'Admin',
           path: '/admin',
-          component: 'admin',
+          component: 'group-item',
           children: [{
             title: 'Connections',
             path: '/admin/connections/'
@@ -215,7 +215,11 @@
           icon: 'perm_identity',
           title: 'Account',
           path: '/account',
-          component: 'item'
+          component: 'group-item',
+          children: [{
+            title: 'Repositories',
+            path: '/account/repositories'
+          }]
         }]
       }
     }

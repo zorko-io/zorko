@@ -4,6 +4,7 @@ import Model from '@/components/Model'
 import Admin from '@/components/Admin'
 import Account from '@/components/Account'
 import Connection from '@/components/Connection'
+import Repositories from '@/components/Repositories'
 
 export default {
   routes: [
@@ -42,6 +43,10 @@ export default {
     {
       path: '/account',
       component: Account
+    },
+    {
+      path: '/account/repositories',
+      component: Repositories
     },
     {
       path: '/library',
