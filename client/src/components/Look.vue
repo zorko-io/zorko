@@ -4,7 +4,10 @@
       <v-flex xs12>
         <v-expansion-panel expand>
           <v-expansion-panel-content>
-            <div slot="header">Filters</div>
+            <template slot="header">
+              <div>Filters</div>
+            </template>
+
             <v-card color="grey lighten-4" flat>
               <v-card-text>
                 <v-container fluid>
@@ -34,15 +37,15 @@
               </v-card-text>
             </v-card>
           </v-expansion-panel-content>
-          <v-expansion-panel-content>
+          <v-expansion-panel-content :value="true">
             <div slot="header">Visualization</div>
             <v-card>
               <v-card-text class="grey lighten-3">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                <visualization></visualization>
               </v-card-text>
             </v-card>
           </v-expansion-panel-content>
-          <v-expansion-panel-content :value="true">
+          <v-expansion-panel-content>
             <div slot="header">Data</div>
             <v-data-table
               v-bind:headers="table.headers"
@@ -70,11 +73,30 @@
 
 <script>
   import AppSubLayout from '@/components/AppSubLayout'
+  import VueVega from 'vue-vega'
 
   export default {
     name: 'Look',
     components: {
-      AppSubLayout
+      AppSubLayout,
+      Visualization: VueVega.mapVegaLiteSpec({
+        $schema: 'https://vega.github.io/schema/vega-lite/v2.json',
+        description: 'A simple bar chart with embedded data.',
+        autosize: 'fit',
+        width: 1080,
+        data: {
+          values: [
+            {'a': 'A', 'b': 28}, {'a': 'B', 'b': 55}, {'a': 'C', 'b': 43},
+            {'a': 'D', 'b': 91}, {'a': 'E', 'b': 81}, {'a': 'F', 'b': 53},
+            {'a': 'G', 'b': 19}, {'a': 'H', 'b': 87}, {'a': 'I', 'b': 52}
+          ]
+        },
+        mark: 'bar',
+        encoding: {
+          x: {'field': 'a', 'type': 'ordinal'},
+          y: {'field': 'b', 'type': 'quantitative'}
+        }
+      })
     },
     data () {
       return {
