@@ -9,7 +9,7 @@ app.use(bodyParser.json())
 app.use(cors())
 
 app.get('/status', (rep, res) => {
-  res.send({message: 'Hello world!'})
+  res.send({message: 'Hello world'})
 })
 
 app.listen(9000)
