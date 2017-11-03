@@ -56,18 +56,18 @@
           ]
         },
         {
-          title: 'Models',
+          title: 'Definitions',
           children: [{
             title: 'cars',
-            path: '/model/1/models/cars'
+            path: '/model/1/definitions/cars'
           }
           ]
         },
         {
           title: 'Views',
           children: [{
-            title: 'hoursepower',
-            path: '/model/1/views/hoursepower'
+            title: 'eu-metrics',
+            path: '/model/1/views/eu-mertics'
           }
           ]
         }

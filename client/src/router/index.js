@@ -2,6 +2,8 @@ import Library from '@/components/Library'
 import Explore from '@/components/Explore'
 import Model from '@/components/Model'
 import ModelDocumentation from '@/components/ModelDocumentation'
+import ModelDefinition from '@/components/ModelDefinition'
+import ModelView from '@/components/ModelView'
 import Admin from '@/components/Admin'
 import Account from '@/components/Account'
 import Connection from '@/components/Connection'
@@ -28,6 +30,12 @@ export default {
       children: [{
         path: '/model/:id/docs/:docId',
         component: ModelDocumentation
+      }, {
+        path: '/model/:id/definitions/:definitionId',
+        component: ModelDefinition
+      }, {
+        path: '/model/:id/views/:viewId',
+        component: ModelView
       }]
     },
     {
