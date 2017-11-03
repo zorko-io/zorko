@@ -22,12 +22,8 @@
             </template>
           </v-list>
         </v-flex>
-        <v-flex xs6 offset-md2 center class="u-move-top-200">
-          <v-card>
-            <v-card-title>
-              <h6 class="grey--text text--darken-1">It's modeling section, allows you to model data from data source according to your tasks.</h6>
-            </v-card-title>
-          </v-card>
+        <v-flex xs6>
+          <router-view></router-view>
         </v-flex>
       </v-layout>
     </v-slide-y-transition>

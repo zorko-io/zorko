@@ -1,6 +1,7 @@
 import Library from '@/components/Library'
 import Explore from '@/components/Explore'
 import Model from '@/components/Model'
+import ModelDocumentation from '@/components/ModelDocumentation'
 import Admin from '@/components/Admin'
 import Account from '@/components/Account'
 import Connection from '@/components/Connection'
@@ -23,11 +24,11 @@ export default {
     },
     {
       path: '/model/:id',
-      component: Model
-    },
-    {
-      path: '/model/:id/docs/:docId',
-      component: Model
+      component: Model,
+      children: [{
+        path: '/model/:id/docs/:docId',
+        component: ModelDocumentation
+      }]
     },
     {
       path: '/model/:id/models/:modelId',
