@@ -8,15 +8,20 @@
   "scripts": {
     "start": "node src/app",
     "dev": "nodemon src/app.js --exec  \"npm run lint && node\"",
-    "lint": "eslint src/**/*.js",
+    "lint": "eslint src/**/*.js --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
     "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
     "express": "^4.15.4",
+    "express-partials": "^0.3.0",
+    "express-session": "^1.15.6",
+    "method-override": "^2.3.10",
     "morgan": "^1.8.2",
-    "passport": "^0.4.0"
+    "passport": "^0.4.0",
+    "passport-github2": "^0.1.11"
   },
   "devDependencies": {
     "eslint-config-standard": "^10.2.1",
