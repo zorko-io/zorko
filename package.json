@@ -1,6 +1,6 @@
 {
   "name": "zorko",
-  "version": "0.0.1",
+  "version": "1.0.0-alpha.1",
   "description": "Open Platform to explore data and collaborate around it",
   "main": "index.js",
   "directories": {
@@ -8,7 +8,6 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client:build": "cd client/ && npm install && npm run build",
     "docs:clean": "rimraf docs/_book && rimraf docs/node_modules",
     "docs:prepare": "cd docs/ && gitbook install",
     "docs:build": "npm run docs:prepare && cd docs/ && gitbook build",
