@@ -51,7 +51,7 @@ app.use(bodyParser.json())
 app.use(methodOverride())
 app.use(cors())
 app.use(session({
-  secret: 'keyboard cat',
+  secret: config.auth.sessionSecret,
   resave: false,
   saveUninitialized: false
 }))
@@ -71,4 +71,4 @@ app.get('/login', (rep, res) => {
   res.send({error: 'Auth error'})
 })
 
-app.listen(3000)
+app.listen(config.port)

@@ -1,8 +1,7 @@
 require('dotenv').config()
 
-console.log(process.env)
-
 module.exports = {
+  port: process.env.PORT,
   auth: {
     github: {
       clientId: process.env.GITHUB_CLIENT_ID,
