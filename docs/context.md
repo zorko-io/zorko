@@ -1,8 +1,8 @@
-# Context 
+# Context
 
 ## System
 
-Zorko is an open platform which allows user to connect to different data sources like files, databases, etc., so that 
+Zorko is an open platform which allows user to connect to different data sources like files, databases, etc., so that
 user able to explore provided datasets, build different visualizations and share not only visualization, but complete projects
 
 ## Actors
@@ -38,7 +38,7 @@ Authenticated into the system, with private plan, can host as public as private 
       "name": "Anonymous User",
       "description": "Anybody on the web",
       "tags": "",
-      "position": "175,40"
+      "position": "110,180"
     },
     {
       "type": "Software System",
@@ -53,14 +53,14 @@ Authenticated into the system, with private plan, can host as public as private 
       "name": "Member User",
       "description": "User signed in using Github ID, with private plan",
       "tags": "",
-      "position": "1545,40"
+      "position": "1740,210"
     },
     {
       "type": "Person",
       "name": "Public User",
       "description": "User signed in using Github ID, with free plan",
       "tags": "",
-      "position": "885,35"
+      "position": "925,15"
     },
     {
       "type": "Software System",
@@ -76,21 +76,21 @@ Authenticated into the system, with private plan, can host as public as private 
   "relationships": [
     {
       "source": "Anonymous User",
-      "description": "Use shared explorations",
-      "technology": "",
+      "description": "View shared looks, can continue exploration without save",
+      "technology": "All data analyze on the client-side",
       "destination": "Zorko",
       "tags": ""
     },
     {
       "source": "Member User",
-      "description": "Manage public and private projects and explorations",
+      "description": "Link/Unlink own  public and private repositories to workspace",
       "technology": "",
       "destination": "Zorko",
       "tags": ""
     },
     {
       "source": "Public User",
-      "description": "Manage only public project and explorations",
+      "description": "Link/Unlink own  public only  repositories to workspace",
       "technology": "",
       "destination": "Zorko",
       "tags": ""
