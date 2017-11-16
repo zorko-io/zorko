@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../zorko-web-app"
+		},
+		{
+			"path": "../zorko-api-server"
+		},
+		{
+			"path": "../zorko-www"
+		}
+	]
+}
