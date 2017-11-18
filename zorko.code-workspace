@@ -13,7 +13,7 @@
 			"path": "../zorko-www"
 		},
 		{
-			"path": "/projects/zorko/projects/zorko-demo-repository"
+			"path": "../zorko-demo-repository"
 		}
 	]
 }
