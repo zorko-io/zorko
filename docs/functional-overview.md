@@ -4,6 +4,7 @@
 
 ### Login & Fork
 
+
 1. As Anonymus User I can open link to shared look
 1. As Anonymus User I can continue exploration of shared look
 1. As Anonymus User I can't save or share exploration without login to system
