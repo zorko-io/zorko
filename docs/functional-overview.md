@@ -6,14 +6,19 @@
 
 1. As Anonymus User I can upload JSON or CSV file and start new exploration
 1. As Anonymus User I can copy paste url to JSON/CSV http resource and start new exploration
+
 1. As Anonymus User I can see list of publicly available looks in the system
 1. As Anonymus User I can see list of publicly available datums in the system
+
+1. As Anonymus User I can open look by clicking on preview image or title
+1. As Anonymus User I can open datum by clicking on preview image or title
 
 1. As Casual User after login I can see profile info in account section
 
 ~~1. As Casual User I can see all my looks and datums~~
 
 ~~1. As Casual User I can see number of watches for each look~~
+~~1. As Anonymus User I can see looks preview with hides minor details, show main shape of visualization~~
 
 ### Look
 
