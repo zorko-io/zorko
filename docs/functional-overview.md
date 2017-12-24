@@ -2,24 +2,38 @@
 
 ## Important User Scenario's
 
-### Global Navigation
+### Home
 
 1. As Anonymus User I can upload JSON or CSV file and start new exploration
 1. As Anonymus User I can copy paste url to JSON/CSV http resource and start new exploration
 
-1. As Anonymus User I can open see expanded library menu and navigate to Looks or Datums 
+1. As Anonymus User I see Looks section selected by default
+1. As Anonymus User I can see list of publicly available look previews in the system by selecting looks section
+1. As Anonymus User I can see list of publicly available datums previews in the system by selecting datums section
 
 1. As Casual User after login I can see profile info in account section
 
 ~~1. As Casual User I can see all my looks and datums~~
 
-~~1. As Casual User I can see number of watches for each look~~
+#### Look Preview
+
+1. As Anonymus User, I can see preview image of look's visualization
+1. As Anonymus User, I can see gray image of look if no visualization available
+1. As Anonymus User, I can see title, author, datum of look
+1. As Anonymus User, I can click on title or preview image to navigate to look
+1. As Anonymus User, I can click on datum link to navigate to look`s datum
+
+~~1. As Anonymus User, I can see watch counter~~
 ~~1. As Anonymus User I can see looks preview with hides minor details, show main shape of visualization~~
 
-### Library
+#### Datum Preview
 
-1. As Anonymus User I can see list of publicly available looks in the system by selecting looks section
-1. As Anonymus User I can see list of publicly available datums in the system by selecting datums section
+1. As Anonymus User, I can see icon of authority provider, if available
+1. As Anonymus User, I can see info about authority provider
+1. As Anonymus User, I can see info about data provider
+1. As Anonymus User, I can see counter of related looks 
+1. As Anonymus User, I can click on authority provider and go to it's website
+1. As Anonymus User, I can click on data provider and go to it's website
 
 ### Look
 
@@ -46,6 +60,7 @@
 1. As Anonymus User I can select filed and it would be added as column in table
 1. As Anonymus User I can deselect filed and it would be removed from table
 1. As Anonymus User I can deselect filed and it would be removed from occupied encoding channel in visualization
+
 1. As Anonymus User I can change encoding channels for selected fields in visualization
 1. As Anonymus User I can change color configuration for visualization
 
