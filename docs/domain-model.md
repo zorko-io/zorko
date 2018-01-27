@@ -64,6 +64,7 @@ Define analytic visualization as combination of filters, graphic and/or table
 | filters | LookFilter[] | List of all filters presentations used in analysis|
 | layout | LookLayout | Define position and visibility of filter, visualisation and data table|
 | table | LookDataTable | Define structure of table|
+| datum  | String  | Datum identification on which look was build
 
 ### LookFilter
 

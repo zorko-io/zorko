@@ -56,10 +56,11 @@ Create new look in the system. Server augment data params with next rules:
  
  * override `id` within server generated unique `id`
  * if `name` is not defined then generated it from `title` by replacing spaces with dashes, adding suffix counter if such name already used, converting all charters to lower case
- * extend provided fields within local data source metadata and transformation
- * check consistency between fields local data source metadata and transformation
- * does't check for fields consistency between local metadata and remote data source
- * it's recommended to fill `data.format.parse` section with all available fields in data source
+ * check for datum existence before look creation
+ * generate preview if it's not available
+ * generate default layout if not provided
+ * if filters not defined then generate them from visualization
+ * if filters defined then check their consistency with visualization
 
 
 ##### URL
@@ -92,26 +93,37 @@ Create new look in the system. Server augment data params with next rules:
 
 ```js
 axios.post('/looks', {
-    title: "Population of USA",
-    data: {
-      url: 'https://example.com/data/some.csv',
-      format: {
-        type: 'csv',
-        parse: {
-          population: 'number',
-          age: 'number',
-          year: 'date'
-        },
-      }
-    },
-   fields: [
-     { name: "population", title: "Population"},
-     { name: "age", title: "Age"}
+    name: "population-of-usa-for-2000",
+    title: "Population of USA for 2000",
+    visualization: {
+       $schema: "https://vega.github.io/schema/vega-lite/v2.json",
+       data: { url: "https://example.com/data/population.json"},
+       transform: [
+         {filter: {field: "year", equal: 2000}}
+       ],
+       mark: "bar",
+       encoding: {
+         y: {
+           aggregate: "sum", field: "people", type: "quantitative",
+           axis: {title: "population"},
+           stack:  "normalize"
+         },
+         x: {
+           field: "age", type: "ordinal",
+           scale: {rangeStep: 17}
+         }
+       }
+     },
+    fields: [
+     { name: 'population', title: 'Population'},
+     { name: 'age', title: 'Age'},
+     { name: 'year', title: 'Year'}
     ],
-    authority: {
-      name: 'example',
-      site: 'https://example.com/my-data-information'
-    }
+    filters: [{
+      id: 0,
+      type: 'TextInputValue'
+    }],
+    datum: "uuid-3230-3232"
   })
   .then(function (response) {
     console.log(response);
@@ -125,43 +137,43 @@ axios.post('/looks', {
 
 ```json
 {
-    "id": "uuid-1111-9999",
-    "name": "population-of-usa",
-    "title": "Population of USA",
-    "data": {
-      "url": "https://example.com/data/some.csv",
-      "format": {
-         "type": "csv",
-         "parse": {
-            "population": "number",
-            "age": "number",
-            "year": "date"
-         }
-      }
-    },
-    "fields": [
-      { 
-        "name": "population", 
-        "title": "Population",
-        "value": {
-           "type": "number",
-           "dependent": false
-        }
-      },
-      { 
-        "name": "age", 
-        "title": "Age",
-        "value": {
-           "type": "number",
-           "dependent": false
-        }
-      }
-    ],
-    "authority": {
-      "name": "example",
-      "site": "https://example.com/my-data-information"
-    },
-    "looks": []
+  "id": "uuid-1111-9999",
+  "name": "population-of-usa",
+  "title": "Population of USA",
+  "visualization": {
+     "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+     "data": { "url": "https://example.com/data/population.json"},
+     "transform": [
+       {"filter": {"field": "year", "equal": 2000}}
+     ],
+     "mark": "bar",
+     "encoding": {
+       "y": {
+         "aggregate": "sum", "field": "people", "type": "quantitative",
+         "axis": {"title": "population"},
+         "stack":  "normalize"
+       },
+       "x": {
+         "field": "age", "type": "ordinal",
+         "scale": {"rangeStep": 17}
+       }
+     }
+   },
+  "fields": [
+   { "name": "population", "title": "Population"},
+   { "name": "age", "title": "Age"},
+   { "name": "year", "title": "Year"}
+  ],
+  "filters": [{
+    "id": 0,
+    "type": "TextInputValue"
+  }],
+  "layout": {
+    "type": "stack",
+    "filter": "collapsed",
+    "visualization": "expanded",
+    "table": "collapsed"
+  }
 }
 ```
 
@@ -203,7 +215,7 @@ Fetch look by unique `id`
 ##### Sample Call:
 
 ```js
-axios.get('/looks?offset=10&limit=10')
+axios.get('/looks/1234')
   .then(function (response) {
     console.log(response);
   })
@@ -217,8 +229,7 @@ axios.get('/looks?offset=10&limit=10')
 
 Update look. Server should check next rules:
  
- * check consistency between fields and local data source metadata and transformation
- * check consistency between look's fields and fields in dependent looks
+ * check consistency between visualization, table, filters and fields
 
 ##### URL
 
@@ -254,41 +265,42 @@ Update look. Server should check next rules:
 
 ```js
 axios.post('/looks/1234', {
-    id: '1234',
-    name: 'population-of-usa',
-    title: "Population of USA",
-    data: {
-      url: 'https://example.com/data/some.csv',
-      format: {
-        type: 'csv',
-        parse: {
-          population: 'number',
-          age: 'number',
-          year: 'date'
-        },
-      }
-    },
-   fields: [
-     { 
-       name: "population", 
-       title: "Population blhabla",
-       variable: {
-         type: 'number',
-         dependent: false
+    "id": "uuid-1111-9999",
+    "name": "population-of-usa",
+    "title": "Population of USA",
+    "visualization": {
+       "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+       "data": { "url": "https://example.com/data/population.json"},
+       "transform": [
+         {"filter": {"field": "year", "equal": 1999}}
+       ],
+       "mark": "bar",
+       "encoding": {
+         "y": {
+           "aggregate": "sum", "field": "people", "type": "quantitative",
+           "axis": {"title": "population"},
+           "stack":  "normalize"
+         },
+         "x": {
+           "field": "age", "type": "ordinal",
+           "scale": {"rangeStep": 17}
+         }
        }
      },
-     { 
-       name: "age", 
-       title: "Age foooo",
-       variable: {
-        type: 'number',
-        dependent: false
-       }
-     }
+    "fields": [
+     { "name": "population", "title": "Population"},
+     { "name": "age", "title": "Age"},
+     { "name": "year", "title": "Year"}
     ],
-    authority: {
-      name: 'example',
-      site: 'https://example.com/my-data-information'
+    "filters": [{
+      "id": 0,
+      "type": "TextInputValue"
+    }],
+    "layout": {
+      "type": "stack",
+      "filter": "collapsed",
+      "visualization": "expanded",
+      "table": "collapsed"
     }
   })
   .then(function (response) {
@@ -326,11 +338,6 @@ Remove look by unique `id`
 
   * **Code:** 204 No Content <br />
     **Content:** None
-
-##### Error Response:
-
-  * **Code:** 403 Forbidden <br />
-    **Content:** [BrokenDependentResourcesError](errors.md#brokendependentresourceserror)
 
 ##### Sample Call:
 
