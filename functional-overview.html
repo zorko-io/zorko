@@ -1,0 +1,704 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Functional Overview · Zorko</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-comment/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="domain-model.html" />
+    
+    
+    <link rel="prev" href="what-is-zortko-all-about.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="what-is-zortko-all-about.html">
+            
+                <a href="what-is-zortko-all-about.html">
+            
+                    
+                    What is Zorko all about?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="functional-overview.html">
+            
+                <a href="functional-overview.html">
+            
+                    
+                    Functional Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="domain-model.html">
+            
+                <a href="domain-model.html">
+            
+                    
+                    Domain Model
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="domain-model.html">
+            
+                <a href="domain-model.html#datum">
+            
+                    
+                    Datum
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="domain-model.html">
+            
+                <a href="domain-model.html#datumauthority">
+            
+                    
+                    DatumAuthority
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="domain-model.html">
+            
+                <a href="domain-model.html#field">
+            
+                    
+                    Field
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="domain-model.html">
+            
+                <a href="domain-model.html#fieldvariable">
+            
+                    
+                    FieldVariable
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="domain-model.html">
+            
+                <a href="domain-model.html#look">
+            
+                    
+                    Look
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="domain-model.html">
+            
+                <a href="domain-model.html#lookfilter">
+            
+                    
+                    LookFilter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="domain-model.html">
+            
+                <a href="domain-model.html#looklayout">
+            
+                    
+                    LookLayout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3" data-path="domain-model.html">
+            
+                <a href="domain-model.html#lookdatatable">
+            
+                    
+                    LookDataTable
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="rest/datum-api.html">
+            
+                <a href="rest/datum-api.html">
+            
+                    
+                    REST API
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="rest/datum-api.html">
+            
+                <a href="rest/datum-api.html#datum">
+            
+                    
+                    Datum
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1.1" data-path="rest/datum-api.html">
+            
+                <a href="rest/datum-api.html#search">
+            
+                    
+                    Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.2" data-path="rest/datum-api.html">
+            
+                <a href="rest/datum-api.html#create">
+            
+                    
+                    Create
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.3" data-path="rest/datum-api.html">
+            
+                <a href="rest/datum-api.html#get">
+            
+                    
+                    Get
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.4" data-path="rest/datum-api.html">
+            
+                <a href="rest/datum-api.html#update">
+            
+                    
+                    Update
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.5" data-path="rest/datum-api.html">
+            
+                <a href="rest/datum-api.html#delete">
+            
+                    
+                    Delete
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="rest/look-api.html">
+            
+                <a href="rest/look-api.html#look">
+            
+                    
+                    Look
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="rest/look-api.html">
+            
+                <a href="rest/look-api.html#search">
+            
+                    
+                    Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.2" data-path="rest/look-api.html">
+            
+                <a href="rest/look-api.html#create">
+            
+                    
+                    Create
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.3" data-path="rest/look-api.html">
+            
+                <a href="rest/look-api.html#get">
+            
+                    
+                    Get
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.4" data-path="rest/look-api.html">
+            
+                <a href="rest/look-api.html#update">
+            
+                    
+                    Update
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.5" data-path="rest/look-api.html">
+            
+                <a href="rest/look-api.html#delete">
+            
+                    
+                    Delete
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="rest/errors.html">
+            
+                <a href="rest/errors.html#Errors">
+            
+                    
+                    Errors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Functional Overview</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="functional-overview">Functional Overview</h1>
+<h2 id="important-user-scenarios">Important User Scenario&apos;s</h2>
+<h3 id="home">Home</h3>
+<ol>
+<li>As Anonymus User I can upload JSON or CSV file and start new exploration</li>
+<li><p>As Anonymus User I can copy paste url to JSON/CSV http resource and start new exploration</p>
+</li>
+<li><p>As Anonymus User I see Looks section selected by default</p>
+</li>
+<li>As Anonymus User I can see list of publicly available look previews in the system by selecting looks section</li>
+<li><p>As Anonymus User I can see list of publicly available datums previews in the system by selecting datums section</p>
+</li>
+<li><p>As Casual User after login I can see profile info in account section</p>
+</li>
+</ol>
+<p><del>1. As Casual User I can see all my looks and datums</del></p>
+<h4 id="look-preview">Look Preview</h4>
+<ol>
+<li>As Anonymus User, I can see preview image of look&apos;s visualization</li>
+<li>As Anonymus User, I can see gray image of look if no visualization available</li>
+<li>As Anonymus User, I can see title, author, datum of look</li>
+<li>As Anonymus User, I can click on title or preview image to navigate to look</li>
+<li>As Anonymus User, I can click on datum link to navigate to look`s datum</li>
+</ol>
+<p><del>1. As Anonymus User, I can see watch counter</del>
+<del>1. As Anonymus User I can see looks preview with hides minor details, show main shape of visualization</del></p>
+<h4 id="datum-preview">Datum Preview</h4>
+<ol>
+<li>As Anonymus User, I can see icon of authority provider, if available</li>
+<li>As Anonymus User, I can see info about authority provider</li>
+<li>As Anonymus User, I can see info about data provider</li>
+<li>As Anonymus User, I can see counter of related looks </li>
+<li>As Anonymus User, I can click on authority provider and go to it&apos;s website</li>
+<li>As Anonymus User, I can click on data provider and go to it&apos;s website</li>
+</ol>
+<h3 id="look">Look</h3>
+<ol>
+<li>As Anonymus User I can open link to shared look and see visualization, filters and table</li>
+<li>As Anonymus User I can change filters condition, values so it would reflect in visualization and table</li>
+<li>As Anonymus User I can expand/collapse filter, visualization, table panels</li>
+<li>As Anonymus User I can continue exploration of look</li>
+</ol>
+<p><del>1. As Anonymus User I can perform login and then fork from the exploration</del></p>
+<p><del>1. As Casual User I can open datum and start exploration of new look</del></p>
+<p><del>1. As Casual User I can upload vega-lite specification, so it would create new datum and look</del></p>
+<p><del>1. As Casual User I can add comments to look</del></p>
+<p><del>1. As Casual User I can edit look&apos;s specification (vega-lite)</del></p>
+<h3 id="explore">Explore</h3>
+<ol>
+<li>As Anonymus User I can see fields available for explore</li>
+<li>As Anonymus User I can see fields as dimensions and &apos;Count&apos; as measure</li>
+<li>As Anonymus User I can create filter from any non-filtered field</li>
+<li>As Anonymus User I can select filed and it would be added as column in table</li>
+<li>As Anonymus User I can deselect filed and it would be removed from table</li>
+<li><p>As Anonymus User I can deselect filed and it would be removed from occupied encoding channel in visualization</p>
+</li>
+<li><p>As Anonymus User I can change encoding channels for selected fields in visualization</p>
+</li>
+<li>As Anonymus User I can change color configuration for visualization</li>
+</ol>
+<p><del>1. As Anonymus User I can pivot one field and it would became column for other columns in table</del>
+<del>1. As Anonymus User I can pivot one field and it would occupy column faced in visualization</del> 
+<del>1. As Anonymus User I can remove pivoted field, so it became an just a regular column in table</del></p>
+<ol>
+<li>As Anonymus User I can&apos;t save or share exploration without login to system</li>
+</ol>
+<blockquote>
+<p>Actually it make sense to skip that restriction and recomend user to login as main UI and some option to continue as 
+anonym
+<del>1. As Anonymus User I should see a login dialog with advice to login, however I can contionue as anonym</del></p>
+</blockquote>
+<h3 id="datum">Datum</h3>
+<ol>
+<li>As Anonymus User I can open datum and see all it&apos;s fields and looks build on top of it</li>
+<li>As Anonymus User I can navigate from datum to looks build on top of it</li>
+<li>As Anonymus User I can start exploration from datum</li>
+</ol>
+<p><del>1. As Casual User I can add new datum by url to some remote http resource</del></p>
+<p><del>1. As Casual User I can see the number of usage (by looks) for any datum</del>~</p>
+<p><del>1. As Casual User I can see all looks related to current datum</del></p>
+<p><del>1. As Casual User I can uncheck &apos;publish datum&apos; (during creation), so others can&apos;t use it in their explorations</del></p>
+<p><del>1. As Casual User I can add comments to datum</del></p>
+<h3 id="embedded">Embedded</h3>
+<p><del>1. As Casual User I can embedd look on third party page, so filters, table and visualization would be available</del></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="what-is-zortko-all-about.html" class="navigation navigation-prev " aria-label="Previous page: What is Zorko all about?">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="domain-model.html" class="navigation navigation-next " aria-label="Next page: Domain Model">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Functional Overview","level":"1.3","depth":1,"next":{"title":"Domain Model","level":"1.4","depth":1,"path":"domain-model.md","ref":"domain-model.md","articles":[{"title":"Datum","level":"1.4.1","depth":2,"anchor":"#datum","path":"domain-model.md","ref":"domain-model.md#datum","articles":[{"title":"DatumAuthority","level":"1.4.1.1","depth":3,"anchor":"#datumauthority","path":"domain-model.md","ref":"domain-model.md#datumauthority","articles":[]}]},{"title":"Field","level":"1.4.2","depth":2,"anchor":"#field","path":"domain-model.md","ref":"domain-model.md#field","articles":[{"title":"FieldVariable","level":"1.4.2.1","depth":3,"anchor":"#fieldvariable","path":"domain-model.md","ref":"domain-model.md#fieldvariable","articles":[]}]},{"title":"Look","level":"1.4.3","depth":2,"anchor":"#look","path":"domain-model.md","ref":"domain-model.md#look","articles":[{"title":"LookFilter","level":"1.4.3.1","depth":3,"anchor":"#lookfilter","path":"domain-model.md","ref":"domain-model.md#lookfilter","articles":[]},{"title":"LookLayout","level":"1.4.3.2","depth":3,"anchor":"#looklayout","path":"domain-model.md","ref":"domain-model.md#looklayout","articles":[]},{"title":"LookDataTable","level":"1.4.3.3","depth":3,"anchor":"#lookdatatable","path":"domain-model.md","ref":"domain-model.md#lookdatatable","articles":[]}]}]},"previous":{"title":"What is Zorko all about?","level":"1.2","depth":1,"path":"what-is-zortko-all-about.md","ref":"what-is-zortko-all-about.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","anchorjs","github","comment"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/zorko-io/zorko"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/zorko-io/zorko/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{},"comment":{"highlightCommented":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Zorko","links":{"sharing":{"facebook":false,"twitter":false}},"gitbook":">=3.0.0"},"file":{"path":"functional-overview.md","mtime":"2017-12-24T13:26:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-01-28T14:19:19.792Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-comment/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

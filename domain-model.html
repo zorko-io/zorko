@@ -1,0 +1,897 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Domain Model · Zorko</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-comment/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="domain-model.html" />
+    
+    
+    <link rel="prev" href="functional-overview.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="what-is-zortko-all-about.html">
+            
+                <a href="what-is-zortko-all-about.html">
+            
+                    
+                    What is Zorko all about?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="functional-overview.html">
+            
+                <a href="functional-overview.html">
+            
+                    
+                    Functional Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="domain-model.html">
+            
+                <a href="domain-model.html">
+            
+                    
+                    Domain Model
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="domain-model.html">
+            
+                <a href="domain-model.html#datum">
+            
+                    
+                    Datum
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="domain-model.html">
+            
+                <a href="domain-model.html#datumauthority">
+            
+                    
+                    DatumAuthority
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="domain-model.html">
+            
+                <a href="domain-model.html#field">
+            
+                    
+                    Field
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="domain-model.html">
+            
+                <a href="domain-model.html#fieldvariable">
+            
+                    
+                    FieldVariable
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="domain-model.html">
+            
+                <a href="domain-model.html#look">
+            
+                    
+                    Look
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="domain-model.html">
+            
+                <a href="domain-model.html#lookfilter">
+            
+                    
+                    LookFilter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="domain-model.html">
+            
+                <a href="domain-model.html#looklayout">
+            
+                    
+                    LookLayout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3" data-path="domain-model.html">
+            
+                <a href="domain-model.html#lookdatatable">
+            
+                    
+                    LookDataTable
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="rest/datum-api.html">
+            
+                <a href="rest/datum-api.html">
+            
+                    
+                    REST API
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="rest/datum-api.html">
+            
+                <a href="rest/datum-api.html#datum">
+            
+                    
+                    Datum
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1.1" data-path="rest/datum-api.html">
+            
+                <a href="rest/datum-api.html#search">
+            
+                    
+                    Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.2" data-path="rest/datum-api.html">
+            
+                <a href="rest/datum-api.html#create">
+            
+                    
+                    Create
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.3" data-path="rest/datum-api.html">
+            
+                <a href="rest/datum-api.html#get">
+            
+                    
+                    Get
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.4" data-path="rest/datum-api.html">
+            
+                <a href="rest/datum-api.html#update">
+            
+                    
+                    Update
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.5" data-path="rest/datum-api.html">
+            
+                <a href="rest/datum-api.html#delete">
+            
+                    
+                    Delete
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="rest/look-api.html">
+            
+                <a href="rest/look-api.html#look">
+            
+                    
+                    Look
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="rest/look-api.html">
+            
+                <a href="rest/look-api.html#search">
+            
+                    
+                    Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.2" data-path="rest/look-api.html">
+            
+                <a href="rest/look-api.html#create">
+            
+                    
+                    Create
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.3" data-path="rest/look-api.html">
+            
+                <a href="rest/look-api.html#get">
+            
+                    
+                    Get
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.4" data-path="rest/look-api.html">
+            
+                <a href="rest/look-api.html#update">
+            
+                    
+                    Update
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.5" data-path="rest/look-api.html">
+            
+                <a href="rest/look-api.html#delete">
+            
+                    
+                    Delete
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="rest/errors.html">
+            
+                <a href="rest/errors.html#Errors">
+            
+                    
+                    Errors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Domain Model</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="domain-model">Domain Model</h1>
+<p>Define main models in the system</p>
+<h2 id="datum">Datum</h2>
+<p>Datum it&apos;s combination of common metadata, transformation, connection and authority information around data source. 
+Track dependencies to it&apos;s data source in the system</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left">Unique identification</td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left">Name of the datum for later reference</td>
+</tr>
+<tr>
+<td style="text-align:left">title</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left"><em><strong>Required.</strong></em> Title of the datum. For example: <code>World Population</code>, <code>Stores around me</code>, etc.</td>
+</tr>
+<tr>
+<td style="text-align:left">description</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left">Description of this datum for commenting purpose.</td>
+</tr>
+<tr>
+<td style="text-align:left">data</td>
+<td style="text-align:center"><a href="https://vega.github.io/vega-lite/docs/data.html" target="_blank">Data</a></td>
+<td style="text-align:left"><em><strong>Required.</strong></em> An object describing the data source. <br> Reused from <a href="https://vega.github.io/vega-lite/docs/spec.html" target="_blank">Vega-Lite</a> specification</td>
+</tr>
+<tr>
+<td style="text-align:left">looks</td>
+<td style="text-align:center">String[]</td>
+<td style="text-align:left">The full list of look&apos;s unique ids which were build from that datum.  <br> <strong>Default value:</strong> <code>[]</code></td>
+</tr>
+<tr>
+<td style="text-align:left">transform</td>
+<td style="text-align:center"><a href="https://vega.github.io/vega-lite/docs/transform.html" target="_blank">Transform</a>[]</td>
+<td style="text-align:left">An array of data transformations such as filter and new field calculation. <br> Reused from <a href="https://vega.github.io/vega-lite/docs/spec.html" target="_blank">Vega-Lite</a> specification</td>
+</tr>
+<tr>
+<td style="text-align:left">authority</td>
+<td style="text-align:center">DatumAuthority</td>
+<td style="text-align:left">Information about data source author</td>
+</tr>
+<tr>
+<td style="text-align:left">fields</td>
+<td style="text-align:center">Field[]</td>
+<td style="text-align:left">List fields exposed to user</td>
+</tr>
+</tbody>
+</table>
+<h3 id="datumauthority">DatumAuthority</h3>
+<p>Contains information about data source&apos;s author, it may be person or organization, github repository with data</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left">Name of the authority for later reference.</td>
+</tr>
+<tr>
+<td style="text-align:left">site</td>
+<td style="text-align:center">URL</td>
+<td style="text-align:left"><em><strong>Required.</strong></em> Link to data repository landing or at least to article with description</td>
+</tr>
+</tbody>
+</table>
+<h2 id="field">Field</h2>
+<p>Contains human readable title and information about variable which it refers to</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left"><em><strong>Required.</strong></em> Name of the authority for later reference.</td>
+</tr>
+<tr>
+<td style="text-align:left">title</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left"><em><strong>Required.</strong></em> Link to data repository landing or at least to article with description</td>
+</tr>
+<tr>
+<td style="text-align:left">variable</td>
+<td style="text-align:center">FieldVariable</td>
+<td style="text-align:left">Define information about variable behind the field</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fieldvariable">FieldVariable</h3>
+<p>Field refers to some variable. It defines type of value and <a href="https://en.wikipedia.org/wiki/Dependent_and_independent_variables" target="_blank">statistical variable dependency</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left"><em><strong>Required.</strong></em> One of <code>string</code>, <code>number</code>, <code>date</code></td>
+</tr>
+<tr>
+<td style="text-align:left">dependent</td>
+<td style="text-align:center">Boolean</td>
+<td style="text-align:left"><em><strong>Required.</strong></em>  In Business Intelligence <br> if it equals<code>false</code> then it&apos;s <a href="https://en.wikipedia.org/wiki/Dimension_(data_warehouse" target="_blank"><code>dimention</code></a>) <br> if it equals <code>true</code> then it&apos;s <a href="https://en.wikipedia.org/wiki/Measure_(data_warehouse" target="_blank"><code>measure</code></a>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="look">Look</h2>
+<p>Define analytic visualization as combination of filters, graphic and/or table</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left">Unique identification</td>
+</tr>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left">Name of the datum for later reference.</td>
+</tr>
+<tr>
+<td style="text-align:left">title</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left"><em><strong>Required.</strong></em> Title of the datum. For example: <code>World Population</code>, <code>Stores around me</code>, etc.</td>
+</tr>
+<tr>
+<td style="text-align:left">description</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left">Description of this datum for commenting purpose.</td>
+</tr>
+<tr>
+<td style="text-align:left">preview</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left">Preview image of visualization in SVG format</td>
+</tr>
+<tr>
+<td style="text-align:left">visualization</td>
+<td style="text-align:center">VegaLiteSpec</td>
+<td style="text-align:left"><em><strong>Required.</strong></em> An object describing the data source. <br> Reused from <a href="https://vega.github.io/vega-lite/docs/spec.html" target="_blank">Vega-Lite</a> specification</td>
+</tr>
+<tr>
+<td style="text-align:left">fields</td>
+<td style="text-align:center">Field[]</td>
+<td style="text-align:left">List of all fields used in analysis</td>
+</tr>
+<tr>
+<td style="text-align:left">filters</td>
+<td style="text-align:center">LookFilter[]</td>
+<td style="text-align:left">List of all filters presentations used in analysis</td>
+</tr>
+<tr>
+<td style="text-align:left">layout</td>
+<td style="text-align:center">LookLayout</td>
+<td style="text-align:left">Define position and visibility of filter, visualisation and data table</td>
+</tr>
+<tr>
+<td style="text-align:left">table</td>
+<td style="text-align:center">LookDataTable</td>
+<td style="text-align:left">Define structure of table</td>
+</tr>
+<tr>
+<td style="text-align:left">datum</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left">Datum identification on which look was build</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lookfilter">LookFilter</h3>
+<p>Define filter presentation for particular type of value, range etc. </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">id</td>
+<td style="text-align:center">Number</td>
+<td style="text-align:left"><em><strong>Required.</strong></em> Index of filter definition in visualisation&apos;s transformation</td>
+</tr>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left">Type of filter presentation. One of <code>TextInputValue</code> etc</td>
+</tr>
+</tbody>
+</table>
+<h3 id="looklayout">LookLayout</h3>
+<p>Layout of filter, visualization and table</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">type</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left"><em><strong>Required.</strong></em>  Type of layout. One of <code>stack</code> etc <br> <strong>Default value:</strong> <code>stack</code></td>
+</tr>
+<tr>
+<td style="text-align:left">filters</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left">State of filters panel. One of <code>collapsed</code>, <code>expanded</code>, <code>disabled</code></td>
+</tr>
+<tr>
+<td style="text-align:left">visualization</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left">State of visualization panel. One of <code>collapsed</code>, <code>expanded</code>, <code>disabled</code></td>
+</tr>
+<tr>
+<td style="text-align:left">table</td>
+<td style="text-align:center">String</td>
+<td style="text-align:left">State of table panel. One of <code>collapsed</code>, <code>expanded</code>, <code>disabled</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="lookdatatable">LookDataTable</h3>
+<p>Define table structure, headers etc.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Property</th>
+<th style="text-align:center">Type</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">headers</td>
+<td style="text-align:center">String[]</td>
+<td style="text-align:left">List of all fields used in analytics and added to table. Order is important</td>
+</tr>
+</tbody>
+</table>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="functional-overview.html" class="navigation navigation-prev " aria-label="Previous page: Functional Overview">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="domain-model.html#datum" class="navigation navigation-next " aria-label="Next page: Datum">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Domain Model","level":"1.4","depth":1,"next":{"title":"Datum","level":"1.4.1","depth":2,"anchor":"#datum","path":"domain-model.md","ref":"domain-model.md#datum","articles":[{"title":"DatumAuthority","level":"1.4.1.1","depth":3,"anchor":"#datumauthority","path":"domain-model.md","ref":"domain-model.md#datumauthority","articles":[]}]},"previous":{"title":"Functional Overview","level":"1.3","depth":1,"path":"functional-overview.md","ref":"functional-overview.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","anchorjs","github","comment"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/zorko-io/zorko"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit This Page","base":"https://github.com/zorko-io/zorko/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchorjs":{},"comment":{"highlightCommented":true}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Zorko","links":{"sharing":{"facebook":false,"twitter":false}},"gitbook":">=3.0.0"},"file":{"path":"domain-model.md","mtime":"2018-01-27T18:53:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-01-28T14:19:19.792Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-comment/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
