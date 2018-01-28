@@ -1,6 +1,6 @@
 # Summary
 
-* [Context](context.md)
+* [What is Zorko all about?](what-is-zortko-all-about.md)
 * [Functional Overview](functional-overview.md)
 * [Domain Model](domain-model.md)
   * [Datum](domain-model.md#datum)
