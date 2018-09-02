@@ -1,0 +1,12 @@
+{
+  "email": "admin@zorko.io",
+  "password": "admin",
+  "createdAt": "2018-05-04T00:00:00.000+0000",
+  "updatedAt": "2018-05-04T000:00:00.000+0000",
+  "removedAt": "9999-12-31T00:00:00.000+0000",
+  "login": "admin",
+  "firstName": "admin",
+  "lastName": "admin",
+  "avatarUtl": "www.avatarUrl.com",
+  "specs": []
+}

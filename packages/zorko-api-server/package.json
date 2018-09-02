@@ -1,0 +1,54 @@
+{
+  "name": "zorko-api-server",
+  "version": "1.0.0-beta",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js",
+    "dev": "nodemon --inspect src/app.js",
+    "seeds-to-db": "node seeds/seedsToDb.js",
+    "specs-to-previews": "node seeds/specsToPreviews.js",
+    "postinstall": "npm run seeds-to-db"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yzhbankov/zorko-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yzhbankov/zorko-server/issues"
+  },
+  "homepage": "https://github.com/yzhbankov/zorko-server#readme",
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "gridfs-stream": "^1.1.1",
+    "http-errors": "^1.6.3",
+    "json-pointer": "^0.6.0",
+    "jsonwebtoken": "^8.2.1",
+    "key-mirror": "^1.0.1",
+    "livr": "^2.1.0",
+    "lodash": "^4.17.10",
+    "mongodb": "^3.0.7",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-github": "^1.1.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "rename-keys": "^2.0.1",
+    "winston": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3",
+    "rimraf": "^2.6.2",
+    "vega": "^4.0.0-rc.2",
+    "vega-lite": "^2.5.2"
+  }
+}
