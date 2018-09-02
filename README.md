@@ -11,7 +11,7 @@ An infrastructure for community to share, find and build vega visualizations
 
 
 ```bash
-npm i
+npm install
 ```
 
 ## Start Server
