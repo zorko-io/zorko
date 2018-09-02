@@ -12,10 +12,22 @@ An infrastructure for community to share, find and build vega visualizations
 
 ```bash
 npm install
+npx lerna bootstrap
 ```
 
 ## Start Server
 
+### Load Seeds
+
+>Do it once
+
+```bash
+cd ./packages/zorko-api-server
+npm run seeds-to-preview
+npm run seeds-to-db
+```
+
+### Start API server
 
 ```bash
 npm run dev:server
