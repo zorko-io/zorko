@@ -12,7 +12,6 @@ An infrastructure for community to share, find and build vega visualizations
 
 ```bash
 npm install
-npx lerna bootstrap
 ```
 
 ## Start Server

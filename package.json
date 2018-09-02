@@ -2,6 +2,7 @@
   "name": "zorko",
   "private": false,
   "scripts": {
+    "postinstall": "lerna bootstrap",
     "dev:server": "cd ./packages/zorko-api-server/ && npm run dev",
     "dev:client": "cd ./packages/zorko-web-ui/ && npm run dev",
     "clean": "lerna clean",
