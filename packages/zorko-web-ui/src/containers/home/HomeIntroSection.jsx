@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import SingInButton from "../auth/SingInButton";
-import PropTypes from "prop-types";
-import {bindActionCreators} from "redux";
-import connect from "react-redux/es/connect/connect";
-import {authLogout} from "../../action/auth";
+import LogoutButton from "../auth/LogoutButton";
 
 let feedbackUrl;
 if (typeof process.env.REACT_APP_ZORKO_FEEDBACK_FORM !== 'undefined') {
@@ -11,10 +8,6 @@ if (typeof process.env.REACT_APP_ZORKO_FEEDBACK_FORM !== 'undefined') {
 }
 
 class HomeIntroSection extends Component {
-
-  handleLogout = () => {
-    this.props.logout();
-  };
 
   render() {
     return (
@@ -28,14 +21,12 @@ class HomeIntroSection extends Component {
               Charts, graphincs and maps build on top of public data (json,csv) in the web
             </h2>
             {feedbackUrl && (
-              <a className="button is-primary" href={feedbackUrl}>
+              <a className="button" href={feedbackUrl}>
                 Contact us
               </a>
             )}
             <SingInButton />
-            <a className="button is-primary" onClick={this.handleLogout}>
-              Logout
-            </a>
+            <LogoutButton/>
           </div>
         </div>
       </section>
@@ -43,16 +34,4 @@ class HomeIntroSection extends Component {
   }
 }
 
-HomeIntroSection.propTypes = {
-  logout: PropTypes.func
-};
-
-const mapDispatchToProps = (dispatch) =>
-  bindActionCreators(
-    {
-      logout: authLogout
-    },
-    dispatch
-  )
-
-export default connect(null, mapDispatchToProps)(HomeIntroSection);
+export default HomeIntroSection;

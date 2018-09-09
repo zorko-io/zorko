@@ -1,9 +1,6 @@
 import logo from '../../logo.png'
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import {bindActionCreators} from "redux";
-import {connect} from "react-redux";
-import {authLogin} from "../../action/auth";
+import SignInButton from "../auth/SingInButton";
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -18,10 +15,6 @@ class NavigationBar extends Component {
     this.setState({
       isMenuActive: !isMenuActive
     })
-  }
-
-  handleSingIn = () => {
-    this.props.login();
   }
 
   render() {
@@ -50,12 +43,7 @@ class NavigationBar extends Component {
             <div className="navbar-end">
               <div className="navbar-item">
                 <p className="control">
-                  <a
-                    className="button is-primary"
-                    onClick={this.handleSingIn}
-                  >
-                    <strong>Sign-in</strong>
-                  </a>
+                  <SignInButton/>
                 </p>
               </div>
             </div>
@@ -66,16 +54,5 @@ class NavigationBar extends Component {
   }
 }
 
-NavigationBar.propTypes = {
-  authLogin: PropTypes.func
-};
 
-const mapDispatchToProps = (dispatch) =>
-  bindActionCreators(
-    {
-      login: authLogin
-    },
-    dispatch
-  )
-
-export default connect(null, mapDispatchToProps)(NavigationBar);
+export default NavigationBar;

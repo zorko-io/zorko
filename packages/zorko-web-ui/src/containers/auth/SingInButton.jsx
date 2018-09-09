@@ -1,18 +1,39 @@
 import React, {Component} from "react";
+import connect from "react-redux/es/connect/connect";
+import PropTypes from "prop-types";
+import {bindActionCreators} from "redux";
+import {authLogin} from "../../action/auth";
 
-let apiUrl;
+class SignInButton extends Component {
 
-if (typeof process.env.REACT_APP_ZORKO_SERVER_BASE_URL !== 'undefined') {
-  apiUrl = process.env.REACT_APP_ZORKO_SERVER_BASE_URL
-}
+  handleSingIn = () => {
+    this.props.login();
+  };
 
-export default class SignInButton extends Component {
   render() {
     return (
-      <a className="button" href={`${apiUrl}\\auth\\github\\sign-in`}>
-        Sign-in
+      <a
+        className="button is-primary"
+        onClick={this.handleSingIn}
+      >
+        <strong>Sign-in</strong>
       </a>
 
     )
   }
 }
+
+SignInButton.propTypes = {
+  login: PropTypes.func
+};
+
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      login: authLogin
+    },
+    dispatch
+  )
+
+
+export default connect(null, mapDispatchToProps)(SignInButton);

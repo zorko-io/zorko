@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import './index.css'
-import NavigationBar from './components/navigation/NavigationBar'
+import NavigationBar from './containers/navigation/NavigationBar'
 import { Switch, Route } from 'react-router-dom'
 import HomePage from './containers/home/HomePage'
 import PreviewPage from './containers/preview/PreviewPage'
