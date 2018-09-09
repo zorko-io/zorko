@@ -1,5 +1,9 @@
 import logo from '../../logo.png'
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
+import {authLogin} from "../../action/auth";
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -14,6 +18,10 @@ class NavigationBar extends Component {
     this.setState({
       isMenuActive: !isMenuActive
     })
+  }
+
+  handleSingIn = () => {
+    this.props.authLogin();
   }
 
   render() {
@@ -44,7 +52,7 @@ class NavigationBar extends Component {
                 <p className="control">
                   <a
                     className="button is-primary"
-                    href="https://github.com/jgthms/bulma/releases/download/0.7.1/bulma-0.7.1.zip"
+                    onClick={this.handleSingIn}
                   >
                     <strong>Sign-in</strong>
                   </a>
@@ -58,4 +66,16 @@ class NavigationBar extends Component {
   }
 }
 
-export default NavigationBar
+NavigationBar.propTypes = {
+  authLogin: PropTypes.func
+};
+
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      authLogin
+    },
+    dispatch
+  )
+
+export default connect(null, mapDispatchToProps)(NavigationBar);

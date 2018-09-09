@@ -18,7 +18,8 @@ export const DEFAULT_PREVIEWS_STATE = {
 
 export const DEFAULT_AUTH = {
   token: '',
-  singInUrl: ''
+  singInUrl: '',
+  profile: null
 }
 
 export const DEFAULT_APP_STATE = {

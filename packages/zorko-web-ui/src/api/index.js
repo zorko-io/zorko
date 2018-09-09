@@ -16,6 +16,10 @@ export const writeStorageItem = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value));
 }
 
+export const removeStorageItem  =  (key) => {
+  localStorage.removeItem(key);
+}
+
 export const setToken = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 }
