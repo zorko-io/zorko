@@ -1,6 +1,7 @@
 import logo from '../../logo.png'
 import React, { Component } from 'react'
 import SignInButton from "../auth/SingInButton";
+import LogoutButton from "../auth/LogoutButton";
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class NavigationBar extends Component {
               <div className="navbar-item">
                 <p className="control">
                   <SignInButton/>
+                  <LogoutButton/>
                 </p>
               </div>
             </div>

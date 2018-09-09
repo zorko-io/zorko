@@ -26,7 +26,6 @@ class HomeIntroSection extends Component {
               </a>
             )}
             <SingInButton />
-            <LogoutButton/>
           </div>
         </div>
       </section>
