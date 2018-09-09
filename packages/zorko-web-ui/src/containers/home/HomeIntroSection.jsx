@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SingInButton from "../auth/SingInButton";
-import LogoutButton from "../auth/LogoutButton";
+import {isAuthenticated} from "../../selector/auth";
+import {connect} from "react-redux";
 
 let feedbackUrl;
 if (typeof process.env.REACT_APP_ZORKO_FEEDBACK_FORM !== 'undefined') {
@@ -10,7 +11,7 @@ if (typeof process.env.REACT_APP_ZORKO_FEEDBACK_FORM !== 'undefined') {
 class HomeIntroSection extends Component {
 
   render() {
-    return (
+    return this.props.shouldShow ? (
       <section className="hero">
         <div className="hero-body">
           <div className="container">
@@ -29,8 +30,13 @@ class HomeIntroSection extends Component {
           </div>
         </div>
       </section>
-    )
+    ): null;
   }
 }
 
-export default HomeIntroSection;
+const mapStateToProps = (state) => ({
+  shouldShow: !isAuthenticated(state.auth)
+});
+
+
+export default connect(mapStateToProps)(HomeIntroSection);
