@@ -7,13 +7,8 @@ import { Switch, Route } from 'react-router-dom'
 import HomePage from './containers/home/HomePage'
 import { ConnectedRouter } from 'react-router-redux'
 import PreviewPage from './containers/preview/PreviewPage'
-import { fetchAuthAccount } from './api'
 
 class App extends Component {
-  componentDidMount() {
-    fetchAuthAccount()
-  }
-
   render() {
     return (
       <Fragment>
