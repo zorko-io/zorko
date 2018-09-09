@@ -18,13 +18,14 @@ export const DEFAULT_PREVIEWS_STATE = {
 
 export const DEFAULT_AUTH = {
   token: '',
-  singInUrl: '',
-  profile: null
 }
+
+export const DEFAULT_USER_PROFILE = {};
 
 export const DEFAULT_APP_STATE = {
   specs: DEFAULT_SPECS_STATE,
   previews: DEFAULT_PREVIEWS_STATE,
   error: DEFAULT_ERROR_STATE,
-  auth: DEFAULT_AUTH
+  auth: DEFAULT_AUTH,
+  userProfile: DEFAULT_USER_PROFILE
 }

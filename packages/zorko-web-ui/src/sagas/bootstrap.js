@@ -1,8 +1,8 @@
 import {BOOTSTRAP_START, bootstrapDone} from "../action/bootstrap";
 import * as Api from "../api";
-import {call, put, select, take} from "redux-saga/effects";
-import {authTokenSet} from "../action/auth";
-import {fetchAuthAccount} from "./auth";
+import {call, put, take} from "redux-saga/effects";
+import {AUTH_LOGIN, AUTH_LOGOUT, authTokenSet} from "../action/auth";
+import {fetchUserProfile} from "./userProfile";
 
 export default function* watchBootstrap() {
   while (true) {
@@ -12,25 +12,33 @@ export default function* watchBootstrap() {
 
       const isThirdPartySignInStarted = yield call(Api.readStorageItem, 'ZORKO_SIGN_IN_THIRD_PARTY_STARTED');
       if (isThirdPartySignInStarted) {
-        yield call(fetchAuthAccount);
+        const {token} = yield call(fetchUserProfile);
         yield call(Api.removeStorageItem, 'ZORKO_SIGN_IN_THIRD_PARTY_STARTED');
-        const token = yield select((state) => (state.auth.token));
         if (token) {
           yield call(Api.writeStorageItem, 'ZORKO_AUTH_TOKEN', token);
-        } else {
-          throw new Error('No auth token in app store');
+          yield put(authTokenSet(token));
         }
       }
 
       let token = yield call(Api.readStorageItem, 'ZORKO_AUTH_TOKEN');
       if (token) {
         yield call(Api.setToken, token);
-        yield put(authTokenSet(token))
+        yield put(authTokenSet(token));
+
+        yield take(AUTH_LOGOUT);
+        yield call(Api.removeStorageItem, 'ZORKO_AUTH_TOKEN');
+        yield call(Api.logout);
       }
       yield put(bootstrapDone());
 
+      yield take(AUTH_LOGIN);
+      token = yield call(Api.readStorageItem, 'ZORKO_AUTH_TOKEN');
+      if (!token) {
+        yield call(Api.writeStorageItem, 'ZORKO_SIGN_IN_THIRD_PARTY_STARTED', true);
+        yield call(Api.singInWithThridPatry);
+      }
     } catch (e) {
-
+       console.error(e);
     }
   }
 }

@@ -1,19 +1,21 @@
 import React, { Component } from 'react'
 import SingInButton from "../auth/SingInButton";
+import PropTypes from "prop-types";
+import {bindActionCreators} from "redux";
+import connect from "react-redux/es/connect/connect";
+import {authLogout} from "../../action/auth";
 
 let feedbackUrl;
 if (typeof process.env.REACT_APP_ZORKO_FEEDBACK_FORM !== 'undefined') {
   feedbackUrl = process.env.REACT_APP_ZORKO_FEEDBACK_FORM
 }
 
-let apiUrl;
-
-if (typeof process.env.REACT_APP_ZORKO_SERVER_BASE_URL !== 'undefined') {
-  apiUrl = process.env.REACT_APP_ZORKO_SERVER_BASE_URL
-}
-
-
 class HomeIntroSection extends Component {
+
+  handleLogout = () => {
+    this.props.logout();
+  };
+
   render() {
     return (
       <section className="hero">
@@ -31,7 +33,7 @@ class HomeIntroSection extends Component {
               </a>
             )}
             <SingInButton />
-            <a className="button is-primary" href={`${apiUrl}\\auth\\logout`}>
+            <a className="button is-primary" onClick={this.handleLogout}>
               Logout
             </a>
           </div>
@@ -41,4 +43,16 @@ class HomeIntroSection extends Component {
   }
 }
 
-export default HomeIntroSection
+HomeIntroSection.propTypes = {
+  logout: PropTypes.func
+};
+
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      logout: authLogout
+    },
+    dispatch
+  )
+
+export default connect(null, mapDispatchToProps)(HomeIntroSection);

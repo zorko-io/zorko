@@ -21,7 +21,7 @@ class NavigationBar extends Component {
   }
 
   handleSingIn = () => {
-    this.props.authLogin();
+    this.props.login();
   }
 
   render() {
@@ -73,7 +73,7 @@ NavigationBar.propTypes = {
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
-      authLogin
+      login: authLogin
     },
     dispatch
   )
