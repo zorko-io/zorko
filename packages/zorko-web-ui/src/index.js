@@ -1,16 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import createApp from './App'
 import { Provider } from 'react-redux'
 import registerServiceWorker from './registerServiceWorker'
 import createAppStore from './store'
-import createHistory from 'history/createHashHistory'
 import {bootstrapStart} from "./action/bootstrap";
+import App from "./App";
+import {HashRouter} from "react-router-dom";
 
-const history = createHistory();
-const store = createAppStore(history);
-const App = createApp(history);
+const store = createAppStore();
 
 store.dispatch(bootstrapStart({
   baseUrl: process.env.REACT_APP_ZORKO_SERVER_BASE_URL
@@ -18,7 +16,9 @@ store.dispatch(bootstrapStart({
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <HashRouter>
+      <App />
+    </HashRouter>
   </Provider>,
   document.getElementById('root')
 )
