@@ -12,7 +12,7 @@ class App extends Component {
         <main>
             <Switch>
               <Route exact={true} path={'/'} component={GalleryPage} />
-              <Route exact={true} path={'/gallery/:pageId'} component={GalleryPage} />
+              <Route path={'/gallery'} component={GalleryPage} />
             </Switch>
         </main>
       </Fragment>
