@@ -3,13 +3,11 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as R from 'ramda'
 import PreviewCard from './PreviewCard'
-import { Link } from 'react-router-dom'
 import { previews } from '../../selector'
 
 class PreviewGrid extends Component {
   render() {
-    const columns = this.columns
-    const { previousUrl, nextUrl } = this.props
+    const columns = this.columns;
     return (
       <Fragment>
         <div className="preview-grid">
@@ -25,14 +23,6 @@ class PreviewGrid extends Component {
             ))}
           </div>
         </div>
-        {previousUrl && (
-          <Link to={previousUrl}>
-            <button className="button is-disabled">Prev</button>
-          </Link>
-        )}
-        <Link to={nextUrl}>
-          <button className="button is-primary">Next</button>
-        </Link>
       </Fragment>
     )
   }
@@ -72,17 +62,16 @@ class PreviewGrid extends Component {
 }
 
 PreviewGrid.propTypes = {
-  previews: PropTypes.array.isRequired
+  previews: PropTypes.array.isRequired,
 }
 
 PreviewGrid.defaultProps = {
-  previews: []
+  previews: [],
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
   previews: previews.getAll(state),
-  previousUrl: previews.getPreviousUrl(state),
-  nextUrl: previews.getNextUrl(state)
-})
+  ...ownProps
+});
 
 export default connect(mapStateToProps)(PreviewGrid)

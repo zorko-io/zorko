@@ -4,7 +4,7 @@ import {isAuthenticated} from "../../selector/auth";
 import {connect} from "react-redux";
 import ContactUsButton from "../feedback/ContactUsButton";
 
-class HomeIntroSection extends Component {
+class GalleryIntroSection extends Component {
 
   render() {
     return this.props.shouldShow ? (
@@ -31,4 +31,4 @@ const mapStateToProps = (state) => ({
 });
 
 
-export default connect(mapStateToProps)(HomeIntroSection);
+export default connect(mapStateToProps)(GalleryIntroSection);

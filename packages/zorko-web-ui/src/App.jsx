@@ -2,8 +2,7 @@ import React, { Component, Fragment } from 'react'
 import './index.css'
 import NavigationBar from './containers/navigation/NavigationBar'
 import { Switch, Route } from 'react-router-dom'
-import HomePage from './containers/home/HomePage'
-import PreviewPage from './containers/preview/PreviewPage'
+import GalleryPage from './containers/gallery/GalleryPage'
 
 class App extends Component {
   render() {
@@ -12,9 +11,8 @@ class App extends Component {
         <NavigationBar />
         <main>
             <Switch>
-              <Route exact={true} path={'/'} component={HomePage} />
-              <Route exact={true} path={'/specs'} component={PreviewPage} />
-              <Route exact={true} path={'/specs/:specId'} component={PreviewPage} />
+              <Route exact={true} path={'/'} component={GalleryPage} />
+              <Route exact={true} path={'/gallery/:pageId'} component={GalleryPage} />
             </Switch>
         </main>
       </Fragment>

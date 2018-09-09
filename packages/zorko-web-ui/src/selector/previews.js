@@ -14,16 +14,12 @@ export const getPreviousUrl = (state) => {
   if (pageNumber === 0) {
     result = ROUNTE_HOME
   } else if (pageNumber > 0) {
-    result = ROUNTE_SPECS_PAGGINATION.replace(':specId', pageNumber)
+    result = ROUNTE_SPECS_PAGGINATION.replace(':pageId', pageNumber)
   }
   return result
 }
 
 export const getNextUrl = (state) => {
   const pageNumber = getPageNumber(state) + 1
-  return ROUNTE_SPECS_PAGGINATION.replace(':specId', pageNumber)
+  return ROUNTE_SPECS_PAGGINATION.replace(':pageId', pageNumber)
 }
-
-export const getLimit = (state) => state.previews.limit
-
-export const getOffset = (state) => state.previews.offset
