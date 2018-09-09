@@ -2,11 +2,7 @@ import React, { Component } from 'react'
 import SingInButton from "../auth/SingInButton";
 import {isAuthenticated} from "../../selector/auth";
 import {connect} from "react-redux";
-
-let feedbackUrl;
-if (typeof process.env.REACT_APP_ZORKO_FEEDBACK_FORM !== 'undefined') {
-  feedbackUrl = process.env.REACT_APP_ZORKO_FEEDBACK_FORM
-}
+import ContactUsButton from "../feedback/ContactUsButton";
 
 class HomeIntroSection extends Component {
 
@@ -21,11 +17,7 @@ class HomeIntroSection extends Component {
             <h2 className="subtitle">
               Charts, graphincs and maps build on top of public data (json,csv) in the web
             </h2>
-            {feedbackUrl && (
-              <a className="button" href={feedbackUrl}>
-                Contact us
-              </a>
-            )}
+            <ContactUsButton/>
             <SingInButton />
           </div>
         </div>
