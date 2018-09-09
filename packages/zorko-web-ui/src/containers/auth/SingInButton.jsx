@@ -3,6 +3,7 @@ import connect from "react-redux/es/connect/connect";
 import PropTypes from "prop-types";
 import {bindActionCreators} from "redux";
 import {authLogin} from "../../action/auth";
+import {auth} from "../../selector";
 
 class SignInButton extends Component {
 
@@ -11,21 +12,24 @@ class SignInButton extends Component {
   };
 
   render() {
-    return (
+    return this.props.shouldShow ? (
       <a
         className="button is-primary"
         onClick={this.handleSingIn}
       >
         <strong>Sign-in</strong>
-      </a>
-
-    )
+      </a>) : null;
   }
 }
 
 SignInButton.propTypes = {
+  shouldShow: PropTypes.bool,
   login: PropTypes.func
 };
+
+const mapStateToProps = (state) => ({
+  shouldShow: !auth.isAuthenticated(state.auth)
+});
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
@@ -36,4 +40,4 @@ const mapDispatchToProps = (dispatch) =>
   )
 
 
-export default connect(null, mapDispatchToProps)(SignInButton);
+export default connect(mapStateToProps, mapDispatchToProps)(SignInButton);
