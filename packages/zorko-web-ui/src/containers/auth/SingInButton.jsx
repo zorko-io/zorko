@@ -3,7 +3,7 @@ import connect from "react-redux/es/connect/connect";
 import PropTypes from "prop-types";
 import {bindActionCreators} from "redux";
 import {authLogin} from "../../action/auth";
-import {auth} from "../../selector";
+import {isAuthenticated} from "../../selector/auth";
 
 class SignInButton extends Component {
 
@@ -28,7 +28,7 @@ SignInButton.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  shouldShow: !auth.isAuthenticated(state.auth)
+  shouldShow: !isAuthenticated(state.auth)
 });
 
 const mapDispatchToProps = (dispatch) =>

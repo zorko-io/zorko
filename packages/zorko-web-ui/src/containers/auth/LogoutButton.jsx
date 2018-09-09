@@ -3,6 +3,7 @@ import connect from "react-redux/es/connect/connect";
 import PropTypes from "prop-types";
 import {bindActionCreators} from "redux";
 import {authLogout} from "../../action/auth";
+import {isAuthenticated} from "../../selector/auth";
 
 class LogoutButton extends Component {
 
@@ -11,18 +12,21 @@ class LogoutButton extends Component {
   };
 
   render() {
-    return (
-      <a className="button" onClick={this.handleLogout}>
-        Logout
-      </a>
-
-    )
+    return this.props.shouldShow ? (<a className="button" onClick={this.handleLogout}>
+      Logout
+    </a>): null;
   }
 }
 
 LogoutButton.propTypes = {
+  shouldShow: PropTypes.bool,
   logout: PropTypes.func
 };
+
+const mapStateToProps = (state) => ({
+  shouldShow: isAuthenticated(state.auth)
+});
+
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
@@ -33,4 +37,4 @@ const mapDispatchToProps = (dispatch) =>
   )
 
 
-export default connect(null, mapDispatchToProps)(LogoutButton);
+export default connect(mapStateToProps, mapDispatchToProps)(LogoutButton);
