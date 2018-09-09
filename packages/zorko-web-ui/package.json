@@ -25,17 +25,10 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "format": "prettier config .prettierrc --write 'src/**/*.{js,jsx}'",
-    "precommit": "lint-staged",
     "build:css": "npm run build:sass && npm run build:postcss",
     "build:sass":"node-sass-chokidar ./src/styles/ -o ./src",
     "build:postcss": "postcss --use autoprefixer --output src/index.css src/index.css",
     "watch:css": "node-sass-chokidar src/styles/ -o src/ --watch --recursive"
-  },
-  "lint-staged": {
-    "*.{js,jsx}": [
-      "prettier --write",
-      "git add ."
-    ]
   },
   "devDependencies": {
     "@types/history": "^4.6.2",
