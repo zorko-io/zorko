@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
+import SingInButton from "../auth/SingInButton";
 
-let feedbackUrl
-let apiUrl
+let feedbackUrl;
 if (typeof process.env.REACT_APP_ZORKO_FEEDBACK_FORM !== 'undefined') {
   feedbackUrl = process.env.REACT_APP_ZORKO_FEEDBACK_FORM
 }
+
+let apiUrl;
+
 if (typeof process.env.REACT_APP_ZORKO_SERVER_BASE_URL !== 'undefined') {
   apiUrl = process.env.REACT_APP_ZORKO_SERVER_BASE_URL
 }
+
 
 class HomeIntroSection extends Component {
   render() {
@@ -26,9 +30,7 @@ class HomeIntroSection extends Component {
                 Contact us
               </a>
             )}
-            <a className="button" href={`${apiUrl}\\auth\\github\\sign-in`}>
-              Sign-in
-            </a>
+            <SingInButton />
             <a className="button is-primary" href={`${apiUrl}\\auth\\logout`}>
               Logout
             </a>

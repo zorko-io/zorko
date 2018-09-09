@@ -16,8 +16,14 @@ export const DEFAULT_PREVIEWS_STATE = {
   ...API_DEFAULT_PAGGINATION_OPTIONS
 }
 
+export const DEFAULT_AUTH = {
+  token: '',
+  singInUrl: ''
+}
+
 export const DEFAULT_APP_STATE = {
   specs: DEFAULT_SPECS_STATE,
   previews: DEFAULT_PREVIEWS_STATE,
-  error: DEFAULT_ERROR_STATE
+  error: DEFAULT_ERROR_STATE,
+  auth: DEFAULT_AUTH
 }
