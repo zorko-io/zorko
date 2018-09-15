@@ -1,4 +1,4 @@
-import logo from '../../logo.png'
+import logo from '../../../logo.png'
 import React, { Component } from 'react'
 import AuthButton from "../auth/AuthButton";
 import LogoutButton from "../auth/LogoutButton";

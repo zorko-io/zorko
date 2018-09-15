@@ -1,13 +1,14 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 import Gallery from "./Gallery";
+import Page from '../page/Page'
 
 class GalleryPage extends Component {
 
   render() {
     return  (
-     <Fragment>
+     <Page>
        <Gallery/>
-     </Fragment>
+     </Page>
     );
   }
 }

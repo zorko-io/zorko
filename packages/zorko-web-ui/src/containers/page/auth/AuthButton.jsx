@@ -2,8 +2,8 @@ import React, {Component} from "react";
 import connect from "react-redux/es/connect/connect";
 import PropTypes from "prop-types";
 import {bindActionCreators} from "redux";
-import {authLogin} from "../../action/auth";
-import {isAuthenticated} from "../../selector/auth";
+import {authLogin} from "../../../action/auth";
+import {isAuthenticated} from "../../../selector/auth";
 
 class SignButton extends Component {
 

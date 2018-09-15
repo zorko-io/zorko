@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import * as R from 'ramda'
 import PreviewCard from './PreviewCard'
 import { previews } from '../../../selector/index'
+import { Link } from 'react-router-dom'
 
 class PreviewGrid extends Component {
   render() {
@@ -16,7 +17,9 @@ class PreviewGrid extends Component {
               <div key={i} className="column">
                 {rows.map((spec, j) => (
                   <div key={`${i}-${j}`} className="preview-grid-item">
-                    <PreviewCard title={spec.title} content={spec.preview} />
+                    <Link to={`/specs/${spec.id}`}>
+                      <PreviewCard title={spec.title} content={spec.preview} />
+                    </Link>
                   </div>
                 ))}
               </div>

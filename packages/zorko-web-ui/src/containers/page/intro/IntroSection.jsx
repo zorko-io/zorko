@@ -1,13 +1,19 @@
 import React, { Component } from 'react'
 import AuthButton from "../auth/AuthButton";
-import {isAuthenticated} from "../../selector/auth";
+import {isAuthenticated} from "../../../selector/auth";
 import {connect} from "react-redux";
 import ContactUsButton from "../feedback/ContactUsButton";
+import { withRouter } from 'react-router'
 
 class IntroSection extends Component {
 
+  get shouldShow () {
+    console.log('SPEC_ID', this.props.match.params)
+    return !this.props.match.params.specId && this.props.shouldShow;
+  }
+
   render() {
-    return this.props.shouldShow ? (
+    return this.shouldShow ? (
       <section className="hero">
         <div className="hero-body">
           <div className="container">
@@ -24,7 +30,6 @@ class IntroSection extends Component {
               <p className={'control'}>
                 <AuthButton label={'Sign up for Free'} />
               </p>
-
             </div>
           </div>
         </div>
@@ -38,4 +43,4 @@ const mapStateToProps = (state) => ({
 });
 
 
-export default connect(mapStateToProps)(IntroSection);
+export default withRouter(connect(mapStateToProps)(IntroSection));
