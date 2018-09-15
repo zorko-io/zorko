@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import SingInButton from "../auth/SingInButton";
+import AuthButton from "../auth/AuthButton";
 import {isAuthenticated} from "../../selector/auth";
 import {connect} from "react-redux";
 import ContactUsButton from "../feedback/ContactUsButton";
@@ -22,7 +22,7 @@ class IntroSection extends Component {
                 <ContactUsButton/>
               </p>
               <p className={'control'}>
-                <SingInButton />
+                <AuthButton label={'Sign up for Free'} />
               </p>
 
             </div>

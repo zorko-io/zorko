@@ -1,6 +1,6 @@
 import logo from '../../logo.png'
 import React, { Component } from 'react'
-import SignInButton from "../auth/SingInButton";
+import AuthButton from "../auth/AuthButton";
 import LogoutButton from "../auth/LogoutButton";
 
 class NavigationBar extends Component {
@@ -44,7 +44,7 @@ class NavigationBar extends Component {
             <div className="navbar-end">
               <div className="navbar-item">
                 <p className="control">
-                  <SignInButton/>
+                  <AuthButton/>
                   <LogoutButton/>
                 </p>
               </div>

@@ -5,30 +5,34 @@ import {bindActionCreators} from "redux";
 import {authLogin} from "../../action/auth";
 import {isAuthenticated} from "../../selector/auth";
 
-class SignInButton extends Component {
+class SignButton extends Component {
 
   handleSingIn = () => {
     this.props.login();
   };
 
   render() {
-    return this.props.shouldShow ? (
+    const {shouldShow, label } = this.props;
+
+    return shouldShow ? (
       <a
         className="button is-primary"
         onClick={this.handleSingIn}
       >
-        <strong>Sign-in</strong>
+        <strong>{label ? label : 'Sing in'}</strong>
       </a>) : null;
   }
 }
 
-SignInButton.propTypes = {
+SignButton.propTypes = {
   shouldShow: PropTypes.bool,
-  login: PropTypes.func
+  login: PropTypes.func,
+  label: PropTypes.string
 };
 
-const mapStateToProps = (state) => ({
-  shouldShow: !isAuthenticated(state.auth)
+const mapStateToProps = (state, ownProps) => ({
+  shouldShow: !isAuthenticated(state.auth),
+  ...ownProps
 });
 
 const mapDispatchToProps = (dispatch) =>
@@ -40,4 +44,4 @@ const mapDispatchToProps = (dispatch) =>
   )
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignInButton);
+export default connect(mapStateToProps, mapDispatchToProps)(SignButton);
