@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { specLookupsRequest } from '../../action'
 import { withRouter } from 'react-router'
+import ScrollToTop from '../../components/ScrollToTop'
 
 const getPageId = (props) => (Number(props.match.params.pageId))
 
@@ -46,6 +47,7 @@ class Gallery extends Component {
 
     return (
       <Fragment>
+        <ScrollToTop>
         <PreviewGrid/>
         <div className={'field is-grouped gallery-pagination-center'}>
           {this.shouldShowPrevControl && (
@@ -61,6 +63,7 @@ class Gallery extends Component {
             </Link>
           </p>
         </div>
+        </ScrollToTop>
       </Fragment>
     )
   }
