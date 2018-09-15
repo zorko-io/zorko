@@ -26,18 +26,15 @@ class PreviewCard extends Component {
           />
         </div>
         <div className="card-content">
-          <div className="content">
-            <div className="item-title">
-              <span>{title}</span>
+          <div className="media">
+            <div className="media-left">
+              <figure className="image is-32x32">
+                <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image"/>
+              </figure>
             </div>
-            <div className="card-content-author">
-              <span
-                className="card-content-author-ava"
-                style={{
-                  backgroundImage: `url(https://bulma.io/images/placeholders/96x96.png)`
-                }}
-              />
-              <span className="card-content-author-login">admin</span>
+            <div className="media-content">
+              <p className="title">{title}</p>
+              <p className="subtitle">nesterone</p>
             </div>
           </div>
         </div>
