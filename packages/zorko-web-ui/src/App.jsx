@@ -11,11 +11,13 @@ class App extends Component {
       <Fragment>
         <NavigationBar />
         <main>
+          <div className={'container'}>
             <Switch>
               <Route exact={true} path={'/'} component={GalleryPage} />
               <Route exact={true} path={'/gallery/0'} render={() => <Redirect to={'/'}/>} />
               <Route path={'/gallery/:pageId'} component={GalleryPage} />
             </Switch>
+          </div>
         </main>
       </Fragment>
     )

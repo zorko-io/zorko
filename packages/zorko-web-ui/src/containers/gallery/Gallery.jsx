@@ -27,7 +27,7 @@ class Gallery extends Component {
   }
 
   requestPreviews = (pageId) => {
-    let limit = 10;
+    let limit = 9;
     let offset = 1;
 
     if (pageId) {
@@ -47,14 +47,18 @@ class Gallery extends Component {
     return (
       <Fragment>
         <PreviewGrid />
-        {this.shouldShowPrevControl && (
-          <Link to={`${match.path.replace(':pageId', this.pageId - 1)}`}>
-            <button className="button is-disabled">Prev</button>
+
+        <div className={'container gallery-pagination'}>
+          {this.shouldShowPrevControl && (
+            <Link to={`${match.path.replace(':pageId', this.pageId - 1)}`}>
+              <button className="button is-disabled">Prev</button>
+            </Link>
+          )}
+          <Link to={`/gallery/${(this.pageId ? this.pageId : 0) + 1}`}>
+            <button className="button is-primary">Next</button>
           </Link>
-        )}
-        <Link to={`/gallery/${(this.pageId ? this.pageId : 0) + 1}`}>
-          <button className="button is-primary">Next</button>
-        </Link>
+        </div>
+
       </Fragment>
     )
   }
