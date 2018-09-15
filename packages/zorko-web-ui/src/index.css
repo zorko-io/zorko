@@ -6472,5 +6472,5 @@ label.panel-block {
   height: 20px;
   display: inline-block; }
 
-.gallery-pagination {
-  text-align: center; }
+.field.is-grouped.gallery-pagination-center {
+  justify-content: center; }

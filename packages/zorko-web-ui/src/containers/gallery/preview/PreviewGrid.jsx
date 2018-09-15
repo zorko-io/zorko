@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as R from 'ramda'
 import PreviewCard from './PreviewCard'
-import { previews } from '../../selector'
+import { previews } from '../../../selector/index'
 
 class PreviewGrid extends Component {
   render() {

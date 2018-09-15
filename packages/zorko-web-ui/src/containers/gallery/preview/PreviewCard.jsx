@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { resizeSvgContent } from '../../util/resize-svg-content'
+import { resizeSvgContent } from '../../../util/resize-svg-content'
 
 const DEFAULT_MIN_WIDTH = 280
 const DEFAULT_MIN_HEIGHT = 158

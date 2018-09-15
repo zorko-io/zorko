@@ -1,64 +1,66 @@
 import React, { Component, Fragment } from 'react'
-import PreviewGrid from '../preview/PreviewGrid'
+import PreviewGrid from './preview/PreviewGrid'
 import connect from 'react-redux/es/connect/connect'
-import {Link} from "react-router-dom";
-import {bindActionCreators} from "redux";
-import {specLookupsRequest} from "../../action";
-import {withRouter} from "react-router";
+import { Link } from 'react-router-dom'
+import { bindActionCreators } from 'redux'
+import { specLookupsRequest } from '../../action'
+import { withRouter } from 'react-router'
 
-const getPageId = (props) => (Number(props.match.params.pageId));
+const getPageId = (props) => (Number(props.match.params.pageId))
 
 class Gallery extends Component {
 
-  get pageId () {
-    return getPageId(this.props);
+  get pageId() {
+    return getPageId(this.props)
   }
 
-  componentDidMount () {
-    this.requestPreviews(this.pageId);
+  componentDidMount() {
+    this.requestPreviews(this.pageId)
   }
 
-  componentWillReceiveProps (nextProps) {
-    const prevPageId = this.pageId;
-    const nextPageId = getPageId(nextProps);
+  componentWillReceiveProps(nextProps) {
+    const prevPageId = this.pageId
+    const nextPageId = getPageId(nextProps)
     if (prevPageId !== nextPageId) {
-      this.requestPreviews(nextPageId);
+      this.requestPreviews(nextPageId)
     }
   }
 
   requestPreviews = (pageId) => {
-    let limit = 9;
-    let offset = 1;
+    let limit = 9
+    let offset = 1
 
     if (pageId) {
-      offset = pageId * 9;
-      limit =  9;
+      offset = pageId * 9
+      limit = 9
     }
-    this.props.requestPreviews({limit, offset})
-  };
+    this.props.requestPreviews({ limit, offset })
+  }
 
-  get shouldShowPrevControl () {
-    return this.pageId > 0;
+  get shouldShowPrevControl() {
+    return this.pageId > 0
   }
 
   render() {
-    const { match } = this.props;
+    const { match } = this.props
 
     return (
       <Fragment>
-        <PreviewGrid />
-
-        <div className={'container gallery-pagination'}>
+        <PreviewGrid/>
+        <div className={'field is-grouped gallery-pagination-center'}>
           {this.shouldShowPrevControl && (
-            <Link to={`${match.path.replace(':pageId', this.pageId - 1)}`}>
-              <button className="button is-disabled">Prev</button>
-            </Link>
+            <p className={'control'}>
+              <Link to={`${match.path.replace(':pageId', this.pageId - 1)}`}>
+                <button className="button is-disabled">Prev</button>
+              </Link>
+            </p>
           )}
-          <Link to={`/gallery/${(this.pageId ? this.pageId : 0) + 1}`}>
-            <button className="button is-primary">Next</button>
-          </Link>
+          <p className={'control'}>
+            <Link to={`/gallery/${(this.pageId ? this.pageId : 0) + 1}`}>
+              <button className="button is-primary">Next</button>
+            </Link>
+          </p>
         </div>
-
       </Fragment>
     )
   }
@@ -70,7 +72,7 @@ const mapDispatchToProps = (dispatch) =>
       requestPreviews: specLookupsRequest
     },
     dispatch
-  );
+  )
 
 export default withRouter(connect(
   null, mapDispatchToProps
