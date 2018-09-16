@@ -1,6 +1,7 @@
 export const SPEC_LOOKUPS_REQUEST = 'SPEC_LOOKUPS_REQUEST'
 export const SPEC_LOOKUPS_SET = 'SPEC_LOOKUPS_SET'
 export const SPEC_LOOKUPS_ERROR = 'SPEC_LOOKUPS_ERROR'
+export const SPEC_REQUEST = 'SPEC_REQUEST';
 
 export const specLookupsRequest = (options) => ({
   type: SPEC_LOOKUPS_REQUEST,
@@ -15,4 +16,9 @@ export const specLookupsSet = (lookups) => ({
 export const specLookupsError = (error) => ({
   type: SPEC_LOOKUPS_ERROR,
   payload: error
+})
+
+export const specRequest = (id) => ({
+  type: SPEC_REQUEST,
+  payload: {id}
 })
