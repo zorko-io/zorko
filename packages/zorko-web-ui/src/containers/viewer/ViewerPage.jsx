@@ -1,7 +1,12 @@
 import React, {Component} from 'react'
 import Page from '../page/Page'
+import PropTypes from "prop-types";
 
 class ViewerPage extends Component {
+
+  componentDidMount () {
+
+  }
 
   render() {
     return  (
@@ -10,6 +15,10 @@ class ViewerPage extends Component {
       </Page>
     );
   }
+}
+
+ViewerPage.propTypes = {
+  requestSpec: PropTypes.bool
 }
 
 export default ViewerPage;
