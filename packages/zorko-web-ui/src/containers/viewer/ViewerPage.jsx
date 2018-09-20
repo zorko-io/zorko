@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { bindActionCreators } from 'redux'
 import { specRequest } from '../../action'
 import { connect } from 'react-redux'
+import Vega from 'react-vega';
 
 class ViewerPage extends Component {
 
@@ -15,16 +16,20 @@ class ViewerPage extends Component {
   }
 
   render() {
+    const {spec} = this.props;
+
     return  (
       <Page shouldShowIntroSection={false}>
         <span>Viewer</span>
+        {spec && <Vega spec={spec}/> }
       </Page>
     );
   }
 }
 
 ViewerPage.propTypes = {
-  requestSpec: PropTypes.func
+  requestSpec: PropTypes.func,
+  spec: PropTypes.object
 }
 
 
