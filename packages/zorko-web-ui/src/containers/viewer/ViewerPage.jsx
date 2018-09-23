@@ -32,6 +32,9 @@ ViewerPage.propTypes = {
   spec: PropTypes.object
 }
 
+const mapStateToProps = (state) => ({
+  spec: state.specs.byId[state.viewer.selectedSpecId]
+})
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
@@ -41,4 +44,4 @@ const mapDispatchToProps = (dispatch) =>
     dispatch
   )
 
-export default connect(null, mapDispatchToProps)(ViewerPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewerPage);

@@ -20,6 +20,10 @@ export const DEFAULT_AUTH = {
   token: '',
 }
 
+export const DEFAULT_VIEWER = {
+  selectedSpecId: null
+}
+
 export const DEFAULT_USER_PROFILE = {};
 
 export const DEFAULT_APP_STATE = {
@@ -27,5 +31,6 @@ export const DEFAULT_APP_STATE = {
   previews: DEFAULT_PREVIEWS_STATE,
   error: DEFAULT_ERROR_STATE,
   auth: DEFAULT_AUTH,
-  userProfile: DEFAULT_USER_PROFILE
+  userProfile: DEFAULT_USER_PROFILE,
+  viewer: DEFAULT_VIEWER
 }

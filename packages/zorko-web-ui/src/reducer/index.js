@@ -4,13 +4,15 @@ import specs from './specs'
 import error from './error'
 import auth from "./auth";
 import userProfile from './userProfile'
+import viewer from './viewer'
 
 const rootReducer = combineReducers({
   auth,
   specs,
   previews,
   error,
-  userProfile
+  userProfile,
+  viewer
 });
 
 export default rootReducer
