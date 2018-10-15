@@ -28,28 +28,37 @@ const loadSeedsToDb = async () => {
 
                 const specs = await readSpecs();
 
-                const specInsertResults = await Promise.all(specs.map((spec, index) => specsCollection.insert({
-                    spec,
-                    title: spec.description,
-                    createdBy: {
-                        login: admin.login,
-                        firstName: admin.firstName,
-                        lastName: admin.lastName,
-                        avatarUtl: admin.avatarUtl,
-                    },
-                    preview: previews[index],
-                    createdAt: DEFAULT_DATE,
-                    updatedAt: DEFAULT_DATE,
-                })));
+                const specInsertResults = await Promise.all(specs.map((spec, index) => {
+                    const schema = spec.$schema;
+                    // BJSON doesn't allow '$' in key
+                    delete spec.$schema;
+
+                    return specsCollection.insertOne({
+                        spec: {
+                            ...spec,
+                            schema,
+                        },
+                        title: spec.description,
+                        createdBy: {
+                            login: admin.login,
+                            firstName: admin.firstName,
+                            lastName: admin.lastName,
+                            avatarUtl: admin.avatarUtl,
+                        },
+                        preview: previews[index],
+                        createdAt: DEFAULT_DATE,
+                        updatedAt: DEFAULT_DATE,
+                    });
+                }));
 
                 const specIds = specInsertResults.reduce((memo, result) => {
-                    memo.push(...Object.values(result.insertedIds));
+                    memo.push(result.insertedId.valueOf());
                     return memo;
                 }, []);
 
                 console.log(`Database successfully filled with ${specIds.length} specs`);
 
-                await usersCollection.insert({
+                await usersCollection.insertOne({
                     email: admin.email,
                     login: admin.login,
                     password: admin.password,
