@@ -11,9 +11,9 @@
   },{
     "transform": [
       {
-        "summarize": [
-          {"aggregate": "mean", "field": "Miles_per_Gallon", "as": "mean_MPG"},
-          {"aggregate": "stdev", "field": "Miles_per_Gallon", "as": "dev_MPG"}
+        "aggregate": [
+          {"op": "mean", "field": "Miles_per_Gallon", "as": "mean_MPG"},
+          {"op": "stdev", "field": "Miles_per_Gallon", "as": "dev_MPG"}
         ],
         "groupby": []
       },
@@ -29,12 +29,13 @@
     "layer": [{
       "mark": "rule",
       "encoding": {
-        "y": {"field": "mean_MPG","type": "quantitative"}
+        "y": {"field": "mean_MPG","type": "quantitative", "axis": null}
       }
     },{
       "mark": "rect",
       "encoding": {
-        "y": {"field": "lower","type": "quantitative"},
+        "y": {"field": "lower","type": "quantitative",
+          "axis": null},
         "y2": {"field": "upper","type": "quantitative"},
         "opacity": {"value": 0.2}
       }

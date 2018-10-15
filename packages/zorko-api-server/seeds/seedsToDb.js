@@ -28,28 +28,36 @@ const loadSeedsToDb = async () => {
 
                 const specs = await readSpecs();
 
-                const specInsertResults = await Promise.all(specs.map((spec, index) => {
+                let specInsertResults = await Promise.all(specs.map(async (spec, index) => {
                     const schema = spec.$schema;
                     // BJSON doesn't allow '$' in key
                     delete spec.$schema;
 
-                    return specsCollection.insertOne({
-                        spec: {
-                            ...spec,
-                            schema,
-                        },
-                        title: spec.description,
-                        createdBy: {
-                            login: admin.login,
-                            firstName: admin.firstName,
-                            lastName: admin.lastName,
-                            avatarUtl: admin.avatarUtl,
-                        },
-                        preview: previews[index],
-                        createdAt: DEFAULT_DATE,
-                        updatedAt: DEFAULT_DATE,
-                    });
+                    let result;
+                    try {
+                        result = await specsCollection.insertOne({
+                            spec: {
+                                ...spec,
+                                schema,
+                            },
+                            title: spec.description,
+                            createdBy: {
+                                login: admin.login,
+                                firstName: admin.firstName,
+                                lastName: admin.lastName,
+                                avatarUtl: admin.avatarUtl,
+                            },
+                            preview: previews[index],
+                            createdAt: DEFAULT_DATE,
+                            updatedAt: DEFAULT_DATE,
+                        });
+                    } catch (error) {
+                        console.warn('Issues with saving spec', error);
+                    }
+                    return result;
                 }));
+
+                specInsertResults = specInsertResults.filter(Boolean);
 
                 const specIds = specInsertResults.reduce((memo, result) => {
                     memo.push(result.insertedId.valueOf());

@@ -12,11 +12,21 @@ export default function specReducer(state = initialState, action) {
 
       const payload = action.payload;
       let spec = payload.spec
-
+      // TODO: move to the server
       if (spec.data && spec.data.url){
         let url = spec.data.url
 
         spec.data.url = `https://raw.githubusercontent.com/vega/vega-datasets/gh-pages/${url}`;
+      }
+
+      if (spec.layer && spec.layer.length > 0){
+        spec.layer = spec.layer.map(layer=> {
+          let result = {...layer};
+          if (layer.data && layer.data.url) {
+             result.data.url = `https://raw.githubusercontent.com/vega/vega-datasets/gh-pages/${layer.data.url}`;
+          }
+          return result;
+        })
       }
 
       return {
