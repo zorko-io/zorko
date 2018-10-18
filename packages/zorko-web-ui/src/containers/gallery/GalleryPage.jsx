@@ -7,7 +7,9 @@ class GalleryPage extends Component {
   render() {
     return  (
      <Page>
-       <Gallery/>
+       <div className={'container'}>
+        <Gallery/>
+       </div>
      </Page>
     );
   }

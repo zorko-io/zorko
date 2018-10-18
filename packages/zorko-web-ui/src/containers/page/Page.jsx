@@ -13,9 +13,7 @@ class Page extends Component {
         <NavigationBar/>
         <IntroSection/>
         <main className={'app-main'}>
-          <div className={'container'}>
             {this.props.children}
-          </div>
         </main>
         <Footer/>
       </Fragment>

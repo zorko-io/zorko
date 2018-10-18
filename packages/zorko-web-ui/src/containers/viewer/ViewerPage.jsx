@@ -1,29 +1,32 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import Page from '../page/Page'
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { specRequest } from '../../action'
 import { connect } from 'react-redux'
-import Vega from 'react-vega';
+import Vega from 'react-vega'
 
 class ViewerPage extends Component {
 
-  componentDidMount () {
+  componentDidMount() {
     let specId = this.props.match.params.specId
-    if (specId){
-      this.props.requestSpec(specId);
+    if (specId) {
+      this.props.requestSpec(specId)
     }
   }
 
   render() {
-    const {spec} = this.props;
+    const { spec } = this.props
 
-    return  (
+    return (
       <Page shouldShowIntroSection={false}>
-        <span>Viewer</span>
-        {spec && <Vega spec={spec}/> }
+        <div className={'container viewer-center'}>
+          <div className="viewer-chart">
+            {spec && <Vega spec={spec}/>}
+          </div>
+        </div>
       </Page>
-    );
+    )
   }
 }
 
@@ -44,4 +47,4 @@ const mapDispatchToProps = (dispatch) =>
     dispatch
   )
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewerPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewerPage)
