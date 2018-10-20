@@ -21,7 +21,9 @@ class ViewerPage extends Component {
     return (
       <ViewerPageLayout>
         <div className="viewer-chart">
+          <div className="viewer-chart-wrap">
             {spec && <Vega spec={spec}/>}
+          </div>
         </div>
       </ViewerPageLayout>
     )
