@@ -6423,8 +6423,8 @@ label.panel-block {
   display: flex;
   flex-wrap: wrap; }
   .preview-grid .preview-grid-item {
-    padding: 0;
-    margin: 0 15px 30px 15px;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
     width: 280px; }
     .preview-grid .preview-grid-item .card {
       border: solid 1px #f5f5f5; }
