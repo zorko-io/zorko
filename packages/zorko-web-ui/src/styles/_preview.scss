@@ -1,6 +1,7 @@
 .preview-grid {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 
   .preview-grid-item {
     padding-top: 0.75rem;

@@ -6421,7 +6421,8 @@ label.panel-block {
 
 .preview-grid {
   display: flex;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  justify-content: center; }
   .preview-grid .preview-grid-item {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
