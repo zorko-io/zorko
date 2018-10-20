@@ -3,10 +3,9 @@ import React, { Component } from 'react'
 export default class Footer extends Component {
   render = () => (
     <footer className="footer">
-      <div className="content has-text-centered">
+      <div className="footer-content">
         <p>
-          The source code is licensed
-          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>
+          2018 Zorko.io Terms
         </p>
       </div>
     </footer>

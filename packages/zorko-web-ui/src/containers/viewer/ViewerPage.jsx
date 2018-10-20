@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Page from '../page/Page'
+import ViewerPageLayout from './ViewerPageLayout'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { specRequest } from '../../action'
@@ -19,13 +19,11 @@ class ViewerPage extends Component {
     const { spec } = this.props
 
     return (
-      <Page shouldShowIntroSection={false}>
-        <div className={'container viewer-center'}>
-          <div className="viewer-chart">
+      <ViewerPageLayout>
+        <div className="viewer-chart">
             {spec && <Vega spec={spec}/>}
-          </div>
         </div>
-      </Page>
+      </ViewerPageLayout>
     )
   }
 }

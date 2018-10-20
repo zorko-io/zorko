@@ -6463,6 +6463,23 @@ label.panel-block {
 .viewer-center {
   text-align: center; }
 
+.viewer-page-wrap {
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%; }
+
+.viewer-content {
+  flex-grow: 1;
+  padding-top: 3.25rem;
+  width: 100%; }
+
+.footer {
+  padding: 0; }
+  .footer .footer-content {
+    padding: 1rem; }
+
 .app-main {
   background-color: #f0f0f0;
   padding-top: 2rem;
