@@ -6492,7 +6492,8 @@ label.panel-block {
 
 @media (min-width: 1088px) {
   .navbar-title {
-    flex-grow: 10; } }
+    padding-left: 2rem;
+    flex-grow: 0; } }
 
 .app-main {
   background-color: #f0f0f0;
