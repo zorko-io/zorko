@@ -19,7 +19,7 @@ class ViewerPage extends Component {
     const { spec } = this.props
 
     return (
-      <ViewerPageLayout>
+      <ViewerPageLayout title="Test">
         <div className="viewer-chart">
           <div className="viewer-chart-wrap">
             {spec && <Vega spec={spec}/>}

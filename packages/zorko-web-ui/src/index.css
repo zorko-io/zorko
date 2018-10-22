@@ -6483,6 +6483,17 @@ label.panel-block {
   .footer .footer-content {
     padding: 1rem; }
 
+.navbar-title {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1; }
+  .navbar-title .navbar-title-text {
+    padding-top: 0.75rem; }
+
+@media (min-width: 1088px) {
+  .navbar-title {
+    flex-grow: 10; } }
+
 .app-main {
   background-color: #f0f0f0;
   padding-top: 2rem;
