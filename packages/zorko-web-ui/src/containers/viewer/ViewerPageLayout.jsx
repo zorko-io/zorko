@@ -7,7 +7,7 @@ class ViewerPageLayout extends Component {
   render() {
     return (
       <div className={'viewer-page-wrap'}>
-        <NavigationBar title={this.props.title}/>
+        <NavigationBar stretch={true} title={this.props.title}/>
         <div className={'viewer-content'}>
           {this.props.children}
         </div>
