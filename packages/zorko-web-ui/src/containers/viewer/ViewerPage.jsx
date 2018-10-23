@@ -26,9 +26,19 @@ class ViewerPage extends Component {
     return 'Untitled';
   }
 
+  get author () {
+    if (this.spec){
+      return this.props.spec.createdBy.login;
+    }
+    return '';
+  }
+
   render() {
     return (
-      <ViewerPageLayout title={this.title}>
+      <ViewerPageLayout
+        title={this.title}
+        author={this.author}
+      >
         <div className="viewer-chart">
           <div className="viewer-chart-wrap">
             {this.spec && <Vega spec={this.spec}/>}

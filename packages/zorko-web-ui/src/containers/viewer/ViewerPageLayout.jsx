@@ -7,7 +7,11 @@ class ViewerPageLayout extends Component {
   render() {
     return (
       <div className={'viewer-page-wrap'}>
-        <NavigationBar stretch={true} title={this.props.title}/>
+        <NavigationBar
+          author={this.props.author}
+          stretch={true}
+          title={this.props.title}
+        />
         <div className={'viewer-content'}>
           {this.props.children}
         </div>
@@ -17,9 +21,9 @@ class ViewerPageLayout extends Component {
   }
 }
 
-
 ViewerPageLayout.propTypes = {
   title: PropTypes.string,
+  author: PropTypes.string,
 }
 
 export default ViewerPageLayout
