@@ -33,7 +33,10 @@ export default function specReducer(state = initialState, action) {
         ...state,
         byId: {
           ...state.byId,
-          [payload.id] : compile(spec).spec
+          [payload.id] : {
+            ...payload,
+            spec: compile(spec).spec
+          }
         }
       }
 

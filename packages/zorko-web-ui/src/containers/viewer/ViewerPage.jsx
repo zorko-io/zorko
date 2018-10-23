@@ -15,22 +15,23 @@ class ViewerPage extends Component {
     }
   }
 
+  get spec () {
+    return this.props.spec ? this.props.spec.spec : this.props.spec;
+  }
+
   get title () {
-    let spec = this.props.spec
-    if (spec && spec.description) {
-      return spec.description;
+    if (this.spec && this.spec.description) {
+      return this.spec.description;
     }
     return 'Untitled';
   }
 
   render() {
-    const { spec } = this.props
-
     return (
       <ViewerPageLayout title={this.title}>
         <div className="viewer-chart">
           <div className="viewer-chart-wrap">
-            {spec && <Vega spec={spec}/>}
+            {this.spec && <Vega spec={this.spec}/>}
           </div>
         </div>
       </ViewerPageLayout>
