@@ -6485,15 +6485,10 @@ label.panel-block {
 
 .navbar-title {
   display: flex;
-  justify-content: center;
+  padding-left: 1rem;
   flex-grow: 1; }
   .navbar-title .navbar-title-text {
     padding-top: 0.75rem; }
-
-@media (min-width: 1088px) {
-  .navbar-title {
-    padding-left: 2rem;
-    flex-grow: 0; } }
 
 .app-main {
   background-color: #f0f0f0;
