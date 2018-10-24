@@ -4,6 +4,7 @@ import AuthButton from '../auth/AuthButton'
 import LogoutButton from '../auth/LogoutButton'
 import MediaQuery from 'react-responsive'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -57,13 +58,13 @@ class NavigationBar extends Component {
           <span aria-hidden="true"/>
         </a>
 
-        <MediaQuery query={'(max-width: 1088px)'}>
+        { this.props.user && <MediaQuery query={'(max-width: 1088px)'}>
           <div className="navbar-item">
             <figure className="image is-32x32">
-              <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png"/>
+              <img className="is-rounded" src={this.props.user.avatarUrl}/>
             </figure>
           </div>
-        </MediaQuery>
+        </MediaQuery>  }
 
       </div>
       {this.props.title && <MediaQuery query={'(min-width: 1089px)'}>
@@ -80,13 +81,13 @@ class NavigationBar extends Component {
               <LogoutButton/>
             </p>
           </div>
-          <MediaQuery query={'(min-width: 1089px)'}>
+          { this.props.user  && <MediaQuery query={'(min-width: 1089px)'}>
             <div className="navbar-item">
                 <figure className="image is-32x32">
-                  <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png"/>
+                  <img className="is-rounded" src={this.props.user.avatarUrl}/>
                 </figure>
             </div>
-          </MediaQuery>
+          </MediaQuery>  }
         </div>
       </div>
     </Fragment>
@@ -111,4 +112,9 @@ NavigationBar.defaultProps = {
   stretch: false
 }
 
-export default NavigationBar
+const mapStateToProps = (state, ownProps) => ({
+  user: state.userProfile,
+  ...ownProps
+});
+
+export default connect(mapStateToProps)(NavigationBar)
