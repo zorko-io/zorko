@@ -58,13 +58,9 @@ class NavigationBar extends Component {
           <span aria-hidden="true"/>
         </a>
 
-        { this.props.user && <MediaQuery query={'(max-width: 1088px)'}>
-          <div className="navbar-item">
-            <figure className="image is-32x32">
-              <img className="is-rounded" src={this.props.user.avatarUrl}/>
-            </figure>
-          </div>
-        </MediaQuery>  }
+        <MediaQuery query={'(max-width: 1088px)'}>
+          {this.renderUserAvatar()}
+        </MediaQuery>
 
       </div>
       {this.props.title && <MediaQuery query={'(min-width: 1089px)'}>
@@ -81,17 +77,24 @@ class NavigationBar extends Component {
               <LogoutButton/>
             </p>
           </div>
-          { this.props.user  && <MediaQuery query={'(min-width: 1089px)'}>
-            <div className="navbar-item">
-                <figure className="image is-32x32">
-                  <img className="is-rounded" src={this.props.user.avatarUrl}/>
-                </figure>
-            </div>
-          </MediaQuery>  }
+           <MediaQuery query={'(min-width: 1089px)'}>
+             {this.renderUserAvatar()}
+          </MediaQuery>
         </div>
       </div>
     </Fragment>
   }
+
+  renderUserAvatar = () => (
+    this.props.user  &&
+    <div className="navbar-item">
+      <a href={`https://github.com/${this.props.user.login}`}>
+        <figure className="image is-32x32">
+          <img className="is-rounded" src={this.props.user.avatarUrl}/>
+        </figure>
+      </a>
+    </div>
+  )
 
   renderTitle() {
     return <div>
