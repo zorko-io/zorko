@@ -82,11 +82,9 @@ class NavigationBar extends Component {
           </div>
           <MediaQuery query={'(min-width: 1089px)'}>
             <div className="navbar-item">
-              <p className="control">
                 <figure className="image is-32x32">
                   <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png"/>
                 </figure>
-              </p>
             </div>
           </MediaQuery>
         </div>

@@ -24,6 +24,7 @@ export default function* watchBootstrap() {
       if (token) {
         yield call(Api.setToken, token);
         yield put(authTokenSet(token));
+        yield call(fetchUserProfile);
 
         yield take(AUTH_LOGOUT);
         yield call(Api.removeStorageItem, 'ZORKO_AUTH_TOKEN');
