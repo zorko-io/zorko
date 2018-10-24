@@ -56,6 +56,15 @@ class NavigationBar extends Component {
           <span aria-hidden="true"/>
           <span aria-hidden="true"/>
         </a>
+
+        <MediaQuery query={'(max-width: 1088px)'}>
+          <div className="navbar-item">
+            <figure className="image is-32x32">
+              <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png"/>
+            </figure>
+          </div>
+        </MediaQuery>
+
       </div>
       {this.props.title && <MediaQuery query={'(min-width: 1089px)'}>
         <div className={'navbar-title'}>
@@ -71,6 +80,15 @@ class NavigationBar extends Component {
               <LogoutButton/>
             </p>
           </div>
+          <MediaQuery query={'(min-width: 1089px)'}>
+            <div className="navbar-item">
+              <p className="control">
+                <figure className="image is-32x32">
+                  <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png"/>
+                </figure>
+              </p>
+            </div>
+          </MediaQuery>
         </div>
       </div>
     </Fragment>
@@ -87,7 +105,8 @@ class NavigationBar extends Component {
 NavigationBar.propTypes = {
   title: PropTypes.string,
   stretch: PropTypes.bool,
-  author: PropTypes.string
+  author: PropTypes.string,
+  user: PropTypes.object
 }
 
 NavigationBar.defaultProps = {
