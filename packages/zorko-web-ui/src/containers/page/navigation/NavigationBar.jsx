@@ -72,13 +72,20 @@ class NavigationBar extends Component {
       <div className={`navbar-menu ${isMenuActive ? 'is-active' : ''}`}>
         <div className="navbar-end">
           <div className="navbar-item">
-            <p className="control">
-              <AuthButton/>
-              <LogoutButton/>
-            </p>
+            <div className={`field is-grouped is-grey`}>
+              <p className="control">
+                <a className="button">
+                  + New
+                </a>
+              </p>
+              <p className="control">
+                <AuthButton/>
+                <LogoutButton/>
+              </p>
+            </div>
           </div>
-           <MediaQuery query={'(min-width: 1089px)'}>
-             {this.renderUserAvatar()}
+          <MediaQuery query={'(min-width: 1089px)'}>
+            {this.renderUserAvatar()}
           </MediaQuery>
         </div>
       </div>
@@ -86,7 +93,7 @@ class NavigationBar extends Component {
   }
 
   renderUserAvatar = () => (
-    this.props.user  &&
+    this.props.user &&
     <div className="navbar-item">
       <a href={`https://github.com/${this.props.user.login}`}>
         <figure className="image is-32x32">
@@ -118,6 +125,6 @@ NavigationBar.defaultProps = {
 const mapStateToProps = (state, ownProps) => ({
   user: state.userProfile,
   ...ownProps
-});
+})
 
 export default connect(mapStateToProps)(NavigationBar)
