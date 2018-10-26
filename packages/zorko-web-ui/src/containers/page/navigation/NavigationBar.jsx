@@ -5,6 +5,7 @@ import LogoutButton from '../auth/LogoutButton'
 import MediaQuery from 'react-responsive'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { NewSpecWizardButton }from '../../new-spec-wizard/NewSpecWizardButton'
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -73,10 +74,8 @@ class NavigationBar extends Component {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className={`field is-grouped is-grey`}>
-              <p className="control">
-                <a className="button">
-                  + New
-                </a>
+              <p className="control" >
+                <NewSpecWizardButton/>
               </p>
               <p className="control">
                 <AuthButton/>

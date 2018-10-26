@@ -6490,6 +6490,12 @@ label.panel-block {
   .navbar-title .navbar-title-text {
     padding-top: 0.75rem; }
 
+.zr-modal .modal {
+  display: block; }
+
+.zr-modal .modal-background {
+  z-index: 32; }
+
 .app-main {
   background-color: #f0f0f0;
   padding-top: 2rem;
