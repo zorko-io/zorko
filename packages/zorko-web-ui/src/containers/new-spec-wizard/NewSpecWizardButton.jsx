@@ -8,18 +8,13 @@ export class NewSpecWizardButton extends Component {
     this.state = {
       modalIsOpen: false
     }
-
-    this.openModal = this.openModal.bind(this)
-    this.closeModal = this.closeModal.bind(this)
   }
 
-  openModal() {
-    this.setState({ modalIsOpen: true })
-  }
+  openModal = () => this.setState({ modalIsOpen: true })
 
-  closeModal() {
-    this.setState({ modalIsOpen: false })
-  }
+  closeModal = () =>  this.setState({ modalIsOpen: false })
+
+  handleClose = () => this.closeModal()
 
   render() {
     return (
@@ -37,14 +32,14 @@ export class NewSpecWizardButton extends Component {
         <div className="modal-card">
           <header className="modal-card-head">
             <p className="modal-card-title">Modal title</p>
-            <button className="delete" aria-label="close"></button>
+            <button className="delete" aria-label="close" onClick={this.handleClose}></button>
           </header>
           <section className="modal-card-body">
             <span>Content</span>
           </section>
           <footer className="modal-card-foot">
             <button className="button is-success">Save changes</button>
-            <button className="button">Cancel</button>
+            <button className="button" onClick={this.handleClose}>Cancel</button>
           </footer>
         </div>
         </Modal>
