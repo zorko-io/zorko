@@ -6493,8 +6493,8 @@ label.panel-block {
 .zr-modal .modal {
   display: block; }
 
-.zr-modal .modal-background {
-  z-index: 32; }
+.zr-modal-background-level {
+  z-index: 41; }
 
 .app-main {
   background-color: #f0f0f0;
