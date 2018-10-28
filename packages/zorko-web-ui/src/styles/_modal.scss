@@ -1,5 +1,5 @@
 .zr-modal {
-  .modal{
+  .modal {
     display: block;
     top: 25%;
     outline: none;
@@ -10,5 +10,12 @@
   z-index: 41;
 }
 
+@media (max-width: 768px) {
+  .zr-modal {
+      .modal-card {
+        margin: 0;
+      }
+  }
+}
 
 

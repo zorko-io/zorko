@@ -6498,6 +6498,18 @@ label.panel-block {
 .zr-modal-background-level {
   z-index: 41; }
 
+@media (max-width: 768px) {
+  .zr-modal .modal-card {
+    margin: 0; } }
+
+.new-spec-wizard-controls {
+  display: flex;
+  flex-flow: column; }
+  .new-spec-wizard-controls .choose-message {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem; }
+
 .app-main {
   background-color: #f0f0f0;
   padding-top: 2rem;

@@ -12,7 +12,7 @@ export class NewSpecWizardButton extends Component {
 
   openModal = () => this.setState({ modalIsOpen: true })
 
-  closeModal = () =>  this.setState({ modalIsOpen: false })
+  closeModal = () => this.setState({ modalIsOpen: false })
 
   handleClose = () => this.closeModal()
 
@@ -30,21 +30,21 @@ export class NewSpecWizardButton extends Component {
           shouldCloseOnOverlayClick={true}
           contentLabel="Example Modal"
         >
-        <div className="modal-card">
-          <header className="modal-card-head">
-            <p className="modal-card-title">Upload Spec by</p>
-            <button className="delete" aria-label="close" onClick={this.handleClose}></button>
-          </header>
-          <section className="modal-card-body">
-            <div className="container">
-              <button className="button is-success">File</button>
-              <br/>
-              <span>or</span>
-              <br/>
-              <button className="button is-success">URL</button>
-            </div>
-          </section>
-        </div>
+          <div className="modal-card">
+            <header className="modal-card-head">
+              <p className="modal-card-title">Upload Spec by</p>
+              <button className="delete" aria-label="close" onClick={this.handleClose}></button>
+            </header>
+            <section className="modal-card-body">
+              <div className="new-spec-wizard-controls">
+                <button className="button is-success">File</button>
+                <div className="choose-message">
+                  <span>or</span>
+                </div>
+                <button className="button is-success">URL</button>
+              </div>
+            </section>
+          </div>
         </Modal>
       </Fragment>
     )
