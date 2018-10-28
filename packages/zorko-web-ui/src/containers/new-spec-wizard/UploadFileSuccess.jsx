@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { UploadFileContext } from './UploadFile'
+import * as _ from 'lodash'
 
 class SuccessUpload extends Component {
   componentDidMount () {
@@ -24,7 +25,7 @@ export class UploadFileSuccess extends Component {
         onFileReady={this.props.onFileReady}
         file={file}
       >
-        {this.props.children(file)}
+        {_.isFunction(this.props.children) ? this.props.children(file) : this.props.children}
       </SuccessUpload>
     </Fragment>)}
     </UploadFileContext.Consumer>

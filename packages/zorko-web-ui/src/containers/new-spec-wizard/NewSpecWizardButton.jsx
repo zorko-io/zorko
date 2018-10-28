@@ -3,6 +3,8 @@ import Modal from 'react-modal'
 import { UploadFile } from './UploadFile'
 import { UploadFileSuccess } from './UploadFileSuccess'
 import PropTypes from 'prop-types'
+import { UploadFileError } from './UploadFileError'
+import { Redirect } from 'react-router'
 
 
 export class NewSpecWizardButton extends Component {
@@ -51,13 +53,14 @@ export class NewSpecWizardButton extends Component {
                         onClick={triggerUpload}
                         className="button is-success">File</button>
                       <UploadFileSuccess onFileReady={this.handleFileSuccessUpload}>
-                        {(file)=> <div>{file.content}</div>}
+                        <Redirect to={'/specs/new'} />
                       </UploadFileSuccess>
-
+                      <UploadFileError>
+                        {(error) => <div style={{color:'red'}}>Error: {error.message}</div>}
+                      </UploadFileError>
                     </Fragment>
                   )}
                 </UploadFile>
-
 
                 <div className="choose-message">
                   <span>or</span>

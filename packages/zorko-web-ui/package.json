@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "history": "^4.7.2",
+    "lodash": "^4.17.11",
     "prop-types": "^15.6.1",
     "ramda": "^0.25.0",
     "react": "^16.5.1",
