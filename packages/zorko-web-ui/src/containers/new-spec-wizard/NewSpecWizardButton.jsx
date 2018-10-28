@@ -6,7 +6,8 @@ export class NewSpecWizardButton extends Component {
     super()
 
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      file: null
     }
   }
 
@@ -15,6 +16,12 @@ export class NewSpecWizardButton extends Component {
   closeModal = () => this.setState({ modalIsOpen: false })
 
   handleClose = () => this.closeModal()
+
+  handleFileSelection = (event) => {
+     this.setState({
+       file: event.target.files[0]
+     });
+  }
 
   render() {
     return (
@@ -38,6 +45,8 @@ export class NewSpecWizardButton extends Component {
             <section className="modal-card-body">
               <div className="new-spec-wizard-controls">
                 <button className="button is-success">File</button>
+                <input style={{display: 'hidden'}} type="file" name="" id="" onClick={this.handleFileSelection} />
+
                 <div className="choose-message">
                   <span>or</span>
                 </div>
