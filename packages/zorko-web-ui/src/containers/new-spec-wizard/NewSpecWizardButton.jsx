@@ -32,16 +32,18 @@ export class NewSpecWizardButton extends Component {
         >
         <div className="modal-card">
           <header className="modal-card-head">
-            <p className="modal-card-title">Modal title</p>
+            <p className="modal-card-title">Upload Spec by</p>
             <button className="delete" aria-label="close" onClick={this.handleClose}></button>
           </header>
           <section className="modal-card-body">
-            <span>Content</span>
+            <div className="container">
+              <button className="button is-success">File</button>
+              <br/>
+              <span>or</span>
+              <br/>
+              <button className="button is-success">URL</button>
+            </div>
           </section>
-          <footer className="modal-card-foot">
-            <button className="button is-success">Save changes</button>
-            <button className="button" onClick={this.handleClose}>Cancel</button>
-          </footer>
         </div>
         </Modal>
       </Fragment>

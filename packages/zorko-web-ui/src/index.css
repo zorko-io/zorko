@@ -6492,7 +6492,8 @@ label.panel-block {
 
 .zr-modal .modal {
   display: block;
-  top: 25%; }
+  top: 25%;
+  outline: none; }
 
 .zr-modal-background-level {
   z-index: 41; }
