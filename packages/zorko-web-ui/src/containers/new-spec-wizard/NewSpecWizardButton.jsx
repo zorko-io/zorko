@@ -1,6 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import Modal from 'react-modal'
 import { UploadFile } from './UploadFile'
+import { UploadFileSuccess } from './UploadFileSuccess'
+import PropTypes from 'prop-types'
+
 
 export class NewSpecWizardButton extends Component {
   constructor() {
@@ -18,11 +21,7 @@ export class NewSpecWizardButton extends Component {
 
   handleClose = () => this.closeModal()
 
-  handleFileSelection = (event) => {
-     this.setState({
-       file: event.target.files[0]
-     });
-  }
+  handleFileSuccessUpload = (file) => this.props.onFileUploadSuccess && this.props.onFileUploadSuccess(file)
 
   render() {
     return (
@@ -46,11 +45,15 @@ export class NewSpecWizardButton extends Component {
             <section className="modal-card-body">
               <div className="new-spec-wizard-controls">
                 <UploadFile>
-                  {(triggerUpload, file, error)=>(
+                  {(triggerUpload)=>(
                     <Fragment>
-                      <button onClick={triggerUpload} className="button is-success">File</button>
-                      { file && <div>{file.content}</div>}
-                      { error && <div>{error.message}</div>}
+                      <button
+                        onClick={triggerUpload}
+                        className="button is-success">File</button>
+                      <UploadFileSuccess onFileReady={this.handleFileSuccessUpload}>
+                        {(file)=> <div>{file.content}</div>}
+                      </UploadFileSuccess>
+
                     </Fragment>
                   )}
                 </UploadFile>
@@ -67,5 +70,10 @@ export class NewSpecWizardButton extends Component {
       </Fragment>
     )
   }
+}
+
+
+NewSpecWizardButton.propTypes = {
+  onFileUploadSuccess: PropTypes.func
 }
 
