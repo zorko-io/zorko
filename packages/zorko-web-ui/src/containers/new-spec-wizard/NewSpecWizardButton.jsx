@@ -27,6 +27,7 @@ export class NewSpecWizardButton extends Component {
           overlayClassName="zr-modal modal-background zr-modal-background-level"
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
+          shouldCloseOnOverlayClick={true}
           contentLabel="Example Modal"
         >
         <div className="modal-card">
