@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import Modal from 'react-modal'
+import { UploadFile } from './UploadFile'
 
 export class NewSpecWizardButton extends Component {
   constructor() {
@@ -44,8 +45,16 @@ export class NewSpecWizardButton extends Component {
             </header>
             <section className="modal-card-body">
               <div className="new-spec-wizard-controls">
-                <button className="button is-success">File</button>
-                <input style={{display: 'hidden'}} type="file" name="" id="" onClick={this.handleFileSelection} />
+                <UploadFile>
+                  {(triggerUpload, file, error)=>(
+                    <Fragment>
+                      <button onClick={triggerUpload} className="button is-success">File</button>
+                      { file && <div>{file.content}</div>}
+                      { error && <div>{error.message}</div>}
+                    </Fragment>
+                  )}
+                </UploadFile>
+
 
                 <div className="choose-message">
                   <span>or</span>
