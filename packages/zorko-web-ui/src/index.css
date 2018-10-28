@@ -6491,7 +6491,8 @@ label.panel-block {
     padding-top: 0.75rem; }
 
 .zr-modal .modal {
-  display: block; }
+  display: block;
+  top: 25%; }
 
 .zr-modal-background-level {
   z-index: 41; }
