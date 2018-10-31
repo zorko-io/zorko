@@ -5,7 +5,7 @@ import LogoutButton from '../auth/LogoutButton'
 import MediaQuery from 'react-responsive'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { NewSpecWizardButton }from '../../new-spec-wizard/NewSpecWizardButton'
+import NewSpecWizardButton from '../../new-spec-wizard/NewSpecWizardButton'
 
 class NavigationBar extends Component {
   constructor(props) {

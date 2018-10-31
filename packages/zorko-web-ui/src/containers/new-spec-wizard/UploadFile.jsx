@@ -20,6 +20,12 @@ export class UploadFile extends Component {
 
   clearClickRef = (event) => event.target.value = null
 
+  componentWillUnmount() {
+    if (this.props.onFileReady && this.state.file) {
+      this.props.onFileReady(this.state.file)
+    }
+  }
+
   handleFileSelection = () => {
     if (!this.hiddenInput || !this.hiddenInput.files) {
       return
@@ -34,20 +40,24 @@ export class UploadFile extends Component {
     try {
       const reader = new FileReader()
       reader.readAsText(file)
-      reader.onload = (event) => this.setState({
-        file: {
+      reader.onload = (event) => {
+
+        let fileContent = {
           content: event.target.result,
           type: file.type,
           name: file.name
         }
-      })
+
+        this.setState({
+          file: fileContent
+        })
+      }
     } catch (error) {
       this.setState({
         error: error
       })
     }
   }
-
 
   render = () => (
     <UploadFileContext.Provider value={this.state}>

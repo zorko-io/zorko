@@ -5,7 +5,9 @@ import { UploadFileSuccess } from './UploadFileSuccess'
 import PropTypes from 'prop-types'
 import { UploadFileError } from './UploadFileError'
 import { Redirect } from 'react-router'
-
+import connect from 'react-redux/es/connect/connect'
+import { bindActionCreators } from 'redux'
+import { newSpecWizardFileSet } from '../../action'
 
 export class NewSpecWizardButton extends Component {
   constructor() {
@@ -13,7 +15,6 @@ export class NewSpecWizardButton extends Component {
 
     this.state = {
       modalIsOpen: false,
-      file: null
     }
   }
 
@@ -23,7 +24,12 @@ export class NewSpecWizardButton extends Component {
 
   handleClose = () => this.closeModal()
 
-  handleFileSuccessUpload = (file) => this.props.onFileUploadSuccess && this.props.onFileUploadSuccess(file)
+  handleFileSuccessUpload = (file) => {
+    this.closeModal();
+    if (this.props.onFileUploadSuccess) {
+      this.props.onFileUploadSuccess(file.content)
+    }
+  }
 
   render() {
     return (
@@ -42,18 +48,18 @@ export class NewSpecWizardButton extends Component {
           <div className="modal-card">
             <header className="modal-card-head">
               <p className="modal-card-title">Upload Spec by</p>
-              <button className="delete" aria-label="close" onClick={this.handleClose}></button>
+              <button className="delete" aria-label="close" onClick={this.handleClose}/>
             </header>
             <section className="modal-card-body">
               <div className="new-spec-wizard-controls">
-                <UploadFile>
-                  {(triggerUpload)=>(
+                <UploadFile onFileReady={this.handleFileSuccessUpload}>
+                  {(triggerUpload) => (
                     <Fragment>
                       <button
                         onClick={triggerUpload}
                         className="button is-success">File</button>
-                      <UploadFileSuccess onFileReady={this.handleFileSuccessUpload}>
-                        <Redirect to={'/specs/new'} />
+                      <UploadFileSuccess>
+                        <Redirect to={'/wizard/new-spec'} />
                       </UploadFileSuccess>
                       <UploadFileError>
                         {(error) => <div style={{color:'red'}}>Error: {error.message}</div>}
@@ -75,8 +81,17 @@ export class NewSpecWizardButton extends Component {
   }
 }
 
-
 NewSpecWizardButton.propTypes = {
   onFileUploadSuccess: PropTypes.func
 }
 
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      onFileUploadSuccess: newSpecWizardFileSet
+    },
+    dispatch
+  )
+
+
+export default connect(null, mapDispatchToProps)(NewSpecWizardButton)

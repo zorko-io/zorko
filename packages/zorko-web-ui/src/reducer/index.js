@@ -5,6 +5,7 @@ import error from './error'
 import auth from "./auth";
 import userProfile from './userProfile'
 import viewer from './viewer'
+import {newSpecWizardReducer} from './newSpecWizard'
 
 const rootReducer = combineReducers({
   auth,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   previews,
   error,
   userProfile,
-  viewer
+  viewer,
+  newSpecWizard: newSpecWizardReducer
 });
 
 export default rootReducer

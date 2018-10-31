@@ -1,10 +1,10 @@
 import { takeLatest, put } from 'redux-saga/effects'
-import { errorRecoverableSet } from '../action'
+import { newSpecWizardFileSet } from '../action'
 
 export function* handleError(action) {
   if (action.type.match(/(.*)ERROR$/)) {
     const error = action.payload
-    yield put(errorRecoverableSet(error.message))
+    yield put(newSpecWizardFileSet(error.message))
   }
 }
 
