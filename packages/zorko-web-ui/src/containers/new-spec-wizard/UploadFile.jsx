@@ -42,19 +42,25 @@ export class UploadFile extends Component {
       reader.readAsText(file)
       reader.onload = (event) => {
 
-        let fileContent = {
-          content: event.target.result,
-          type: file.type,
-          name: file.name
-        }
+        try {
+          let fileContent = {
+            content: JSON.parse(event.target.result),
+            type: file.type,
+            name: file.name
+          }
 
-        this.setState({
-          file: fileContent
-        })
+          this.setState({
+            file: fileContent
+          })
+        } catch (error) {
+          this.setState({
+            error
+          })
+        }
       }
     } catch (error) {
       this.setState({
-        error: error
+        error
       })
     }
   }

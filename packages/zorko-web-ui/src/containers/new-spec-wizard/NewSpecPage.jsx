@@ -1,27 +1,22 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import ViewerPageLayout from '../viewer/ViewerPageLayout'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Vega from 'react-vega'
+import { VegaSpecValidator } from './VegaSpecValidator'
 
 class NewSpecPage extends Component {
 
-  get spec () {
-    return this.props.spec ? this.props.spec.spec : this.props.spec;
-  }
-
   get title () {
-    if (this.spec && this.spec.description) {
-      return this.spec.description;
+    let spec = this.props.spec
+    if (spec && spec.description) {
+      return spec.description;
     }
     return 'Untitled';
   }
 
   // TODO: replace with current user
   get author () {
-    if (this.spec){
-      return this.props.spec.createdBy.login;
-    }
     return '';
   }
 
@@ -32,9 +27,21 @@ class NewSpecPage extends Component {
         author={this.author}
       >
         <div className="viewer-chart">
-          <div className="viewer-chart-wrap">
-            {this.spec && <Vega spec={this.spec}/>}
-          </div>
+          {!this.props.spec && <span>Empty Spec</span>}
+          <VegaSpecValidator spec={this.props.spec}>
+            {(error, spec)=>(
+              <Fragment>
+              {error ?
+                (<Fragment>
+                  <div>{error.message}</div>
+                  <div>{error.stack}</div>
+                </Fragment>): (
+                <div className="viewer-chart-wrap">
+                  {<Vega spec={spec}/>}
+              </div>)}
+            </Fragment>
+            )}
+          </VegaSpecValidator>
         </div>
       </ViewerPageLayout>
     )
