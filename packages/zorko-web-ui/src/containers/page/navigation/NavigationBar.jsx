@@ -105,7 +105,7 @@ class NavigationBar extends Component {
   renderTitle() {
     return <div>
       <div>{this.props.title} </div>
-      <div><span>by</span> {this.props.author}</div>
+      {this.props.author && (<div><span>by</span> {this.props.author}</div>)}
     </div>
   }
 }

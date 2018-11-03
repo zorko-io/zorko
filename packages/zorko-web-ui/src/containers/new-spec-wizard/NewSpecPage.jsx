@@ -19,11 +19,6 @@ class NewSpecPage extends Component {
     return 'Untitled';
   }
 
-  get author () {
-    // TODO: replace with current user
-    return '';
-  }
-
   componentWillUnmount () {
     if (this.props.clearSpec){
       this.props.clearSpec()
@@ -34,7 +29,6 @@ class NewSpecPage extends Component {
     return (
       <ViewerPageLayout
         title={this.title}
-        author={this.author}
       >
         <div className="viewer-chart">
           {_.isEmpty(this.props.spec) && (
