@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import connect from 'react-redux/es/connect/connect'
 import { bindActionCreators } from 'redux'
 import { newSpecWizardFileSet } from '../../action'
+import { NewSpecPreviewRedirect } from './NewSpecPreviewRedirect'
 
 class NewSpecWizardButton extends Component {
   constructor() {
@@ -42,6 +43,7 @@ class NewSpecWizardButton extends Component {
         <a className="button" onClick={this.openModal}>
           + New
         </a>
+        <NewSpecPreviewRedirect/>
         <Modal
           className="zr-modal modal"
           overlayClassName="zr-modal modal-background zr-modal-background-level"
