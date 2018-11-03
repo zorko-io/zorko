@@ -1,10 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import Modal from 'react-modal'
 import { UploadFile } from './UploadFile'
-import { UploadFileSuccess } from './UploadFileSuccess'
 import PropTypes from 'prop-types'
-import { UploadFileError } from './UploadFileError'
-import { Redirect } from 'react-router'
 import connect from 'react-redux/es/connect/connect'
 import { bindActionCreators } from 'redux'
 import { newSpecWizardFileSet } from '../../action'
@@ -15,12 +12,20 @@ export class NewSpecWizardButton extends Component {
 
     this.state = {
       modalIsOpen: false,
+      file: null
     }
   }
 
-  openModal = () => this.setState({ modalIsOpen: true })
+  openModal = () => this.setState({
+    ...this.state,
+    modalIsOpen: true
+  })
 
-  closeModal = () => this.setState({ modalIsOpen: false })
+  closeModal = () => this.setState({
+    ...this.state,
+    modalIsOpen: false
+  });
+
 
   handleClose = () => this.closeModal()
 
@@ -52,19 +57,11 @@ export class NewSpecWizardButton extends Component {
             </header>
             <section className="modal-card-body">
               <div className="new-spec-wizard-controls">
-                <UploadFile onFileReady={this.handleFileSuccessUpload}>
+                <UploadFile onFileLoaded={this.handleFileSuccessUpload}>
                   {(triggerUpload) => (
-                    <Fragment>
                       <button
                         onClick={triggerUpload}
                         className="button is-success">File</button>
-                      <UploadFileSuccess>
-                        <Redirect to={'/wizard/new-spec'} />
-                      </UploadFileSuccess>
-                      <UploadFileError>
-                        {(error) => <div style={{color:'red'}}>Error: {error.message}</div>}
-                      </UploadFileError>
-                    </Fragment>
                   )}
                 </UploadFile>
 
