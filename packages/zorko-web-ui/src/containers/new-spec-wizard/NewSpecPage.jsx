@@ -6,6 +6,8 @@ import Vega from 'react-vega'
 import { VegaSpecValidator } from './VegaSpecValidator'
 import { bindActionCreators } from 'redux'
 import { newSpecWizardClear } from '../../action'
+import * as _ from 'lodash'
+import { NewSpecWizardButton } from './NewSpecWizardButton'
 
 class NewSpecPage extends Component {
 
@@ -35,12 +37,18 @@ class NewSpecPage extends Component {
         author={this.author}
       >
         <div className="viewer-chart">
-          {!this.props.spec && <span>Empty Spec</span>}
+          {_.isEmpty(this.props.spec) && (
+            <Fragment>
+              <span>Nothing to display. Please use   </span>
+              <NewSpecWizardButton/>
+              <span>  to upload new spec content</span>
+          </Fragment>)
+          }
           <VegaSpecValidator spec={this.props.spec}>
             {(error, spec)=>(
               <Fragment>
               {error ?
-                (<Fragment>
+                (!_.isEmpty(this.props.spec) && <Fragment>
                   <div>{error.message}</div>
                   <div>{error.stack}</div>
                 </Fragment>): (

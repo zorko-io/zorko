@@ -123,7 +123,6 @@ NavigationBar.defaultProps = {
 
 const mapStateToProps = (state, ownProps) => ({
   user: state.userProfile,
-  spec: state.newSpecWizard.spec,
   ...ownProps
 })
 
