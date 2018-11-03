@@ -6,7 +6,6 @@ import MediaQuery from 'react-responsive'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { NewSpecWizardButton } from '../../new-spec-wizard/NewSpecWizardButton'
-import { NewSpecPreviewRedirect } from '../../new-spec-wizard/NewSpecPreviewRedirect'
 
 class NavigationBar extends Component {
   constructor(props) {
