@@ -6,6 +6,7 @@ import connect from 'react-redux/es/connect/connect'
 import { bindActionCreators } from 'redux'
 import { newSpecWizardFileSet } from '../../action'
 import { NewSpecPreviewRedirect } from './NewSpecPreviewRedirect'
+import { Route } from 'react-router'
 
 class NewSpecWizardButton extends Component {
   constructor() {
@@ -25,25 +26,26 @@ class NewSpecWizardButton extends Component {
   closeModal = () => this.setState({
     ...this.state,
     modalIsOpen: false
-  });
+  })
 
 
   handleClose = () => this.closeModal()
 
-  handleFileSuccessUpload = (file) => {
-    this.closeModal();
+  handleFileSuccessUpload = (file, history) => {
+    this.closeModal()
     if (this.props.onFileUploadSuccess) {
       this.props.onFileUploadSuccess(file.content)
     }
+    history.push('/wizard/new-spec')
   }
 
-  render() {
-    return (
+  render = () =>
+    (<Route children={({ history }) => (
       <Fragment>
         <a className="button" onClick={this.openModal}>
           + New
         </a>
-        <NewSpecPreviewRedirect/>
+        {/*<NewSpecPreviewRedirect/>*/}
         <Modal
           className="zr-modal modal"
           overlayClassName="zr-modal modal-background zr-modal-background-level"
@@ -52,18 +54,18 @@ class NewSpecWizardButton extends Component {
           shouldCloseOnOverlayClick={true}
           contentLabel="Example Modal"
         >
-          <div className="modal-card">
+          <div className={'modal-card'}>
             <header className="modal-card-head">
               <p className="modal-card-title">Upload Spec by</p>
               <button className="delete" aria-label="close" onClick={this.handleClose}/>
             </header>
             <section className="modal-card-body">
               <div className="new-spec-wizard-controls">
-                <UploadFile onFileLoaded={this.handleFileSuccessUpload}>
+                <UploadFile onFileLoaded={(file) => this.handleFileSuccessUpload(file, history)}>
                   {(triggerUpload) => (
-                      <button
-                        onClick={triggerUpload}
-                        className="button is-success">File</button>
+                    <button
+                      onClick={triggerUpload}
+                      className="button is-success">File</button>
                   )}
                 </UploadFile>
 
@@ -75,9 +77,9 @@ class NewSpecWizardButton extends Component {
             </section>
           </div>
         </Modal>
-      </Fragment>
-    )
-  }
+    </Fragment>)}
+    />)
+
 }
 
 NewSpecWizardButton.propTypes = {
@@ -94,4 +96,4 @@ const mapDispatchToProps = (dispatch) =>
 
 NewSpecWizardButton = connect(null, mapDispatchToProps)(NewSpecWizardButton)
 
-export { NewSpecWizardButton };
+export { NewSpecWizardButton }

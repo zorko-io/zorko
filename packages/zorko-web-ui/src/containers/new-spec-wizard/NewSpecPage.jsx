@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Vega from 'react-vega'
 import { VegaSpecValidator } from './VegaSpecValidator'
+import { bindActionCreators } from 'redux'
+import { newSpecWizardClear } from '../../action'
 
 class NewSpecPage extends Component {
 
@@ -15,9 +17,15 @@ class NewSpecPage extends Component {
     return 'Untitled';
   }
 
-  // TODO: replace with current user
   get author () {
+    // TODO: replace with current user
     return '';
+  }
+
+  componentWillUnmount () {
+    if (this.props.clearSpec){
+      this.props.clearSpec()
+    }
   }
 
   render() {
@@ -49,11 +57,20 @@ class NewSpecPage extends Component {
 }
 
 NewSpecPage.propTypes = {
-  spec: PropTypes.object.isRequired
+  spec: PropTypes.object.isRequired,
+  clearSpec :PropTypes.func
 }
 
 const mapStateToProps = (state) => ({
   spec: state.newSpecWizard.spec
 })
 
-export default connect(mapStateToProps)(NewSpecPage)
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(
+    {
+      clearSpec: newSpecWizardClear
+    },
+    dispatch
+  )
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewSpecPage)
