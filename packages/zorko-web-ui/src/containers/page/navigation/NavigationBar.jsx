@@ -5,7 +5,9 @@ import LogoutButton from '../auth/LogoutButton'
 import MediaQuery from 'react-responsive'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import NewSpecWizardButton from '../../new-spec-wizard/NewSpecWizardButton'
+import * as _ from 'lodash'
+import { Redirect } from 'react-router'
+import { NewSpecWizardButton } from '../../new-spec-wizard/NewSpecWizardButton'
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -38,6 +40,7 @@ class NavigationBar extends Component {
     const { isMenuActive } = this.state
 
     return <Fragment>
+      {!_.isEmpty(this.props.spec) && <Redirect to={'/wizard/new-spec'}/>}
       <div className="navbar-brand">
         <a className="navbar-item" href="/">
           <img src={logo} alt="Zorko: a place to discover and share visualizations"/>
@@ -123,6 +126,7 @@ NavigationBar.defaultProps = {
 
 const mapStateToProps = (state, ownProps) => ({
   user: state.userProfile,
+  spec: state.newSpecWizard.spec,
   ...ownProps
 })
 

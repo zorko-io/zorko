@@ -6,7 +6,7 @@ import connect from 'react-redux/es/connect/connect'
 import { bindActionCreators } from 'redux'
 import { newSpecWizardFileSet } from '../../action'
 
-export class NewSpecWizardButton extends Component {
+class NewSpecWizardButton extends Component {
   constructor() {
     super()
 
@@ -90,5 +90,6 @@ const mapDispatchToProps = (dispatch) =>
     dispatch
   )
 
+NewSpecWizardButton = connect(null, mapDispatchToProps)(NewSpecWizardButton)
 
-export default connect(null, mapDispatchToProps)(NewSpecWizardButton)
+export { NewSpecWizardButton };
