@@ -13,7 +13,9 @@ class NewSpecWizardButton extends Component {
 
     this.state = {
       modalIsOpen: false,
-      file: null
+      file: null,
+      hasFileError: false,
+      error: null
     }
   }
 
@@ -31,7 +33,17 @@ class NewSpecWizardButton extends Component {
 
   handleClose = () => this.closeModal()
 
+  handleFileFailedUpload = (error) => {
+    this.setState({
+      hasFileError: true,
+      error
+    })
+  }
+
+  cleanError = () => this.setState({...this.state, error: null, hasFileError: false})
+
   handleFileSuccessUpload = (file, history) => {
+    this.cleanError()
     this.closeModal()
     if (this.props.onFileUploadSuccess) {
       this.props.onFileUploadSuccess(file.content)
@@ -67,11 +79,17 @@ class NewSpecWizardButton extends Component {
             </header>
             <section className="modal-card-body">
               <div className="new-spec-wizard-controls">
-                <UploadFile onFileLoaded={(file) => this.handleFileSuccessUpload(file, history)}>
+                <UploadFile
+                  onFileLoaded={(file) => this.handleFileSuccessUpload(file, history)}
+                  onFileError={this.handleFileFailedUpload}
+                >
                   {(triggerUpload) => (
-                    <button
-                      onClick={triggerUpload}
-                      className="button is-success">File</button>
+                    <Fragment>
+                      <button
+                        onClick={triggerUpload}
+                        className="button is-success">Vega-Lite File</button>
+                      {this.state.hasFileError && this.renderFileErrorNotification(this.state.error)}
+                    </Fragment>
                   )}
                 </UploadFile>
 
@@ -85,6 +103,12 @@ class NewSpecWizardButton extends Component {
         </Modal>
     </Fragment>)}
     />)
+
+  renderFileErrorNotification = (error) => (
+    <div style={{color: 'red'}}>
+      <div>{error.message}</div>
+    </div>
+  )
 
 }
 

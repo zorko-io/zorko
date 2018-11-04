@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
 
 export class UploadFile extends Component {
   constructor(props) {
@@ -11,6 +12,14 @@ export class UploadFile extends Component {
 
   clearClickRef = (event) => event.target.value = null
 
+  handleError = (error) =>  {
+    if (this.props.onFileError){
+      this.props.onFileError(error)
+    }else {
+      throw  error
+    }
+  }
+
   handleFileSelection = () => {
     if (!this.hiddenInput || !this.hiddenInput.files) {
       return
@@ -21,14 +30,22 @@ export class UploadFile extends Component {
     reader.readAsText(file)
     reader.onload = (event) => {
       if (this.props.onFileLoaded) {
-        let fileContent = {
-          content: JSON.parse(event.target.result),
-          type: file.type,
-          name: file.name
-        }
+        try {
+          let fileContent = {
+            content: JSON.parse(event.target.result),
+            type: file.type,
+            name: file.name
+          }
 
-        this.props.onFileLoaded(fileContent)
+          this.props.onFileLoaded(fileContent)
+        } catch (error) {
+          this.handleError(error)
+        }
       }
+    }
+
+    reader.onerror = (error) => {
+      this.handleError(error)
     }
   }
 
@@ -46,5 +63,9 @@ export class UploadFile extends Component {
       {this.props.children(this.handleClick)}
     </Fragment>
   )
+}
 
+UploadFile.propTypes = {
+  onFileLoaded: PropTypes.func,
+  onFileError: PropTypes.func
 }
