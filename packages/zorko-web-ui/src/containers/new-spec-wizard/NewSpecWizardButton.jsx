@@ -89,8 +89,13 @@ class NewSpecWizardButton extends Component {
 }
 
 NewSpecWizardButton.propTypes = {
-  onFileUploadSuccess: PropTypes.func
+  onFileUploadSuccess: PropTypes.func,
+  spec: PropTypes.object,
 }
+
+const mapStateToProps = (state) => ({
+  spec: state.newSpecWizard.spec
+})
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
@@ -100,6 +105,6 @@ const mapDispatchToProps = (dispatch) =>
     dispatch
   )
 
-NewSpecWizardButton = connect(null, mapDispatchToProps)(NewSpecWizardButton)
+NewSpecWizardButton = connect(mapStateToProps, mapDispatchToProps)(NewSpecWizardButton)
 
 export { NewSpecWizardButton }

@@ -1,5 +1,6 @@
 export const NEW_SPEC_WIZARD_FILE_SET = 'NEW_SPEC_WIZARD_FILE_SET'
 export const NEW_SPEC_WIZARD_CLEAR = 'NEW_SPEC_WIZARD_CLEAR'
+export const NEW_SPEC_WIZARD_ERROR = 'NEW_SPEC_WIZARD_ERROR'
 
 export const newSpecWizardFileSet = (spec) => ({
   type: NEW_SPEC_WIZARD_FILE_SET,

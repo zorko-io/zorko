@@ -27,7 +27,12 @@ export const DEFAULT_VIEWER = {
 export const DEFAULT_USER_PROFILE = {};
 
 export const DEFAULT_NEW_SPEC_WIZARD = {
-  spec: {}
+  spec: {
+    $schema: "https://vega.github.io/schema/vega/v4.json"
+  },
+  error: null,
+  errorInfo: null,
+  isEmptySpec: true
 };
 
 export const DEFAULT_APP_STATE = {

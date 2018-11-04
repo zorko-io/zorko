@@ -2,30 +2,25 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { compile } from 'vega-lite'
 
-export class VegaSpecValidator extends Component {
+export class VegaLiteCompiler extends Component {
   render() {
 
     let spec;
-    let error;
     let isEmptySpec = !this.props.spec;
 
     if (!isEmptySpec) {
-      try{
-        spec = compile(this.props.spec).spec
-      } catch (err) {
-        error = err;
-      }
+      spec = compile(this.props.spec).spec
     }
 
     return (
       <div>
-        {!isEmptySpec && this.props.children(error, spec)}
+        {!isEmptySpec && this.props.children(spec)}
       </div>
     )
   }
 }
 
-VegaSpecValidator.propTypes = {
+VegaLiteCompiler.propTypes = {
   spec: PropTypes.object,
   children: PropTypes.func.isRequired
 }

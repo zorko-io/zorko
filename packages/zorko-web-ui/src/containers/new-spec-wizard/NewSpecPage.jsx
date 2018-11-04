@@ -3,24 +3,22 @@ import ViewerPageLayout from '../viewer/ViewerPageLayout'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Vega from 'react-vega'
-import { VegaSpecValidator } from './VegaSpecValidator'
 import { bindActionCreators } from 'redux'
 import { newSpecWizardClear } from '../../action'
-import * as _ from 'lodash'
 import { NewSpecWizardButton } from './NewSpecWizardButton'
 
 class NewSpecPage extends Component {
 
-  get title () {
+  get title() {
     let spec = this.props.spec
     if (spec && spec.description) {
-      return spec.description;
+      return spec.description
     }
-    return 'Untitled';
+    return 'Untitled'
   }
 
-  componentWillUnmount () {
-    if (this.props.clearSpec){
+  componentWillUnmount() {
+    if (this.props.clearSpec) {
       this.props.clearSpec()
     }
   }
@@ -31,27 +29,15 @@ class NewSpecPage extends Component {
         title={this.title}
       >
         <div className="viewer-chart">
-          {_.isEmpty(this.props.spec) && (
+          {this.props.isEmptySpec ? (
             <Fragment>
-              <span>Nothing to display. Please use   </span>
+              <span>Nothing to display. Please use</span>
               <NewSpecWizardButton/>
               <span>  to upload new spec content</span>
-          </Fragment>)
-          }
-          <VegaSpecValidator spec={this.props.spec}>
-            {(error, spec)=>(
-              <Fragment>
-              {error ?
-                (!_.isEmpty(this.props.spec) && <Fragment>
-                  <div>{error.message}</div>
-                  <div>{error.stack}</div>
-                </Fragment>): (
-                <div className="viewer-chart-wrap">
-                  {<Vega spec={spec}/>}
-              </div>)}
             </Fragment>
-            )}
-          </VegaSpecValidator>
+          ) : (<div className="viewer-chart-wrap">
+            <Vega spec={this.props.spec}/>
+          </div>)}
         </div>
       </ViewerPageLayout>
     )
@@ -60,11 +46,13 @@ class NewSpecPage extends Component {
 
 NewSpecPage.propTypes = {
   spec: PropTypes.object.isRequired,
-  clearSpec :PropTypes.func
+  isEmptySpec: PropTypes.bool,
+  clearSpec: PropTypes.func
 }
 
 const mapStateToProps = (state) => ({
-  spec: state.newSpecWizard.spec
+  spec: state.newSpecWizard.spec,
+  isEmptySpec: state.newSpecWizard.isEmptySpec
 })
 
 const mapDispatchToProps = (dispatch) =>
