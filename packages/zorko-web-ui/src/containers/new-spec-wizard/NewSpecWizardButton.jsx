@@ -6,6 +6,7 @@ import connect from 'react-redux/es/connect/connect'
 import { bindActionCreators } from 'redux'
 import { newSpecWizardFileSet } from '../../action'
 import { Route } from 'react-router'
+import { compile } from 'vega-lite'
 
 class NewSpecWizardButton extends Component {
   constructor() {
@@ -33,22 +34,39 @@ class NewSpecWizardButton extends Component {
 
   handleClose = () => this.closeModal()
 
+  setError = (error) => this.setState({
+    hasFileError: true,
+    error
+  })
+
   handleFileFailedUpload = (error) => {
-    this.setState({
-      hasFileError: true,
-      error
-    })
+    this.setError(error)
   }
 
   cleanError = () => this.setState({...this.state, error: null, hasFileError: false})
 
+  compileVegaLite = (spec) => {
+    try {
+        spec = compile(this.props.spec).spec
+    } catch (error) {
+       this.setError({
+         ...error,
+         code: 'COMPILE_VEGA_LITE'
+       })
+    }
+    return spec;
+  }
+
   handleFileSuccessUpload = (file, history) => {
     this.cleanError()
-    this.closeModal()
     if (this.props.onFileUploadSuccess) {
-      this.props.onFileUploadSuccess(file.content)
+        this.props.onFileUploadSuccess({
+          type: 'VEGA_LITE',
+          spec: file.content
+        })
+        this.closeModal()
+        history.push('/wizard/new-spec')
     }
-    history.push('/wizard/new-spec')
   }
 
   shouldAllowPublish = (currentUrl) => {

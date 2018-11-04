@@ -17,6 +17,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "react-vega": "^4.0.2",
+    "react-vega-lite": "^2.0.2",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",

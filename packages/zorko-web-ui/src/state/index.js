@@ -30,9 +30,9 @@ export const DEFAULT_NEW_SPEC_WIZARD = {
   spec: {
     $schema: "https://vega.github.io/schema/vega/v4.json"
   },
-  error: null,
-  errorInfo: null,
-  isEmptySpec: true
+  isEmptySpec: true,
+  type: 'VEGA',
+  isVegaLite: false
 };
 
 export const DEFAULT_APP_STATE = {

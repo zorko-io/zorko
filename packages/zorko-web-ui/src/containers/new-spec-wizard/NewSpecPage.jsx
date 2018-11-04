@@ -3,9 +3,11 @@ import ViewerPageLayout from '../viewer/ViewerPageLayout'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Vega from 'react-vega'
+import VegaLite from 'react-vega-lite'
 import { bindActionCreators } from 'redux'
 import { newSpecWizardClear } from '../../action'
 import { NewSpecWizardButton } from './NewSpecWizardButton'
+import { SpecParseErrorBoundary } from './SpecParseErrorBoundary'
 
 class NewSpecPage extends Component {
 
@@ -23,6 +25,19 @@ class NewSpecPage extends Component {
     }
   }
 
+  handleParseError = (error) => {
+    console.log('aaaa parse error', error)
+  }
+
+  renderSpec = () => (
+    <SpecParseErrorBoundary isVegaLite={this.props.isVegaLite}>
+      {this.props.isVegaLite ?
+        (<VegaLite spec={this.props.spec} onParseError={this.handleParseError}/>) :
+        (<Vega spec={this.props.spec} onParseError={this.handleParseError}/>)
+      }
+    </SpecParseErrorBoundary>
+  )
+
   render() {
     return (
       <ViewerPageLayout
@@ -36,7 +51,7 @@ class NewSpecPage extends Component {
               <span>  to upload new spec content</span>
             </Fragment>
           ) : (<div className="viewer-chart-wrap">
-            <Vega spec={this.props.spec}/>
+            {this.renderSpec()}
           </div>)}
         </div>
       </ViewerPageLayout>
@@ -52,7 +67,8 @@ NewSpecPage.propTypes = {
 
 const mapStateToProps = (state) => ({
   spec: state.newSpecWizard.spec,
-  isEmptySpec: state.newSpecWizard.isEmptySpec
+  isEmptySpec: state.newSpecWizard.isEmptySpec,
+  isVegaLite: state.newSpecWizard.isVegaLite,
 })
 
 const mapDispatchToProps = (dispatch) =>

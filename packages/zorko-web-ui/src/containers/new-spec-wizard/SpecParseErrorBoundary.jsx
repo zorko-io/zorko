@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class NewSpecErrorBoundary extends Component {
+export class SpecParseErrorBoundary extends Component {
 
   constructor(props) {
     super(props)
@@ -21,8 +21,7 @@ export class NewSpecErrorBoundary extends Component {
   }
 
   renderErrorMessage = () => (<div>
-    <div>{this.state.error.message}</div>
-    {/*<div>{this.state.error.stack}</div> */}
+    <div>Invalid <span>{`${this.props.isVegaLite ? 'Vega-Lite' : 'Vega'}`}</span> specification.</div>
   </div>)
 
 
