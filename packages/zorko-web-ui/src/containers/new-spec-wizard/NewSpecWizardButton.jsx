@@ -6,7 +6,6 @@ import connect from 'react-redux/es/connect/connect'
 import { bindActionCreators } from 'redux'
 import { newSpecWizardFileSet } from '../../action'
 import { Route } from 'react-router'
-import { compile } from 'vega-lite'
 
 class NewSpecWizardButton extends Component {
   constructor() {
@@ -44,18 +43,6 @@ class NewSpecWizardButton extends Component {
   }
 
   cleanError = () => this.setState({...this.state, error: null, hasFileError: false})
-
-  compileVegaLite = (spec) => {
-    try {
-        spec = compile(this.props.spec).spec
-    } catch (error) {
-       this.setError({
-         ...error,
-         code: 'COMPILE_VEGA_LITE'
-       })
-    }
-    return spec;
-  }
 
   handleFileSuccessUpload = (file, history) => {
     this.cleanError()
@@ -125,7 +112,7 @@ class NewSpecWizardButton extends Component {
   renderFileErrorNotification = (error) => {
     let message = error.message;
     if (error.code === 'PARSE_JSON') {
-      message = 'Can\t parse selected file, because it\'s not valid JSON format'
+      message = 'Can\'t parse selected file, because it\'s not valid JSON format'
     } else if (error.code === 'UPLOAD_FILE_ERROR'){
       message = 'Can\'t upload selected file.'
     }

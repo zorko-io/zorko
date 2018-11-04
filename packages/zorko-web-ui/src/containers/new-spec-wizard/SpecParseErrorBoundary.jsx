@@ -4,21 +4,12 @@ export class SpecParseErrorBoundary extends Component {
 
   constructor(props) {
     super(props)
-
-    this.state = {
-      error: null,
-      errorInfo: null
-    }
   }
 
   componentDidCatch(error, errorInfo) {
-    this.setState({
-      ...this.state,
-      error,
-      errorInfo
-    })
     this.props.onParseError && this.props.onParseError(error, errorInfo);
   }
+
 
   renderErrorMessage = () => (<div>
     <div>Invalid <span>{`${this.props.isVegaLite ? 'Vega-Lite' : 'Vega'}`}</span> specification.</div>
@@ -26,7 +17,7 @@ export class SpecParseErrorBoundary extends Component {
 
 
   render() {
-    if (this.state.error) {
+    if (this.props.hasError) {
       return this.renderErrorMessage();
     }else {
       return this.props.children;

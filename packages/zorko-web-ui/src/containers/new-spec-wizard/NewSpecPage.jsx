@@ -33,6 +33,7 @@ class NewSpecPage extends Component {
 
   renderSpec = () => (
     <SpecParseErrorBoundary
+      hasError={this.props.hasError}
       isVegaLite={this.props.isVegaLite}
       onParseError={this.handleParseError}
     >
@@ -68,13 +69,15 @@ NewSpecPage.propTypes = {
   spec: PropTypes.object.isRequired,
   isEmptySpec: PropTypes.bool,
   clearSpec: PropTypes.func,
-  catchError: PropTypes.func
+  catchError: PropTypes.func,
+  hasError: PropTypes.bool
 }
 
 const mapStateToProps = (state) => ({
   spec: state.newSpecWizard.spec,
   isEmptySpec: state.newSpecWizard.isEmptySpec,
   isVegaLite: state.newSpecWizard.isVegaLite,
+  hasError: state.newSpecWizard.hasError
 })
 
 const mapDispatchToProps = (dispatch) =>
