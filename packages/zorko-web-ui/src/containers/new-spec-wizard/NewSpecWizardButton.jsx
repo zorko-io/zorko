@@ -104,12 +104,21 @@ class NewSpecWizardButton extends Component {
     </Fragment>)}
     />)
 
-  renderFileErrorNotification = (error) => (
-    <div style={{color: 'red'}}>
-      <div>{error.message}</div>
-    </div>
-  )
+  renderFileErrorNotification = (error) => {
+    let message = error.message;
+    if (error.code === 'PARSE_JSON') {
+      message = 'Can\t parse selected file, because it\'s not valid JSON format'
+    } else if (error.code === 'UPLOAD_FILE_ERROR'){
+      message = 'Can\'t upload selected file.'
+    }
 
+    return (
+      <div style={{color: 'red'}}>
+        <div>{message}</div>
+      </div>
+    )
+
+  }
 }
 
 NewSpecWizardButton.propTypes = {

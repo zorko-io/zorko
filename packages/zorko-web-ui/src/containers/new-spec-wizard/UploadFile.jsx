@@ -39,13 +39,19 @@ export class UploadFile extends Component {
 
           this.props.onFileLoaded(fileContent)
         } catch (error) {
-          this.handleError(error)
+          this.handleError({
+            ...error,
+            code: 'PARSE_JSON',
+          })
         }
       }
     }
 
     reader.onerror = (error) => {
-      this.handleError(error)
+      this.handleError({
+        ...error,
+        code: 'UPLOAD_FILE_ERROR',
+      })
     }
   }
 
