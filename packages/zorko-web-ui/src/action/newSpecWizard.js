@@ -13,3 +13,8 @@ export const newSpecWizardFileSet = ({spec, type}) => ({
 export const newSpecWizardClear = () => ({
   type: NEW_SPEC_WIZARD_CLEAR
 })
+
+export const newSpecWizardError = (error) => ({
+  type: NEW_SPEC_WIZARD_ERROR,
+  payload: error
+})

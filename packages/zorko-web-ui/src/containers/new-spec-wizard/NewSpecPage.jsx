@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import Vega from 'react-vega'
 import VegaLite from 'react-vega-lite'
 import { bindActionCreators } from 'redux'
-import { newSpecWizardClear } from '../../action'
+import { newSpecWizardClear, newSpecWizardError } from '../../action'
 import { NewSpecWizardButton } from './NewSpecWizardButton'
 import { SpecParseErrorBoundary } from './SpecParseErrorBoundary'
 
@@ -26,14 +26,19 @@ class NewSpecPage extends Component {
   }
 
   handleParseError = (error) => {
-    console.log('aaaa parse error', error)
+    if (this.props.clearSpec) {
+      this.props.catchError(error)
+    }
   }
 
   renderSpec = () => (
-    <SpecParseErrorBoundary isVegaLite={this.props.isVegaLite}>
+    <SpecParseErrorBoundary
+      isVegaLite={this.props.isVegaLite}
+      onParseError={this.handleParseError}
+    >
       {this.props.isVegaLite ?
-        (<VegaLite spec={this.props.spec} onParseError={this.handleParseError}/>) :
-        (<Vega spec={this.props.spec} onParseError={this.handleParseError}/>)
+        (<VegaLite spec={this.props.spec}/>) :
+        (<Vega spec={this.props.spec}/>)
       }
     </SpecParseErrorBoundary>
   )
@@ -62,7 +67,8 @@ class NewSpecPage extends Component {
 NewSpecPage.propTypes = {
   spec: PropTypes.object.isRequired,
   isEmptySpec: PropTypes.bool,
-  clearSpec: PropTypes.func
+  clearSpec: PropTypes.func,
+  catchError: PropTypes.func
 }
 
 const mapStateToProps = (state) => ({
@@ -74,7 +80,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
-      clearSpec: newSpecWizardClear
+      clearSpec: newSpecWizardClear,
+      catchError: newSpecWizardError
     },
     dispatch
   )

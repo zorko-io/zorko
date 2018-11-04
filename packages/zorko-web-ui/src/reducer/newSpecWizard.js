@@ -16,14 +16,16 @@ export function newSpecWizardReducer(state = initialState, action) {
         spec: action.payload.spec,
         isEmptySpec: false,
         type: action.payload.type,
-        isVegaLite: action.payload.type === 'VEGA_LITE'
+        isVegaLite: action.payload.type === 'VEGA_LITE',
+        hasError: false
       }
 
     case NEW_SPEC_WIZARD_ERROR :
       return {
         ...state,
         error: action.payload.error,
-        errorInfo: action.payload.errorInfo
+        errorInfo: action.payload.errorInfo,
+        hasError: true
       }
 
     case NEW_SPEC_WIZARD_CLEAR :

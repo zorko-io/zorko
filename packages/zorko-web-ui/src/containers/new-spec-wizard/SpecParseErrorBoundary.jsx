@@ -11,13 +11,13 @@ export class SpecParseErrorBoundary extends Component {
     }
   }
 
-
   componentDidCatch(error, errorInfo) {
     this.setState({
       ...this.state,
       error,
       errorInfo
     })
+    this.props.onParseError && this.props.onParseError(error, errorInfo);
   }
 
   renderErrorMessage = () => (<div>

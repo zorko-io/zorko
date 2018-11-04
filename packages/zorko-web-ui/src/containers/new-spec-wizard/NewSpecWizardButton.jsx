@@ -70,7 +70,7 @@ class NewSpecWizardButton extends Component {
   }
 
   shouldAllowPublish = (currentUrl) => {
-     return currentUrl === '/wizard/new-spec'
+     return currentUrl === '/wizard/new-spec' && !this.props.hasError
   }
 
   render = () =>
@@ -145,7 +145,8 @@ NewSpecWizardButton.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  spec: state.newSpecWizard.spec
+  spec: state.newSpecWizard.spec,
+  hasError: state.newSpecWizard.hasError
 })
 
 const mapDispatchToProps = (dispatch) =>
