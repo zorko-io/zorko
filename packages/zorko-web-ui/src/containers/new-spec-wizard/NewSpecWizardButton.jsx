@@ -27,6 +27,7 @@ class NewSpecWizardButton extends Component {
     modalIsOpen: false
   })
 
+  publishSpec = () => console.log('Publish Spec')
 
   handleClose = () => this.closeModal()
 
@@ -38,12 +39,19 @@ class NewSpecWizardButton extends Component {
     history.push('/wizard/new-spec')
   }
 
+  shouldAllowPublish = (currentUrl) => {
+     return currentUrl === '/wizard/new-spec'
+  }
+
   render = () =>
-    (<Route children={({ history }) => (
+    (<Route children={({ history, match }) => (
       <Fragment>
-        <a className="button" onClick={this.openModal}>
+        {!this.shouldAllowPublish(match.url) ? ( <a className="button" onClick={this.openModal}>
           + New
-        </a>
+        </a>) : (<a className="button" onClick={this.publishSpec}>
+          Publish
+        </a>)}
+
         <Modal
           className="zr-modal modal"
           overlayClassName="zr-modal modal-background zr-modal-background-level"
