@@ -44,11 +44,11 @@ class NewSpecWizardButton extends Component {
 
   cleanError = () => this.setState({...this.state, error: null, hasFileError: false})
 
-  handleFileSuccessUpload = (file, history) => {
+  handleFileSuccessUpload = (file, history, type) => {
     this.cleanError()
     if (this.props.onFileUploadSuccess) {
         this.props.onFileUploadSuccess({
-          type: 'VEGA_LITE',
+          type,
           spec: file.content
         })
         this.closeModal()
@@ -79,20 +79,20 @@ class NewSpecWizardButton extends Component {
         >
           <div className={'modal-card'}>
             <header className="modal-card-head">
-              <p className="modal-card-title">Upload Spec by</p>
+              <p className="modal-card-title">Upload Specification</p>
               <button className="delete" aria-label="close" onClick={this.handleClose}/>
             </header>
             <section className="modal-card-body">
               <div className="new-spec-wizard-controls">
                 <UploadFile
-                  onFileLoaded={(file) => this.handleFileSuccessUpload(file, history)}
+                  onFileLoaded={(file) => this.handleFileSuccessUpload(file, history, 'VEGA_LITE')}
                   onFileError={this.handleFileFailedUpload}
                 >
                   {(triggerUpload) => (
                     <Fragment>
                       <button
                         onClick={triggerUpload}
-                        className="button is-success">Vega-Lite File</button>
+                        className="button is-success">Vega-Lite</button>
                       {this.state.hasFileError && this.renderFileErrorNotification(this.state.error)}
                     </Fragment>
                   )}
@@ -101,7 +101,19 @@ class NewSpecWizardButton extends Component {
                 <div className="choose-message">
                   <span>or</span>
                 </div>
-                <button className="button is-success">URL</button>
+                <UploadFile
+                  onFileLoaded={(file) => this.handleFileSuccessUpload(file, history, 'VEGA')}
+                  onFileError={this.handleFileFailedUpload}
+                >
+                  {(triggerUpload) => (
+                    <Fragment>
+                      <button
+                        onClick={triggerUpload}
+                        className="button is-success">Vega</button>
+                      {this.state.hasFileError && this.renderFileErrorNotification(this.state.error)}
+                    </Fragment>
+                  )}
+                </UploadFile>
               </div>
             </section>
           </div>
