@@ -1,18 +1,17 @@
 import React, { Component, Fragment } from 'react'
-import Modal from 'react-modal'
-import { UploadFile } from './UploadFile'
 import PropTypes from 'prop-types'
 import connect from 'react-redux/es/connect/connect'
 import { bindActionCreators } from 'redux'
 import { newSpecWizardFileSet } from '../../action'
+import { UploadSpecModal } from './UploadSpecModal'
 import { Route } from 'react-router'
 
 class NewSpecWizardButton extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
-      modalIsOpen: false,
+      isUploadFileModalOpen: false,
       file: null,
       hasFileError: false,
       error: null
@@ -21,12 +20,12 @@ class NewSpecWizardButton extends Component {
 
   openModal = () => this.setState({
     ...this.state,
-    modalIsOpen: true
+    isUploadFileModalOpen: true
   })
 
   closeModal = () => this.setState({
     ...this.state,
-    modalIsOpen: false
+    isUploadFileModalOpen: false
   })
 
   publishSpec = () => console.log('Publish Spec')
@@ -44,7 +43,7 @@ class NewSpecWizardButton extends Component {
 
   cleanError = () => this.setState({...this.state, error: null, hasFileError: false})
 
-  handleFileSuccessUpload = (file, history, type) => {
+  handleFileSuccessUpload = (file,type, history) => {
     this.cleanError()
     if (this.props.onFileUploadSuccess) {
         this.props.onFileUploadSuccess({
@@ -60,82 +59,22 @@ class NewSpecWizardButton extends Component {
      return currentUrl === '/wizard/new-spec' && !this.props.hasError
   }
 
-  render = () =>
-    (<Route children={({ history, match }) => (
-      <Fragment>
-        {!this.shouldAllowPublish(match.url) ? ( <a className="button" onClick={this.openModal}>
-          + New
-        </a>) : (<a className="button" onClick={this.publishSpec}>
-          Publish
-        </a>)}
-
-        <Modal
-          className="zr-modal modal"
-          overlayClassName="zr-modal modal-background zr-modal-background-level"
-          isOpen={this.state.modalIsOpen}
-          onRequestClose={this.closeModal}
-          shouldCloseOnOverlayClick={true}
-          contentLabel="Example Modal"
-        >
-          <div className={'modal-card'}>
-            <header className="modal-card-head">
-              <p className="modal-card-title">Upload Specification</p>
-              <button className="delete" aria-label="close" onClick={this.handleClose}/>
-            </header>
-            <section className="modal-card-body">
-              <div className="new-spec-wizard-controls">
-                <UploadFile
-                  onFileLoaded={(file) => this.handleFileSuccessUpload(file, history, 'VEGA_LITE')}
-                  onFileError={this.handleFileFailedUpload}
-                >
-                  {(triggerUpload) => (
-                    <Fragment>
-                      <button
-                        onClick={triggerUpload}
-                        className="button is-success">Vega-Lite</button>
-                      {this.state.hasFileError && this.renderFileErrorNotification(this.state.error)}
-                    </Fragment>
-                  )}
-                </UploadFile>
-
-                <div className="choose-message">
-                  <span>or</span>
-                </div>
-                <UploadFile
-                  onFileLoaded={(file) => this.handleFileSuccessUpload(file, history, 'VEGA')}
-                  onFileError={this.handleFileFailedUpload}
-                >
-                  {(triggerUpload) => (
-                    <Fragment>
-                      <button
-                        onClick={triggerUpload}
-                        className="button is-success">Vega</button>
-                      {this.state.hasFileError && this.renderFileErrorNotification(this.state.error)}
-                    </Fragment>
-                  )}
-                </UploadFile>
-              </div>
-            </section>
-          </div>
-        </Modal>
-    </Fragment>)}
-    />)
-
-  renderFileErrorNotification = (error) => {
-    let message = error.message;
-    if (error.code === 'PARSE_JSON') {
-      message = 'Can\'t parse selected file, because it\'s not valid JSON format'
-    } else if (error.code === 'UPLOAD_FILE_ERROR'){
-      message = 'Can\'t upload selected file.'
+    render() {
+      return (<Route children={({ history, match }) => (
+          <Fragment>
+          {!this.shouldAllowPublish(match.url) ? (<a className="button" onClick={this.openModal}>
+            + New
+          </a>) : (<a className="button" onClick={this.publishSpec}>
+            Publish
+          </a>)}
+          <UploadSpecModal
+            isOpen={this.state.isUploadFileModalOpen}
+            onSpecUploadSuccess={(file, type) => this.handleFileSuccessUpload(file, type, history)}
+            onSpecUploadFailed={(error)=> this.handleFileFailedUpload(error)}
+          />
+        </Fragment>
+      )} />)
     }
-
-    return (
-      <div style={{color: 'red'}}>
-        <div>{message}</div>
-      </div>
-    )
-
-  }
 }
 
 NewSpecWizardButton.propTypes = {
