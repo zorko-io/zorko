@@ -4,7 +4,7 @@ import connect from 'react-redux/es/connect/connect'
 import { bindActionCreators } from 'redux'
 import { newSpecWizardFileSet, newSpecWizardPublishRequest } from '../../action'
 import { UploadSpecModal } from './UploadSpecModal'
-import { Route } from 'react-router'
+import { Redirect, Route } from 'react-router'
 
 class NewSpecWizardButton extends Component {
   constructor(props) {
@@ -79,6 +79,7 @@ class NewSpecWizardButton extends Component {
             onSpecUploadSuccess={(file, type) => this.handleFileSuccessUpload(file, type, history)}
             onSpecUploadFailed={(error)=> this.handleFileFailedUpload(error)}
           />
+            {this.props.publishedSpecId && <Redirect push to={`/specs/${this.props.publishedSpecId}`} />}
         </Fragment>
       )} />)
     }
@@ -92,7 +93,8 @@ NewSpecWizardButton.propTypes = {
 
 const mapStateToProps = (state) => ({
   spec: state.newSpecWizard.spec,
-  hasError: state.newSpecWizard.hasError
+  hasError: state.newSpecWizard.hasError,
+  publishedSpecId: state.newSpecWizard.publishedSpecId
 })
 
 const mapDispatchToProps = (dispatch) =>

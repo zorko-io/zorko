@@ -32,7 +32,7 @@ export function newSpecWizardReducer(state = initialState, action) {
     case NEW_SPEC_WIZARD_PUBLISH_SUCCESS :
       return {
         ...state,
-        publishedSpecId: action.payload.spec.id,
+        publishedSpecId: action.payload.id,
       }
 
     case NEW_SPEC_WIZARD_CLEAR :
