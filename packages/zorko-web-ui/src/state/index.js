@@ -33,7 +33,8 @@ export const DEFAULT_NEW_SPEC_WIZARD = {
   isEmptySpec: true,
   type: 'VEGA',
   isVegaLite: false,
-  hasError: true
+  hasError: true,
+  publishedSpecId: ''
 };
 
 export const DEFAULT_APP_STATE = {

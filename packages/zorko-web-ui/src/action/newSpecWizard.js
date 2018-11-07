@@ -33,11 +33,9 @@ export const newSpecWizardPublishRequest = ({spec, type, author, title}) => ({
   }
 })
 
-export const newSpecWizardPublishSuccess = ({specId}) => ({
+export const newSpecWizardPublishSuccess = (spec) => ({
   type: NEW_SPEC_WIZARD_PUBLISH_SUCCESS,
-  payload: {
-    specId
-  }
+  payload: spec
 })
 
 export const newSpecWizardPublishError = (error) => ({
