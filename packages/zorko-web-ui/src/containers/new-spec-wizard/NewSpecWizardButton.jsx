@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import connect from 'react-redux/es/connect/connect'
 import { bindActionCreators } from 'redux'
-import { newSpecWizardFileSet } from '../../action'
+import { newSpecWizardFileSet, newSpecWizardPublishRequest } from '../../action'
 import { UploadSpecModal } from './UploadSpecModal'
 import { Route } from 'react-router'
 
@@ -28,7 +28,14 @@ class NewSpecWizardButton extends Component {
     isUploadFileModalOpen: false
   })
 
-  publishSpec = () => console.log('Publish Spec')
+  publishSpec = () => {
+    if (this.props.publishSpec) {
+      this.props.publishSpec({
+        spec: this.props.spec,
+        title: 'Untitled'
+      });
+    }
+  }
 
   handleClose = () => this.closeModal()
 
@@ -79,7 +86,8 @@ class NewSpecWizardButton extends Component {
 
 NewSpecWizardButton.propTypes = {
   onFileUploadSuccess: PropTypes.func,
-  spec: PropTypes.object,
+  publishSpec: PropTypes.func,
+  spec: PropTypes.object
 }
 
 const mapStateToProps = (state) => ({
@@ -90,7 +98,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
-      onFileUploadSuccess: newSpecWizardFileSet
+      onFileUploadSuccess: newSpecWizardFileSet,
+      publishSpec: newSpecWizardPublishRequest
     },
     dispatch
   )

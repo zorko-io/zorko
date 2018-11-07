@@ -10,3 +10,12 @@ export const fetchSpec = async (options) => {
   const response = await axios.get(`/specs/${options.id}`);
   return response.data;
 }
+
+export const publishSpec = async ({spec, author, type, title}) => {
+  const response = await axios.post(`/specs`, {
+     spec,
+     title,
+     preview: '<svg></svg>'
+  });
+  return response.data;
+}

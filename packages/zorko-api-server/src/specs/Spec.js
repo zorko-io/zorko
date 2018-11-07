@@ -23,6 +23,10 @@ async function createSpec({
         .collection('specs');
     const now = new Date();
 
+    // faced with mongodb version and support for '$' characters
+    spec.schema = spec.$schema;
+    delete spec.$schema;
+
     const result = await specsCollection.insert({
         spec,
         title,
@@ -51,6 +55,9 @@ async function getSpec(id) {
     if (!spec) {
         throw new Exception({ code: 'NOT_FOUND_ERROR', fields: { id }, message: 'Can\'t find spec by id' });
     }
+
+    spec.$schema = spec.schema;
+    delete spec.schema;
 
     return spec;
 }

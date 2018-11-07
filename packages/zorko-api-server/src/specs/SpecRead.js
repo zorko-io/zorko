@@ -9,14 +9,10 @@ class SpecRead extends BaseCommand {
     async execute(params) {
         const { id } = params;
         const spec = await Specs.getSpec(id);
-        const specContent = spec.spec;
-        const schema = specContent.schema;
-        delete specContent.schema;
         return {
             id: spec._id,
             spec: {
-              ...specContent,
-              $schema: schema,
+                ...spec.spec,
             },
             title: spec.title,
             createdBy: spec.createdBy,
