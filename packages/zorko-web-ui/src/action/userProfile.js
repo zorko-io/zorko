@@ -8,7 +8,9 @@ export const userProfileSet = (profile) => ({
 
 export const userProfileSetError = (error) => ({
   type: USER_PROFILE_SET_ERROR,
-  payload: error
+  payload: {
+    error
+  }
 });
 
 

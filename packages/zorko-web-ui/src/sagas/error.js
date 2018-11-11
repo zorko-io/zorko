@@ -1,10 +1,29 @@
 import { takeLatest, put } from 'redux-saga/effects'
 import { errorRecoverableSet } from '../action'
+import { authShow } from '../action/auth'
+import { USER_PROFILE_SET_ERROR } from '../action/userProfile'
 
 export function* handleError(action) {
   if (action.type.match(/(.*)ERROR$/)) {
-    const error = action.payload
-    yield put(errorRecoverableSet(error.message))
+    const error = action.payload.error
+
+    if (error) {
+      let response = error.response
+      if (response) {
+        if (response.status === 401) {
+          yield put(authShow())
+        }
+      }
+    } else  if (action.type === USER_PROFILE_SET_ERROR) {
+      let response = error.response
+      if (response) {
+        if (response.status === 403) {
+          yield put(authShow())
+        }
+      }
+    }else {
+      yield put(errorRecoverableSet(error.message))
+    }
   }
 }
 
