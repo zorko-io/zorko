@@ -1,6 +1,6 @@
 import { takeLatest, put } from 'redux-saga/effects'
 import { errorRecoverableSet } from '../action'
-import { authShow } from '../action/auth'
+import { authModalShow } from '../action/auth'
 import { USER_PROFILE_SET_ERROR } from '../action/userProfile'
 
 export function* handleError(action) {
@@ -11,14 +11,14 @@ export function* handleError(action) {
       let response = error.response
       if (response) {
         if (response.status === 401) {
-          yield put(authShow())
+          yield put(authModalShow())
         }
       }
     } else  if (action.type === USER_PROFILE_SET_ERROR) {
       let response = error.response
       if (response) {
         if (response.status === 403) {
-          yield put(authShow())
+          yield put(authModalShow())
         }
       }
     }else {

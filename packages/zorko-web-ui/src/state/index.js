@@ -18,6 +18,7 @@ export const DEFAULT_PREVIEWS_STATE = {
 
 export const DEFAULT_AUTH = {
   token: '',
+  shouldShowModal: false
 }
 
 export const DEFAULT_VIEWER = {
