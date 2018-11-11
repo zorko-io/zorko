@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { UploadFile } from './UploadFile'
-import Modal from 'react-modal'
+import { Modal } from '../../components/Modal'
 
 export class UploadSpecModal extends Component {
   constructor(props) {
@@ -33,54 +33,42 @@ export class UploadSpecModal extends Component {
   render() {
     return (
       <Modal
-        className="zr-modal modal"
-        overlayClassName="zr-modal modal-background zr-modal-background-level"
+        title={'Upload Specification'}
         isOpen={this.props.isOpen}
-        shouldCloseOnOverlayClick={true}
-        contentLabel="Example Modal"
+        onClose={this.props.onClose}
       >
-        <div className={'modal-card'}>
-          <header className="modal-card-head">
-            <p className="modal-card-title">Upload Specification</p>
-            <button className="delete" aria-label="close" onClick={this.handleClose}/>
-          </header>
-          <section className="modal-card-body">
-            <div className="new-spec-wizard-controls">
-              <UploadFile
-                onFileLoaded={(file) => this.props.onSpecUploadSuccess(file, 'VEGA_LITE')}
-                onFileError={(error) => this.handleUploadFailure(error, 'VEGA_LITE')}
-              >
-                {(triggerUpload) => (
-                  <Fragment>
-                    <button
-                      onClick={triggerUpload}
-                      className="button is-success">Vega-Lite
-                    </button>
-                    {this.state.vegaLiteUploadError && this.renderFileErrorNotification(this.state.vegaLiteUploadError)}
-                  </Fragment>
-                )}
-              </UploadFile>
+        <UploadFile
+          onFileLoaded={(file) => this.props.onSpecUploadSuccess(file, 'VEGA_LITE')}
+          onFileError={(error) => this.handleUploadFailure(error, 'VEGA_LITE')}
+        >
+          {(triggerUpload) => (
+            <Fragment>
+              <button
+                onClick={triggerUpload}
+                className="button is-success">Vega-Lite
+              </button>
+              {this.state.vegaLiteUploadError && this.renderFileErrorNotification(this.state.vegaLiteUploadError)}
+            </Fragment>
+          )}
+        </UploadFile>
 
-              <div className="choose-message">
-                <span>or</span>
-              </div>
-              <UploadFile
-                onFileLoaded={(file) => this.props.onSpecUploadSuccess(file, 'VEGA')}
-                onFileError={(error) => this.handleUploadFailure(error, 'VEGA')}
-              >
-                {(triggerUpload) => (
-                  <Fragment>
-                    <button
-                      onClick={triggerUpload}
-                      className="button is-success">Vega
-                    </button>
-                    {this.state.vegaUploadError && this.renderFileErrorNotification(this.state.vegaUploadError)}
-                  </Fragment>
-                )}
-              </UploadFile>
-            </div>
-          </section>
+        <div className="choose-message">
+          <span>or</span>
         </div>
+        <UploadFile
+          onFileLoaded={(file) => this.props.onSpecUploadSuccess(file, 'VEGA')}
+          onFileError={(error) => this.handleUploadFailure(error, 'VEGA')}
+        >
+          {(triggerUpload) => (
+            <Fragment>
+              <button
+                onClick={triggerUpload}
+                className="button is-success">Vega
+              </button>
+              {this.state.vegaUploadError && this.renderFileErrorNotification(this.state.vegaUploadError)}
+            </Fragment>
+          )}
+        </UploadFile>
       </Modal>
     )
   }
@@ -111,5 +99,6 @@ UploadSpecModal.propTypes = {
   close: PropTypes.func,
   isOpen: PropTypes.bool,
   onSpecUploadSuccess: PropTypes.func,
-  onSpecUploadFailed: PropTypes.func
+  onSpecUploadFailed: PropTypes.func,
+  onClose: PropTypes.func
 }

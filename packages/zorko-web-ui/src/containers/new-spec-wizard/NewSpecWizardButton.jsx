@@ -78,6 +78,7 @@ class NewSpecWizardButton extends Component {
             isOpen={this.state.isUploadFileModalOpen}
             onSpecUploadSuccess={(file, type) => this.handleFileSuccessUpload(file, type, history)}
             onSpecUploadFailed={(error)=> this.handleFileFailedUpload(error)}
+            onClose={this.handleClose}
           />
             {this.props.publishedSpecId && <Redirect push to={`/specs/${this.props.publishedSpecId}`} />}
         </Fragment>
