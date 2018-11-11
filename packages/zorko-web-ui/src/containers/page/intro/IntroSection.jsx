@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import AuthButton from "../auth/AuthButton";
+import AuthButton from "../../auth/AuthButton";
 import {isAuthenticated} from "../../../selector/auth";
 import {connect} from "react-redux";
 import ContactUsButton from "../feedback/ContactUsButton";

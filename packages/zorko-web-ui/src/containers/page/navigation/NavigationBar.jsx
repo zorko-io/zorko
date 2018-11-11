@@ -1,11 +1,12 @@
 import logo from '../../../logo.png'
 import React, { Component, Fragment } from 'react'
-import AuthButton from '../auth/AuthButton'
-import LogoutButton from '../auth/LogoutButton'
+import AuthButton from '../../auth/AuthButton'
+import LogoutButton from '../../auth/LogoutButton'
 import MediaQuery from 'react-responsive'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { NewSpecWizardButton } from '../../new-spec-wizard/NewSpecWizardButton'
+import AuthModal from '../../auth/AuthModal'
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -69,7 +70,6 @@ class NavigationBar extends Component {
           <span className="navbar-title-text">{this.renderTitle()}</span>
         </div>
       </MediaQuery>}
-
       <div className={`navbar-menu ${isMenuActive ? 'is-active' : ''}`}>
         <div className="navbar-end">
           <div className="navbar-item">
@@ -88,6 +88,7 @@ class NavigationBar extends Component {
           </MediaQuery>
         </div>
       </div>
+      <AuthModal/>
     </Fragment>
   }
 
