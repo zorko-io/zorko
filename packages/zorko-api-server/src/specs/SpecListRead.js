@@ -5,7 +5,7 @@ class SpecListRead extends BaseCommand {
     static validationRules() {
         return {
             limit: ['positive_integer', { default: 10 }, { max_number: 30 }],
-            offset: ['positive_integer', { default: 0 }],
+            offset: ['integer', { default: 0 }, { min_number: 0 }],
         };
     }
 

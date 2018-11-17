@@ -16,7 +16,7 @@ class Gallery extends Component {
   }
 
   componentDidMount() {
-    this.requestPreviews(this.pageId)
+    this.requestPreviews(0)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -29,11 +29,10 @@ class Gallery extends Component {
 
   requestPreviews = (pageId) => {
     let limit = 9
-    let offset = 1
+    let offset = 0
 
     if (pageId) {
-      offset = pageId * 9
-      limit = 9
+      offset = pageId * limit
     }
     this.props.requestPreviews({ limit, offset })
   }

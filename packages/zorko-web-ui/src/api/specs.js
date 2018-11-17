@@ -1,5 +1,4 @@
 import axios from 'axios/index'
-import { API_DEFAULT_PAGGINATION_OPTIONS } from '../constants'
 import { compile } from 'vega-lite'
 import * as vega from "vega"
 import _ from "lodash"
@@ -35,7 +34,7 @@ export function modifySpec (spec, type) {
 }
 
 
-export const fetchSpecLookups = async (options = API_DEFAULT_PAGGINATION_OPTIONS) => {
+export const fetchSpecLookups = async (options) => {
   const response = await axios.get('/specs', { params: options })
   return response.data
 }
