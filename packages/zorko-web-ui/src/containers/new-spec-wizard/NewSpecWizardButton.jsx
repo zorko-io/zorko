@@ -32,7 +32,8 @@ class NewSpecWizardButton extends Component {
     if (this.props.publishSpec) {
       this.props.publishSpec({
         spec: this.props.spec,
-        title: 'Untitled'
+        title: 'Untitled',
+        type: this.props.type
       });
     }
   }
@@ -89,12 +90,14 @@ class NewSpecWizardButton extends Component {
 NewSpecWizardButton.propTypes = {
   onFileUploadSuccess: PropTypes.func,
   publishSpec: PropTypes.func,
-  spec: PropTypes.object
+  spec: PropTypes.object,
+  type: PropTypes.string
 }
 
 const mapStateToProps = (state) => ({
   spec: state.newSpecWizard.spec,
   hasError: state.newSpecWizard.hasError,
+  type: state.newSpecWizard.type,
   publishedSpecId: state.newSpecWizard.publishedSpecId
 })
 

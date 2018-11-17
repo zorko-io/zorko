@@ -2,9 +2,9 @@ import axios from 'axios/index'
 import { API_DEFAULT_PAGGINATION_OPTIONS } from '../constants'
 import { compile } from 'vega-lite'
 import * as vega from "vega"
+import _ from "lodash"
 
-
-// TODO: replace with server-side
+// TODO: replace with server-side, it's all proper loader config
 function modifyDataSourceLocation(spec) {
   if (spec.data && spec.data.url) {
     let url = spec.data.url
@@ -46,13 +46,20 @@ export const fetchSpec = async (options) => {
 }
 
 export const publishSpec = async ({spec, author, type, title}) => {
-
+  // TODO: replace it with proper handling loader config and UI notification
   spec = modifySpec(spec)
 
-  const view = new vega.View(vega.parse(spec), {
+  let specToRender = _.cloneDeep(spec);
+  if (type === 'VEGA_LITE'){
+    specToRender = compile(specToRender).spec;
+  }
+
+  let view = new vega.View(vega.parse(specToRender), {
     logLevel: vega.Warn,
-    renderer: 'none',
+    renderer: 'svg',
   });
+
+  view = await view.runAsync();
 
   let preview = await view.toSVG();
 
