@@ -38,8 +38,9 @@ module.exports = {
         "no-unused-expressions": "warn",
         "operator-assignment": "warn",
         "max-len": [1, 170],
-        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "indent": ["error", 2, { "SwitchCase": 1 }],
         "radix": ["error", "as-needed"],
-        "class-methods-use-this" : "off"
+        "class-methods-use-this" : "off",
+        "comma-dangle": "off",
     }
 };
