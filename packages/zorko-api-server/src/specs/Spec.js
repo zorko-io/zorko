@@ -17,7 +17,7 @@ function formatSpec(spec) {
 }
 
 async function createSpec({
-    spec, title, preview, createdBy,
+    spec, title, preview, createdBy, type,
 }) {
     const specsCollection = db.get()
         .collection('specs');
@@ -34,6 +34,7 @@ async function createSpec({
         preview,
         createdAt: now,
         updatedAt: now,
+        type,
     });
     return result.ops[0];
 }

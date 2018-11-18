@@ -1,8 +1,8 @@
 require('dotenv')
     .config();
 const config = require('../src/config');
-const db = require('../src/db');
-const admin = require('./users/admin');
+const db = require('../src/db/index');
+const admin = require('../seeds/users/admin');
 const {
     readSpecs, readFileNames, SEEDS_SPECS_PATH, findAndReadPreviewBySpecName,
 } = require('./utils');

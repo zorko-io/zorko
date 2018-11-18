@@ -6,6 +6,7 @@ class SpecCreate extends BaseCommand {
     static validationRules() {
         return {
             spec: ['required', 'any_object'],
+            type: ['required', 'string'],
             // TODO: make it required, so client have to upload with preview
             preview: ['required', 'string'],
             title: ['required', 'string'],
@@ -27,6 +28,7 @@ class SpecCreate extends BaseCommand {
             spec: newSpec.spec,
             title: newSpec.title,
             createdBy: newSpec.createdBy,
+            type: newSpec.type
         };
     }
 }

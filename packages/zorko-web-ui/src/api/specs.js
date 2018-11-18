@@ -65,7 +65,8 @@ export const publishSpec = async ({spec, author, type, title}) => {
   const response = await axios.post(`/specs`, {
     spec,
     title,
-    preview
+    preview,
+    type
   });
 
   return response.data;
