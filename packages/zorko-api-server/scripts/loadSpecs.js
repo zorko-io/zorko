@@ -32,7 +32,7 @@ const loadSpecs = async ({
 
         const specs = await readSpecs(specsSrc);
 
-        let specInsertResults = await Promise.all(specs.map(async (spec, index) => {
+        let specInsertResults = await Promise.all(specs.map(async ({ spec, type }, index) => {
           const schema = spec.$schema;
           // BJSON doesn't allow '$' in key
           delete spec.$schema;
@@ -51,6 +51,7 @@ const loadSpecs = async ({
                 lastName: admin.lastName,
                 avatarUtl: admin.avatarUtl,
               },
+              type,
               preview: previews[index],
               createdAt: DEFAULT_DATE,
               updatedAt: DEFAULT_DATE,

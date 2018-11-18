@@ -22,16 +22,30 @@ const SEEDS_DATA_PATH = `${__dirname}/`;
 
 const getPreviewFilePath = fileName => `${SEEDS_PREVIEWS_PATH}/${fileName}`;
 
-const readSpecs = async (specsSrc = SEEDS_SPECS_PATH) => {
+const getSpecType = (fileName) => {
+  if (fileName.match(/\.vl\.json$/)) {
+     return 'vega-lite';
+  }
+    return 'vega';
+};
+
+const readSpecs = async (specsSrc) => {
   let specs = [];
   try {
     const fileNames = await readFileNames(specsSrc);
     const fileBuffers = await Promise.all(
-      fileNames.map(
-        filename => readFile(path.join(specsSrc, filename))
-      )
+      fileNames.map(async (filename) => {
+        const buffer = await readFile(path.join(specsSrc, filename));
+        return {
+          buffer,
+          specType: getSpecType(filename)
+        };
+      })
     );
-    specs = fileBuffers.map(buffer => JSON.parse(buffer.toString()));
+    specs = fileBuffers.map(({ buffer, specType }) => ({
+      spec: JSON.parse(buffer.toString()),
+      type: specType,
+    }));
   } catch (e) {
     console.error(e);
   }
