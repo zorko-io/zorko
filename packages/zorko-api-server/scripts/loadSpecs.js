@@ -9,7 +9,8 @@ const DEFAULT_DATE = '2018-05-04T17:00:00.000+0000';
 const loadSpecs = async ({
   specsSrc,
   dbUrl,
-  dbName
+  dbName,
+  previewsSrc
 }
 ) => {
   console.log('URL', dbUrl, dbName);
@@ -28,7 +29,7 @@ const loadSpecs = async ({
           .collection('specs');
 
         const specFileNames = await readFileNames(specsSrc);
-        const previews = await Promise.all(specFileNames.map(findAndReadPreviewBySpecName));
+        const previews = await Promise.all(specFileNames.map(specName => findAndReadPreviewBySpecName(specName, previewsSrc)));
 
         const specs = await readSpecs(specsSrc);
 

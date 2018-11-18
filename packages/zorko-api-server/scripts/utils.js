@@ -102,7 +102,7 @@ const generatePreviews = async () => {
     const writeStats = filenames.map(async (filename, index) => {
       let writeStatus = 'none';
       const previewFileName = specNameToPreviewName(filename);
-      const previewPath = getPreviewFilePath(previewFileName);
+      const previewPath = path.join(SEEDS_PREVIEWS_PATH, previewFileName);
       const spec = specs[index];
       if (spec) {
         try {
@@ -120,9 +120,9 @@ const generatePreviews = async () => {
   }
 };
 
-const findAndReadPreviewBySpecName = async (specFileName) => {
+const findAndReadPreviewBySpecName = async (specFileName, previewSrc) => {
   const previewFileName = specNameToPreviewName(specFileName);
-  const previewPath = getPreviewFilePath(previewFileName);
+  const previewPath = path.join(previewSrc, previewFileName);
   let content = '';
   try {
     content = await readFile(previewPath);

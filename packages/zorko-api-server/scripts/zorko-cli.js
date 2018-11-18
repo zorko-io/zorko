@@ -4,7 +4,7 @@ const loadSpecs = require('./loadSpecs');
 require('yargs')
   .usage('$0 <cmd> [args]')
   .command(
-    'load [src] [type] [dbUrl] [dbName]', 'Upload specs to server storage', (yargs) => {
+    'load [src] [type] [dbUrl] [dbName] [previewSrc]', 'Upload specs to server storage', (yargs) => {
       yargs.positional('src', {
         type: 'string',
         default: __dirname,
@@ -26,13 +26,18 @@ require('yargs')
         default: 'mongodb://localhost:27017/',
         describe: 'Database root URL',
       });
+      yargs.positional('previewSrc', {
+        type: 'string',
+        describe: 'Generated previews folder',
+      });
     },
     (argv) => {
       console.log('Start loading specs from: ', `${argv.src}`);
       loadSpecs({
         specsSrc: argv.src,
         dbUrl: argv.dbUrl,
-        dbName: argv.dbName
+        dbName: argv.dbName,
+        previewsSrc: argv.previewSrc
       })
         .then(() => console.log('Done!'))
         .catch(err => console.error(err.message));

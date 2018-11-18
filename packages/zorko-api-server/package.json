@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/app.js",
     "dev": "nodemon --inspect src/app.js",
-    "seeds-to-db": "nodenv -E .env scripts/zorko-cli.js load seeds/specs/vega-lite vl $MONGO_ROOT_URL $MONGO_DB_NAME",
+    "seeds-to-db": "nodenv -E .env scripts/zorko-cli.js load seeds/specs/vega-lite vl $MONGO_ROOT_URL $MONGO_DB_NAME seeds/previews/vega-lite",
     "specs-to-previews": "node seeds/specsToPreviews.js"
   },
   "repository": {
