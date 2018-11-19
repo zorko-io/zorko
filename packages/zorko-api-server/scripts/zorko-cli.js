@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const loadSpecs = require('./loadSpecs');
+const chalk = require('chalk');
 
 require('yargs')
   .usage('$0 <cmd> [args]')
@@ -39,7 +40,7 @@ require('yargs')
         dbName: argv.dbName,
         previewsSrc: argv.previewSrc
       })
-        .then(() => console.log('Done!'))
+        .then(() => console.log(chalk.green('Done!')))
         .catch(err => console.error(err.message));
     }
   )

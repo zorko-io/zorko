@@ -1,5 +1,8 @@
 const db = require('../src/db/index');
 const admin = require('../seeds/users/admin');
+const chalk = require('chalk');
+const log = console.log;
+
 const {
   readSpecs, readFileNames, findAndReadPreviewBySpecName,
 } = require('./utils');
@@ -58,7 +61,7 @@ const loadSpecs = async ({
               updatedAt: DEFAULT_DATE,
             });
           } catch (error) {
-            console.warn('Issues with saving spec', error);
+            log(chalk.red`Issues with saving spec`, error);
           }
           return result;
         }));
@@ -70,7 +73,7 @@ const loadSpecs = async ({
           return memo;
         }, []);
 
-        console.log(`Database successfully filled with ${specIds.length} specs`);
+        log(chalk.green`Database successfully filled with ${specIds.length} specs`);
 
         await usersCollection.insertOne({
           email: admin.email,
@@ -86,12 +89,12 @@ const loadSpecs = async ({
           specs: specIds,
         });
 
-        console.log('Database successfully filled with 1 user');
+        log(chalk.green`Database successfully filled with 1 user`);
         process.exit(0);
       }
     });
   } catch (e) {
-    console.log('Error. db filled with error', e);
+    log(chalk.red`Error. db filled with error`, e);
     process.exit(1);
   }
 };
