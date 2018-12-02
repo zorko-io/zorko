@@ -1,6 +1,6 @@
 import React  from 'react';
 import { storiesOf } from '@storybook/react';
-import { Button, SvgView, Card, Image } from '../src/js'
+import { Button, SvgView, Card, Image, Media } from '../src/js'
 import {withActions, action} from '@storybook/addon-actions'
 import {host} from 'storybook-host'
 
@@ -67,6 +67,23 @@ storiesOf('Image', module)
     ratio="4by3"
     src="https://bulma.io/images/placeholders/1280x960.png"
     alt="Placeholder image" />)
+  )
+
+storiesOf('Media', module)
+  .addDecorator(host({
+    width: 300,
+    height: 100,
+    align: 'center'
+  }))
+  .add('default', () => (
+    <Media
+      left={<Image size="32" src="https://bulma.io/images/placeholders/32x32.png"/>}>
+      <p>
+        <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+        <br/>
+        adskmlskam admkldmasldmlsa asdmlaskdmlk
+      </p>
+    </Media>)
   )
 
 
