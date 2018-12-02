@@ -7,6 +7,7 @@ import {Content} from './Content'
 import {PreviewCardAuthor} from './PreviewCardAuthor'
 import {PreviewCard} from './PreviewCard'
 import {PreviewCardsLayout} from './PreviewCardsLayout'
+import {Pagination} from './Pagination'
 
 export {
   Button,
@@ -17,5 +18,6 @@ export {
   Content,
   PreviewCardAuthor,
   PreviewCard,
-  PreviewCardsLayout
+  PreviewCardsLayout,
+  Pagination
 }

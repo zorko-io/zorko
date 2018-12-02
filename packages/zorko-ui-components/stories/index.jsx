@@ -9,7 +9,7 @@ import {
   Content,
   PreviewCardAuthor,
   PreviewCard,
-  PreviewCardsLayout
+  PreviewCardsLayout, Pagination
 } from '../src/js'
 import {withActions, action} from '@storybook/addon-actions'
 import {host} from 'storybook-host'
@@ -244,5 +244,19 @@ storiesOf('PreviewCardLayout', module)
         />
       </PreviewCard>)}
   </PreviewCardsLayout>))
+
+
+storiesOf('Pagination', module)
+  .addDecorator(host({
+    width: 600,
+    height: 400,
+    align: 'center'
+  }))
+  .add('default', () => (
+  <Pagination
+    prev={<Button>{'Prev'}</Button>}
+    next={<Button type={'primary'}>{'Next'}</Button>}
+  />))
+
 
 
