@@ -2,10 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-const clazz = ({ type }) => classNames({
+const clazz = ({ type, loading }) => classNames({
   'button': true,
   'is-primary': type === 'primary',
-  'is-default': type === 'default'
+  'is-default': type === 'default',
+  'is-loading': loading
 })
 
 export const Button = (props) => {
@@ -27,6 +28,7 @@ Button.defaultProps = {
 Button.propTypes = {
   type: PropTypes.oneOf(['default', 'primary']),
   onClick: PropTypes.func,
-  children: PropTypes.element
+  children: PropTypes.element,
+  loading : PropTypes.bool
 }
 

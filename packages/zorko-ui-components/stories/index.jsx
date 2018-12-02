@@ -27,4 +27,9 @@ storiesOf('Button', module)
         😀 😎 👍 💯
       </span>
     </Button>
+  ))
+  .add('loading', () => (
+    <Button loading={true} type={'primary'} onClick={logButtonClick}>
+      You shouldn't see it
+    </Button>
   ));
