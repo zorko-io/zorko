@@ -1,7 +1,8 @@
 import React  from 'react';
 import { storiesOf } from '@storybook/react';
-import {Button} from '../src/js'
+import {Button, SvgView} from '../src/js'
 import {withActions, action} from '@storybook/addon-actions'
+import {host} from 'storybook-host'
 
 import '../src/sass/index.scss'
 
@@ -33,3 +34,9 @@ storiesOf('Button', module)
       You shouldn't see it
     </Button>
   ));
+
+storiesOf('SvgView', module)
+  .addDecorator(host({
+    align: 'center'
+  }))
+  .add('default content', () => (<SvgView height={300} width={600}/>) )

@@ -20,7 +20,6 @@ class PreviewCard extends Component {
       <div className="card">
         <div className="card-image">
           <figure
-            ref={this.svgParent}
             className="image"
             dangerouslySetInnerHTML={{ __html: content }}
           />
