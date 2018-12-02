@@ -1,12 +1,18 @@
 import React from 'react'
 import classNames from 'classnames'
+import PropTypes from 'prop-types'
 
-const clazz = () => classNames({
-  'container': true
+const clazz = ({fluid}) => classNames({
+  'container': true,
+  'is-fluid': fluid
 })
 
 export const Container = (props) => (
-  <div className={clazz(props)}>
+  <div className={clazz(props)} {...props}>
     {props.children}
   </div>
 )
+
+Container.propTypes = {
+  fluid: PropTypes.bool
+}

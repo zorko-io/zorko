@@ -6,6 +6,8 @@ import { bindActionCreators } from 'redux'
 import { specLookupsRequest } from '../../action'
 import { withRouter } from 'react-router'
 import ScrollToTop from '../../components/ScrollToTop'
+import * as previews from '../../selector/previews'
+// import {PreviewSection} from 'zorko-ui-components'
 
 const getPageId = (props) => (Number(props.match.params.pageId))
 
@@ -46,27 +48,37 @@ class Gallery extends Component {
 
     return (
       <Fragment>
-        <ScrollToTop>
-        <PreviewGrid/>
-        <div className={'field is-grouped gallery-pagination-center'}>
-          {this.shouldShowPrevControl && (
-            <p className={'control'}>
-              <Link to={`${match.path.replace(':pageId', this.pageId - 1)}`}>
-                <button className="button is-disabled">Prev</button>
-              </Link>
-            </p>
-          )}
-          <p className={'control'}>
-            <Link to={`/gallery/${(this.pageId ? this.pageId : 0) + 1}`}>
-              <button className="button is-primary">Next</button>
-            </Link>
-          </p>
-        </div>
-        </ScrollToTop>
+        {/*<ScrollToTop>*/}
+        {/*<PreviewSectoin*/}
+          {/*title='Recent'*/}
+        {/*/>*/}
+
+
+        {/*<PreviewGrid/>*/}
+        {/*<div className={'field is-grouped gallery-pagination-center'}>*/}
+          {/*{this.shouldShowPrevControl && (*/}
+            {/*<p className={'control'}>*/}
+              {/*<Link to={`${match.path.replace(':pageId', this.pageId - 1)}`}>*/}
+                {/*<button className="button is-disabled">Prev</button>*/}
+              {/*</Link>*/}
+            {/*</p>*/}
+          {/*)}*/}
+          {/*<p className={'control'}>*/}
+            {/*<Link to={`/gallery/${(this.pageId ? this.pageId : 0) + 1}`}>*/}
+              {/*<button className="button is-primary">Next</button>*/}
+            {/*</Link>*/}
+          {/*</p>*/}
+        {/*</div>*/}
+        {/*</ScrollToTop>*/}
       </Fragment>
     )
   }
 }
+
+const mapStateToProps = (state, ownProps) => ({
+  previews: previews.getAll(state),
+  ...ownProps
+});
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
@@ -77,5 +89,5 @@ const mapDispatchToProps = (dispatch) =>
   )
 
 export default withRouter(connect(
-  null, mapDispatchToProps
+  mapStateToProps, mapDispatchToProps
 )(Gallery))

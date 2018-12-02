@@ -10,7 +10,10 @@ import {
   PreviewCardAuthor,
   PreviewCard,
   PreviewCardsLayout,
-  Pagination, Container
+  Pagination,
+  Container,
+  PreviewSection,
+  PageLayout
 } from '../src/js'
 import { withActions, action } from '@storybook/addon-actions'
 import { host } from 'storybook-host'
@@ -20,8 +23,6 @@ import { samplePreviews } from './__data__/previews'
 import '../src/sass/index.scss'
 
 import { CenterDecorator } from './decorator'
-import { PreviewSection } from '../src/js/PreviewSection'
-
 
 let logButtonClick = action('button-click-log')
 
@@ -297,3 +298,27 @@ storiesOf('PreviewSection', module)
         next={<Button type={'primary'}>{'Next'}</Button>}
       />}
   />))
+
+storiesOf('PageLayout', module)
+  .add('default', () => (
+    <PageLayout>
+      <PreviewSection
+        title="Recent"
+        previews={
+          <PreviewCardsLayout previews={samplePreviews}>
+            {(item) => (
+              <PreviewCard preview={item.preview}>
+                <PreviewCardAuthor
+                  title={item.title}
+                  login={item.author.login}
+                />
+              </PreviewCard>)}
+          </PreviewCardsLayout>
+        }
+        pagination={
+          <Pagination
+            prev={<Button>{'Prev'}</Button>}
+            next={<Button type={'primary'}>{'Next'}</Button>}
+          />}
+      />
+    </PageLayout>))

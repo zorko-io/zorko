@@ -9,6 +9,8 @@ import {PreviewCardAuthor} from './PreviewCardAuthor'
 import {PreviewCard} from './PreviewCard'
 import {PreviewCardsLayout} from './PreviewCardsLayout'
 import {Pagination} from './Pagination'
+import {PreviewSection} from './PreviewSection'
+import {PageLayout} from './PageLayout'
 
 export {
   Button,
@@ -22,4 +24,6 @@ export {
   PreviewCardsLayout,
   Pagination,
   Container,
+  PreviewSection,
+  PageLayout
 }
