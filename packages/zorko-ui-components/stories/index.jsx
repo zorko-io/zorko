@@ -1,6 +1,6 @@
 import React  from 'react';
 import { storiesOf } from '@storybook/react';
-import { Button, SvgView, Card, Image, Media, Content, PreviewCardAuthor } from '../src/js'
+import { Button, SvgView, Card, Image, Media, Content, PreviewCardAuthor, PreviewCard } from '../src/js'
 import {withActions, action} from '@storybook/addon-actions'
 import {host} from 'storybook-host'
 import {areaPreviewContent} from './__data__/area.vl'
@@ -204,4 +204,20 @@ storiesOf('PreviewCardAuthor', module)
     login="userlogin"
     title="Bar Chart"
   />))
+
+storiesOf('PreviewCard', module)
+  .addDecorator(host({
+    width: 300,
+    height: 400,
+    align: 'center'
+  }))
+  .add('default', () => (
+    <PreviewCard preview={areaPreviewContent}>
+      <PreviewCardAuthor
+        avatar="https://randomuser.me/api/portraits/lego/7.jpg"
+        login="userlogin"
+        title="Bar Chart"
+      />
+  </PreviewCard>))
+
 
