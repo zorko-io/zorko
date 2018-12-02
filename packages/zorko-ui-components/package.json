@@ -7,7 +7,7 @@
     "start": "npm run storybook",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel lib -d dist"
+    "build": "babel src/js -d dist"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +20,7 @@
     "babel-preset-react": "^6.24.1"
   },
   "dependencies": {
+    "bulma": "^0.7.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   }

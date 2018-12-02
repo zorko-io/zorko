@@ -7,7 +7,7 @@
 
 
 // 1. Import the initial variables
-//@import "../../node_modules/bulma/sass/utilities/initial-variables";
+@import "node_modules/bulma/sass/utilities/initial-variables";
 // 2. Set your own initial variables
 // Update the blue shade, used for links
 //$primary: #06bcef;
@@ -23,21 +23,11 @@
 // 4. Import the rest of Bulma
 
 
-//@import "../../node_modules/bulma/bulma";
-//@import "preview";
-//@import "gallery";
-//@import "viewer";
-//@import "footer";
-//@import "navbar";
-//@import "modal";
-//@import "new-spec-wizard";
-
-@import "../../node_modules/zorko-ui-components/styles";
-
-
-.app-main {
-  background-color: #f0f0f0;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
+@import "node_modules/bulma/bulma";
+@import "src/sass/preview";
+@import "src/sass/gallery";
+@import "src/sass/viewer";
+@import "src/sass/footer";
+@import "src/sass/navbar";
+@import "src/sass/modal";
+@import "src/sass/new-spec-wizard";

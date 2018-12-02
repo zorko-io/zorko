@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Gallery from './Gallery'
 import PageLayout from '../page/PageLayout'
 import IntroSection from '../page/intro/IntroSection'
+import {Button } from 'zorko-ui-components'
 
 class GalleryPage extends Component {
 
@@ -11,6 +12,7 @@ class GalleryPage extends Component {
         <IntroSection/>
         <main className={'app-main'}>
           <div className={'container'}>
+            <Button>Tadaaadaadadaadda</Button>
             <Gallery/>
           </div>
         </main>
