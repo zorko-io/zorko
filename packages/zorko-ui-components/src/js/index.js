@@ -4,6 +4,7 @@ import { Card } from './Card';
 import { Image } from './Image';
 import { Media } from './Media';
 import {Content} from './Content'
+import {Container} from './Container'
 import {PreviewCardAuthor} from './PreviewCardAuthor'
 import {PreviewCard} from './PreviewCard'
 import {PreviewCardsLayout} from './PreviewCardsLayout'
@@ -19,5 +20,6 @@ export {
   PreviewCardAuthor,
   PreviewCard,
   PreviewCardsLayout,
-  Pagination
+  Pagination,
+  Container,
 }
