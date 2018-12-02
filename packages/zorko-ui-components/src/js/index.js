@@ -6,6 +6,7 @@ import { Media } from './Media';
 import {Content} from './Content'
 import {PreviewCardAuthor} from './PreviewCardAuthor'
 import {PreviewCard} from './PreviewCard'
+import {PreviewCardsLayout} from './PreviewCardsLayout'
 
 export {
   Button,
@@ -15,5 +16,6 @@ export {
   Media,
   Content,
   PreviewCardAuthor,
-  PreviewCard
+  PreviewCard,
+  PreviewCardsLayout
 }

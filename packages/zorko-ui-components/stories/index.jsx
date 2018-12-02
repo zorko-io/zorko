@@ -1,9 +1,20 @@
 import React  from 'react';
 import { storiesOf } from '@storybook/react';
-import { Button, SvgView, Card, Image, Media, Content, PreviewCardAuthor, PreviewCard } from '../src/js'
+import {
+  Button,
+  SvgView,
+  Card,
+  Image,
+  Media,
+  Content,
+  PreviewCardAuthor,
+  PreviewCard,
+  PreviewCardsLayout
+} from '../src/js'
 import {withActions, action} from '@storybook/addon-actions'
 import {host} from 'storybook-host'
 import {areaPreviewContent} from './__data__/area.vl'
+import {samplePreviews} from './__data__/previews'
 
 import '../src/sass/index.scss'
 
@@ -219,5 +230,19 @@ storiesOf('PreviewCard', module)
         title="Bar Chart"
       />
   </PreviewCard>))
+
+
+storiesOf('PreviewCardLayout', module)
+  .addDecorator(CenterDecorator)
+  .add('default', () => (
+  <PreviewCardsLayout previews={samplePreviews}>
+    {(item) => (
+      <PreviewCard preview={item.preview}>
+        <PreviewCardAuthor
+          title={item.title}
+          login={item.author.login}
+        />
+      </PreviewCard>)}
+  </PreviewCardsLayout>))
 
 

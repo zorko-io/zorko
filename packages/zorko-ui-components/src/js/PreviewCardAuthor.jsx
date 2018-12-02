@@ -7,7 +7,7 @@ import { Content } from './Content'
 export const PreviewCardAuthor = (props) => (
   <Media left={<Image size={'32'} src={props.avatar}/>}>
     <Content size={'small'}>
-      <p className="title is-6">{props.title}</p>
+      <p className="title is-6">{props.title ? props.title : PreviewCardAuthor.defaultProps.title}</p>
       {props.login && (<p className="subtitle is-6">{props.login}</p>) }
     </Content>
   </Media>
