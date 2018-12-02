@@ -1,8 +1,9 @@
 import React  from 'react';
 import { storiesOf } from '@storybook/react';
-import { Button, SvgView, Card, Image, Media } from '../src/js'
+import { Button, SvgView, Card, Image, Media, Content } from '../src/js'
 import {withActions, action} from '@storybook/addon-actions'
 import {host} from 'storybook-host'
+import {areaPreviewContent} from './__data__/area.vl'
 
 import '../src/sass/index.scss'
 
@@ -69,36 +70,125 @@ storiesOf('Image', module)
     alt="Placeholder image" />)
   )
 
+storiesOf('Content', module)
+  .addDecorator(host({
+    width: 200,
+    height: 500,
+    align: 'center'
+  }))
+  .add('default', () => (
+    <Content>
+      <ol className="is-lower-alpha">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+      </ol>
+      <ol className="is-lower-roman">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+      </ol>
+      <ol className="is-upper-alpha">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+      </ol>
+      <ol className="is-upper-alpha">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+      </ol>
+    </Content>)
+  )
+  .add('small', () => (
+    <Content size={'small'}>
+      <ol className="is-lower-alpha">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+      </ol>
+      <ol className="is-lower-roman">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+      </ol>
+      <ol className="is-upper-alpha">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+      </ol>
+      <ol className="is-upper-alpha">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+      </ol>
+    </Content>)
+  )
+
 storiesOf('Media', module)
   .addDecorator(host({
-    width: 300,
-    height: 100,
+    width: 200,
+    height: 50,
     align: 'center'
   }))
   .add('default', () => (
     <Media
-      left={<Image size="32" src="https://bulma.io/images/placeholders/32x32.png"/>}>
-      <p>
-        <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-        <br/>
-        adskmlskam admkldmasldmlsa asdmlaskdmlk
-      </p>
+      left={
+        <Image size="32" src="https://bulma.io/images/placeholders/32x32.png"/>
+      }>
+      <Content>
+        <p>
+          <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+          <br/>
+          adskmlskam admkldmasldmlsa asdmlaskdmlk
+        </p>
+      </Content>
     </Media>)
   )
 
-
 storiesOf('Card', module)
   .addDecorator(host({
-    width: 300,
-    height: 200,
+    width: 400,
+    height: 300,
     align: 'center'
   }))
   .add('default with image and content', () => (
-    <Card image={<Image
-      ratio="4by3"
-      src="https://bulma.io/images/placeholders/1280x960.png"
-      alt="Placeholder image" />
-    }>Test
+    <Card image={
+      <Image
+        ratio="4by3"
+        src="https://bulma.io/images/placeholders/1280x960.png"
+        alt="Placeholder image" />
+    }>
+      <Media
+        left={
+          <Image size="32" src="https://bulma.io/images/placeholders/32x32.png"/>
+        }>
+        <Content>
+          <p>
+            <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+            <br/>
+            adskmlskam admkldmasldmlsa asdmlaskdmlk
+          </p>
+        </Content>
+      </Media>
+    </Card>)
+  )
+  .add('with svg view and content', () => (
+    <Card image={
+      <SvgView content={areaPreviewContent} />
+    }>
+      <Media
+        left={
+          <Image size="32" src="https://bulma.io/images/placeholders/32x32.png"/>
+        }>
+        <Content>
+          <p>
+            <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+            <br/>
+            adskmlskam admkldmasldmlsa asdmlaskdmlk
+          </p>
+        </Content>
+      </Media>
     </Card>)
   )
 
