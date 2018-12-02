@@ -1,15 +1,31 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
+
+const clazz = ({ type }) => classNames({
+  'button': true,
+  'is-primary': type === 'primary',
+  'is-default': type === 'default'
+})
 
 export const Button = (props) => {
   return (
-    <div>
-      Test
-    </div>
+    <a
+      className={clazz(props)}
+      onClick={props.onClick}
+    >
+      {props.children}
+    </a>
   )
 }
 
-Button.propTypes = {
+Button.defaultProps = {
+  type: 'default'
+}
 
+Button.propTypes = {
+  type: PropTypes.oneOf(['default', 'primary']),
+  onClick: PropTypes.func,
+  children: PropTypes.element
 }
 

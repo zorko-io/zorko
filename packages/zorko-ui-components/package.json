@@ -16,10 +16,14 @@
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
     "@storybook/react": "^4.0.9",
-    "babel-loader": "^8.0.4"
+    "babel-loader": "^8.0.4",
+    "node-sass": "^4.10.0",
+    "sass-loader": "^7.1.0",
+    "storybook-host": "^5.0.3"
   },
   "dependencies": {
     "bulma": "^0.7.2",
+    "classnames": "^2.2.6",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   }
