@@ -20,6 +20,7 @@ import { samplePreviews } from './__data__/previews'
 import '../src/sass/index.scss'
 
 import { CenterDecorator } from './decorator'
+import { PreviewSection } from '../src/js/PreviewSection'
 
 
 let logButtonClick = action('button-click-log')
@@ -220,6 +221,19 @@ storiesOf('Card', module)
     </Card>)
   )
 
+storiesOf('Pagination', module)
+  .addDecorator(host({
+    width: 600,
+    height: 400,
+    align: 'center'
+  }))
+  .add('default', () => (
+    <Pagination
+      prev={<Button>{'Prev'}</Button>}
+      next={<Button type={'primary'}>{'Next'}</Button>}
+    />))
+
+
 storiesOf('PreviewCardAuthor', module)
   .addDecorator(host({
     width: 200,
@@ -260,20 +274,26 @@ storiesOf('PreviewCardLayout', module)
             login={item.author.login}
           />
         </PreviewCard>)}
-    </PreviewCardsLayout>))
+    </PreviewCardsLayout>)
+  )
 
-
-storiesOf('Pagination', module)
-  .addDecorator(host({
-    width: 600,
-    height: 400,
-    align: 'center'
-  }))
-  .add('default', () => (
-    <Pagination
-      prev={<Button>{'Prev'}</Button>}
-      next={<Button type={'primary'}>{'Next'}</Button>}
-    />))
-
-
-
+storiesOf('PreviewSection', module)
+  .add('default', () => (<PreviewSection
+    title="Recent"
+    previews={
+      <PreviewCardsLayout previews={samplePreviews}>
+        {(item) => (
+          <PreviewCard preview={item.preview}>
+            <PreviewCardAuthor
+              title={item.title}
+              login={item.author.login}
+            />
+          </PreviewCard>)}
+      </PreviewCardsLayout>
+    }
+    pagination={
+      <Pagination
+        prev={<Button>{'Prev'}</Button>}
+        next={<Button type={'primary'}>{'Next'}</Button>}
+      />}
+  />))

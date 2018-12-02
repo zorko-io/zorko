@@ -2,12 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Container } from './Container'
 
-const PreviewSection = (props) => (
+export const PreviewSection = (props) => (
   <Container>
-    <h1 className="title">Section</h1>
+    <h1 className="title">{props.title}</h1>
+    {props.previews}
+    {props.pagination}
   </Container>
 )
 
-PreviewSection.propTypes = {}
-
-export default PreviewSection
+PreviewSection.propTypes = {
+  title: PropTypes.string,
+  previews: PropTypes.element,
+  pagination: PropTypes.element,
+}
