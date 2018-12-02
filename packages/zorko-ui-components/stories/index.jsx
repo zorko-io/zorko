@@ -1,25 +1,30 @@
 import React  from 'react';
 import { storiesOf } from '@storybook/react';
 import {Button} from '../src/js'
-// import {host} from 'storybook-host';
+import {withActions, action} from '@storybook/addon-actions'
 
 import '../src/sass/index.scss'
 
 import { CenterDecorator } from './decorator'
 
 
+let logButtonClick = action('button-click-log')
+
 storiesOf('Button', module)
   .addDecorator(CenterDecorator)
-  .add('with text', () => (<Button>Hello Button</Button>))
+  .addDecorator(withActions(
+    'click [data-test="button"]'
+  ))
+  .add('default type', () => (<Button onClick={logButtonClick}>Hello Button</Button>))
+  .add('primary type', () => (
+    <Button onClick={logButtonClick} type="primary">
+     Test
+    </Button>
+  ))
   .add('with some emoji', () => (
-    <Button>
+    <Button onClick={logButtonClick}>
       <span role="img" aria-label="so cool">
         😀 😎 👍 💯
       </span>
-    </Button>
-  ))
-  .add('with primary type', () => (
-    <Button type={'primary'}>
-     Test
     </Button>
   ));

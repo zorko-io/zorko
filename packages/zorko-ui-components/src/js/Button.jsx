@@ -12,6 +12,7 @@ export const Button = (props) => {
   return (
     <a
       className={clazz(props)}
+      data-test="button"
       onClick={props.onClick}
     >
       {props.children}
