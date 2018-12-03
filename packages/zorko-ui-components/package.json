@@ -19,6 +19,7 @@
     "@storybook/addon-actions": "^4.0.10",
     "@storybook/react": "^4.0.9",
     "babel-loader": "^8.0.4",
+    "file-loader": "^2.0.0",
     "node-sass": "^4.10.0",
     "sass-loader": "^7.1.0",
     "storybook-host": "^5.0.3"

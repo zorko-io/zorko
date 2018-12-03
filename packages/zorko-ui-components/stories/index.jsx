@@ -15,7 +15,7 @@ import {
   PreviewSection,
   PageLayout,
   PreviewCardAuthorMask,
-  PreviewCardsMask
+  PreviewCardsMask, NavBar
 } from '../src/js'
 import { withActions, action } from '@storybook/addon-actions'
 import { host } from 'storybook-host'
@@ -298,7 +298,7 @@ storiesOf('PreviewCardLayout', module)
 storiesOf('PreviewCardMask', module)
   .addDecorator(CenterDecorator)
   .add('default ', () => (<PreviewCardsMask/>))
-  .add('with count 3', () => (<PreviewCardsMask count={3}/>))
+  .add('with count 5', () => (<PreviewCardsMask count={5}/>))
 
 storiesOf('PreviewSection', module)
   .add('default', () => (<PreviewSection
@@ -321,26 +321,23 @@ storiesOf('PreviewSection', module)
       />}
   />))
 
+storiesOf('NavBar', module)
+  .add('default', () => (<NavBar/>))
+
 storiesOf('PageLayout', module)
   .add('default', () => (
-    <PageLayout>
-      <PreviewSection
-        title="Recent"
-        previews={
-          <PreviewCardsLayout previews={samplePreviews}>
-            {(item) => (
-              <PreviewCard preview={item.preview}>
-                <PreviewCardAuthor
-                  title={item.title}
-                  login={item.author.login}
-                />
-              </PreviewCard>)}
-          </PreviewCardsLayout>
-        }
-        pagination={
-          <Pagination
-            prev={<Button>{'Prev'}</Button>}
-            next={<Button type={'primary'}>{'Next'}</Button>}
-          />}
-      />
-    </PageLayout>))
+    <PageLayout
+      navbar={<Container>
+        Nabvbar here
+      </Container>}
+      main={
+      <Container>
+        Some content here
+      </Container>
+      }
+      footer={
+        <Container>
+          Footer here
+        </Container>
+      }
+    />))

@@ -13,6 +13,7 @@ import {PreviewSection} from './PreviewSection'
 import {PageLayout} from './PageLayout'
 import {PreviewCardAuthorMask} from './PreviewCardAuthorMask'
 import {PreviewCardsMask} from './PreviewCardsMask'
+import {NavBar} from './NavBar'
 
 export {
   Button,
@@ -29,5 +30,6 @@ export {
   PreviewSection,
   PageLayout,
   PreviewCardAuthorMask,
-  PreviewCardsMask
+  PreviewCardsMask,
+  NavBar
 }
