@@ -13,7 +13,8 @@ import {
   Pagination,
   Container,
   PreviewSection,
-  PageLayout
+  PageLayout,
+  PreviewCardAuthorMask
 } from '../src/js'
 import { withActions, action } from '@storybook/addon-actions'
 import { host } from 'storybook-host'
@@ -247,6 +248,14 @@ storiesOf('PreviewCardAuthor', module)
     login="userlogin"
     title="Bar Chart"
   />))
+
+storiesOf('PreviewCardAuthorMask', module)
+  .addDecorator(host({
+    width: 200,
+    height: 50,
+    align: 'center'
+  }))
+  .add('default', () => (<PreviewCardAuthorMask/>))
 
 storiesOf('PreviewCard', module)
   .addDecorator(host({
