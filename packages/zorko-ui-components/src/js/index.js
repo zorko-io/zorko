@@ -14,6 +14,7 @@ import {PageLayout} from './PageLayout'
 import {PreviewCardAuthorMask} from './PreviewCardAuthorMask'
 import {PreviewCardsMask} from './PreviewCardsMask'
 import {NavBar} from './NavBar'
+import {Footer} from './Footer'
 
 export {
   Button,
@@ -31,5 +32,6 @@ export {
   PageLayout,
   PreviewCardAuthorMask,
   PreviewCardsMask,
-  NavBar
+  NavBar,
+  Footer
 }

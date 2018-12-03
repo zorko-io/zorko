@@ -15,7 +15,9 @@ import {
   PreviewSection,
   PageLayout,
   PreviewCardAuthorMask,
-  PreviewCardsMask, NavBar
+  PreviewCardsMask,
+  NavBar,
+  Footer
 } from '../src/js'
 import { withActions, action } from '@storybook/addon-actions'
 import { host } from 'storybook-host'
@@ -324,20 +326,22 @@ storiesOf('PreviewSection', module)
 storiesOf('NavBar', module)
   .add('default', () => (<NavBar/>))
 
+storiesOf('Footer', module)
+  .add('default', () => (<Footer/>))
+
+
 storiesOf('PageLayout', module)
   .add('default', () => (
     <PageLayout
-      navbar={<Container>
-        Nabvbar here
-      </Container>}
+      navbar={<NavBar/>}
       main={
       <Container>
         Some content here
       </Container>
       }
       footer={
-        <Container>
-          Footer here
-        </Container>
+        <Footer>
+          Footer content here
+        </Footer>
       }
     />))
