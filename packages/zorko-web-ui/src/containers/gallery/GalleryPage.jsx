@@ -37,12 +37,9 @@ class GalleryPage extends Component {
     const { previews } = this.props
     return (
       <PageLayout
-        navbar={<NavBar logo={require('../../logo.png')}/>}
         main={(
-        <PreviewSection
-          title={'Recent'}
-          previews={
-            <PreviewCardsLayout previews={previews}>
+          <React.Fragment>
+            <PreviewCardsLayout title="Recent" previews={previews}>
               {(item) => (
                 <PreviewCard preview={item.preview}>
                   <PreviewCardAuthor
@@ -50,19 +47,13 @@ class GalleryPage extends Component {
                     login={item.author.login}
                   />
                 </PreviewCard>)}
-            </PreviewCardsLayout>}
-          pagination={
+            </PreviewCardsLayout>
             <Pagination
               prev={<Button>Prev</Button>}
               next={<Button type={'primary'}>Next</Button>}
-            />}
-        />
+            />
+          </React.Fragment>
         )}
-        footer={
-        <Footer>
-          Footer 2018
-        </Footer>
-        }
       />
 
     )
