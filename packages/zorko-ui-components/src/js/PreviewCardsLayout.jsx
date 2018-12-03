@@ -5,15 +5,20 @@ import * as R from 'ramda'
 export const PreviewCardsLayout = (props) => (
     <div className="preview-grid">
       <div className="columns">
-        {splitByColumns(props.previews, props.itemsInRow).map((rows, i) => (
-          <div key={i} className="column">
-            {rows.map((item, j) => (
-              <div key={`${i}-${j}`} className="preview-grid-item">
-                {props.children && props.children(item)}
+        <div className="column">
+          {props.title && (<p style={{textAlign: 'left', fontSize: 'bold'}}>{props.title}</p>)}
+          <div className="columns">
+            {splitByColumns(props.previews, props.itemsInRow).map((rows, i) => (
+              <div key={i} className="column">
+                {rows.map((item, j) => (
+                  <div key={`${i}-${j}`} className="preview-grid-item">
+                    {props.children && props.children(item)}
+                  </div>
+                ))}
               </div>
             ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
 )
@@ -56,6 +61,7 @@ PreviewCardsLayout.defaultProps = {
 }
 
 PreviewCardsLayout.propTypes = {
+  title: PropTypes.string,
   itemsInRow: PropTypes.number,
   previews: PropTypes.array,
   children: PropTypes.func

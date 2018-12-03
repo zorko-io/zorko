@@ -22,7 +22,8 @@
     "file-loader": "^2.0.0",
     "node-sass": "^4.10.0",
     "sass-loader": "^7.1.0",
-    "storybook-host": "^5.0.3"
+    "storybook-host": "^5.0.3",
+    "webpack-cli": "^3.1.2"
   },
   "dependencies": {
     "bulma": "^0.7.2",

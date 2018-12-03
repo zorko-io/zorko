@@ -23,6 +23,7 @@ import { withActions, action } from '@storybook/addon-actions'
 import { host } from 'storybook-host'
 import { areaPreviewContent } from './__data__/area.vl'
 import { samplePreviews } from './__data__/previews'
+import logo from '../src/img/logo.png'
 
 import '../src/sass/index.scss'
 
@@ -288,6 +289,19 @@ storiesOf('PreviewCardLayout', module)
           />
         </PreviewCard>)}
     </PreviewCardsLayout>))
+   .add('default with title', () => (
+    <PreviewCardsLayout
+      title='Samples'
+      previews={samplePreviews}
+    >
+      {(item) => (
+        <PreviewCard preview={item.preview}>
+          <PreviewCardAuthor
+            title={item.title}
+            login={item.author.login}
+          />
+        </PreviewCard>)}
+    </PreviewCardsLayout>))
     .add('with mask', () => (
       <PreviewCardsLayout previews={samplePreviews}>
         {() => (
@@ -302,38 +316,17 @@ storiesOf('PreviewCardMask', module)
   .add('default ', () => (<PreviewCardsMask/>))
   .add('with count 5', () => (<PreviewCardsMask count={5}/>))
 
-storiesOf('PreviewSection', module)
-  .add('default', () => (<PreviewSection
-    title="Recent"
-    previews={
-      <PreviewCardsLayout previews={samplePreviews}>
-        {(item) => (
-          <PreviewCard preview={item.preview}>
-            <PreviewCardAuthor
-              title={item.title}
-              login={item.author.login}
-            />
-          </PreviewCard>)}
-      </PreviewCardsLayout>
-    }
-    pagination={
-      <Pagination
-        prev={<Button>{'Prev'}</Button>}
-        next={<Button type={'primary'}>{'Next'}</Button>}
-      />}
-  />))
-
 storiesOf('NavBar', module)
-  .add('default', () => (<NavBar/>))
+  .add('default', () => (<NavBar logo={logo}/>))
 
 storiesOf('Footer', module)
-  .add('default', () => (<Footer/>))
+  .add('default', () => (<Footer>Footeeerr!!</Footer>))
 
 
 storiesOf('PageLayout', module)
   .add('default', () => (
     <PageLayout
-      navbar={<NavBar/>}
+      navbar={<NavBar logo={logo}/>}
       main={
       <Container>
         Some content here

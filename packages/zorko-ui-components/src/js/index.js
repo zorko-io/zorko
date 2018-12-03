@@ -9,7 +9,6 @@ import {PreviewCardAuthor} from './PreviewCardAuthor'
 import {PreviewCard} from './PreviewCard'
 import {PreviewCardsLayout} from './PreviewCardsLayout'
 import {Pagination} from './Pagination'
-import {PreviewSection} from './PreviewSection'
 import {PageLayout} from './PageLayout'
 import {PreviewCardAuthorMask} from './PreviewCardAuthorMask'
 import {PreviewCardsMask} from './PreviewCardsMask'
@@ -28,7 +27,6 @@ export {
   PreviewCardsLayout,
   Pagination,
   Container,
-  PreviewSection,
   PageLayout,
   PreviewCardAuthorMask,
   PreviewCardsMask,

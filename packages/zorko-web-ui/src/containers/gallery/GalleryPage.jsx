@@ -7,7 +7,9 @@ import {
   PreviewCard,
   PreviewCardAuthor,
   Pagination,
-  Button
+  Button ,
+  NavBar,
+  Footer
 } from 'zorko-ui-components'
 import * as previews from '../../selector/previews'
 import { bindActionCreators } from 'redux'
@@ -34,7 +36,9 @@ class GalleryPage extends Component {
   render() {
     const { previews } = this.props
     return (
-      <PageLayout>
+      <PageLayout
+        navbar={<NavBar logo={require('../../logo.png')}/>}
+        main={(
         <PreviewSection
           title={'Recent'}
           previews={
@@ -53,7 +57,14 @@ class GalleryPage extends Component {
               next={<Button type={'primary'}>Next</Button>}
             />}
         />
-      </PageLayout>
+        )}
+        footer={
+        <Footer>
+          Footer 2018
+        </Footer>
+        }
+      />
+
     )
   }
 }

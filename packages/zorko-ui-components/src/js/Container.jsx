@@ -13,6 +13,10 @@ export const Container = (props) => (
   </div>
 )
 
+Container.defaultProps = {
+  fluid: false
+}
+
 Container.propTypes = {
   fluid: PropTypes.bool
 }
