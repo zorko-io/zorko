@@ -4,7 +4,7 @@ import { Container } from './Container'
 
 export const PreviewSection = (props) => (
   <Container>
-    <h1 className="title">{props.title}</h1>
+    <h5 className={'subtitle is-5'}>{props.title}</h5>
     {props.previews}
     {props.pagination}
   </Container>
