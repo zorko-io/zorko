@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 
 const clazz = ({fluid}) => classNames({
   'container': true,
-  'is-fluid': fluid
+  'is-fluid': Boolean(fluid)
 })
 
 export const Container = (props) => (
-  <div className={clazz(props)} {...props}>
+  <div className={clazz(props)} style={props.style}>
     {props.children}
   </div>
 )

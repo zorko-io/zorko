@@ -10,7 +10,7 @@ export const PageLayout = (props) => (
         backgroundColor: '#f0f0f0',
         margin: 0
       }}>
-        {props.main}
+        {props.main || props.children}
       </Container>
     </main>
     {props.footer}
@@ -19,5 +19,6 @@ export const PageLayout = (props) => (
 PageLayout.propTypes = {
   navbar: PropTypes.element,
   main: PropTypes.element,
+  children: PropTypes.element,
   footer: PropTypes.element,
 }
