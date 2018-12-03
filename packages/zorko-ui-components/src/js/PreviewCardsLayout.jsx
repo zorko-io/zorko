@@ -19,8 +19,6 @@ export const PreviewCardsLayout = (props) => (
 )
 
 function splitByColumns(previews, itemsInRow) {
-  console.log(previews, 'SPLIT_START')
-
   const length = previews.length
   const itemsInLastRow = length % itemsInRow
   const rowsCount = (length - itemsInLastRow) / itemsInRow + (itemsInLastRow ? 1 : 0)
@@ -48,8 +46,6 @@ function splitByColumns(previews, itemsInRow) {
     },
     [[], [], []]
   )
-
-  console.log(result, 'RESULT')
 
   return result
 }

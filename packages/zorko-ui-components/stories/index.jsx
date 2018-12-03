@@ -14,7 +14,8 @@ import {
   Container,
   PreviewSection,
   PageLayout,
-  PreviewCardAuthorMask
+  PreviewCardAuthorMask,
+  PreviewCardsMask
 } from '../src/js'
 import { withActions, action } from '@storybook/addon-actions'
 import { host } from 'storybook-host'
@@ -284,8 +285,20 @@ storiesOf('PreviewCardLayout', module)
             login={item.author.login}
           />
         </PreviewCard>)}
-    </PreviewCardsLayout>)
+    </PreviewCardsLayout>))
+    .add('with mask', () => (
+      <PreviewCardsLayout previews={samplePreviews}>
+        {() => (
+          <PreviewCard>
+            <PreviewCardAuthorMask/>
+          </PreviewCard>)}
+      </PreviewCardsLayout>)
   )
+
+storiesOf('PreviewCardMask', module)
+  .addDecorator(CenterDecorator)
+  .add('default ', () => (<PreviewCardsMask/>))
+  .add('with count 3', () => (<PreviewCardsMask count={3}/>))
 
 storiesOf('PreviewSection', module)
   .add('default', () => (<PreviewSection

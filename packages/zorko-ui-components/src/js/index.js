@@ -12,6 +12,7 @@ import {Pagination} from './Pagination'
 import {PreviewSection} from './PreviewSection'
 import {PageLayout} from './PageLayout'
 import {PreviewCardAuthorMask} from './PreviewCardAuthorMask'
+import {PreviewCardsMask} from './PreviewCardsMask'
 
 export {
   Button,
@@ -27,5 +28,6 @@ export {
   Container,
   PreviewSection,
   PageLayout,
-  PreviewCardAuthorMask
+  PreviewCardAuthorMask,
+  PreviewCardsMask
 }
