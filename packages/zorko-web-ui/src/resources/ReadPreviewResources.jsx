@@ -19,30 +19,43 @@ export class ReadPreviewResources extends Component {
       wasLoaded: true,
       previews: response
     })
-
-    console.log('RESPONSE', response)
-    console.log('STATE', this.state)
   }
 
   handleError = (err) => {
     throw  err
   }
 
-  componentDidMount() {
-    Api
+  componentWillReceiveProps(nextProps, nextContext) {
+    if (nextProps.offset !== this.props.offset || nextProps.limit !== this.props.limit) {
+      this.requestResources({
+        limit: nextProps.limit,
+        offset: nextProps.offset
+      });
+    }
+  }
+
+  requestResources({limit, offset}) {
+    return Api
       .fetchSpecLookups({
-        offset: this.props.offset,
-        limit: this.props.limit
+        offset,
+        limit
       })
       .then(this.handleSuccess)
       .catch(this.handleError)
+  }
+
+  componentDidMount() {
+     this.requestResources({
+       limit: this.props.limit,
+       offset: this.props.offset
+     });
   }
 
   render() {
     return (
       <React.Fragment>
         {this.state.wasLoaded && this.props.children(this.state.previews)}
-        {this.state.isLoading && this.props.fallback}
+        {!this.state.wasLoaded && this.props.fallback}
       </React.Fragment>
     )
   }

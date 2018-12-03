@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import {
   PreviewSection,
   PreviewCardsLayout,
@@ -9,13 +9,11 @@ import {
   Pagination,
   Button ,
   NavBar,
-  Footer
+  Footer,
+  PreviewCardsMask
 } from 'zorko-ui-components'
-import * as previews from '../../selector/previews'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import { specLookupsRequest } from '../../action'
 import { ReadPreviewResources } from '../../resources/ReadPreviewResources'
+import { Link } from 'react-router-dom'
 
 class GalleryPage extends Component {
 
@@ -33,8 +31,12 @@ class GalleryPage extends Component {
     // this.props.requestPreviews({ limit, offset })
   }
 
+  get pageId () {
+    return Number(this.props.match.params.pageId);
+  }
+
   get pagginationOptions () {
-    const pageId = this.props.match.params.pageId;
+    const pageId = this.pageId;
     let limit = 9
     let offset = 0
 
@@ -56,6 +58,15 @@ class GalleryPage extends Component {
         <ReadPreviewResources
           limit={limit}
           offset={offset}
+          fallback={
+          <React.Fragment>
+            <PreviewCardsMask count={9}/>
+            <Pagination
+              prev={limit && <Button loading={true}>Prev</Button>}
+              next={<Button loading={true} type={'primary'}>Next</Button>}
+            />
+          </React.Fragment>
+          }
         >
           {(previews)=> (
             <React.Fragment>
@@ -69,8 +80,16 @@ class GalleryPage extends Component {
                   </PreviewCard>)}
               </PreviewCardsLayout>
               <Pagination
-                prev={<Button>Prev</Button>}
-                next={<Button type={'primary'}>Next</Button>}
+                prev={
+                  <Link to={`${this.props.match.path.replace(':pageId', this.pageId - 1)}`}>
+                    <Button>Prev</Button>
+                  </Link>
+                }
+                next={
+                  <Link to={`/gallery/${(this.pageId ? this.pageId : 0) + 1}`}>
+                    <Button type={'primary'}>Next</Button>
+                  </Link>
+                }
               />
             </React.Fragment>
           )}
